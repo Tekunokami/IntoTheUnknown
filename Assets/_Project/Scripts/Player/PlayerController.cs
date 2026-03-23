@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem; 
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,6 +26,12 @@ public class PlayerController : MonoBehaviour
     private GameControls controls; 
     private bool isGrounded;
 
+    [Header("Dash Settings")]
+    public float dashSpeed = 20f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
+    private bool canDash = true;
+    private bool isDashing;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -100,7 +107,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    private IEnumerator Dash()
+{
+    canDash = false;
+    isDashing = true;
+    
+    float originalGravity = rb.gravityScale;
+    rb.gravityScale = 0f;
+    
+    rb.linearVelocity = new Vector2(transform.localScale.x * dashSpeed, 0f);
+    
+    yield return new WaitForSeconds(dashDuration);
+    
+    rb.gravityScale = originalGravity;
+    isDashing = false;
+    
+    yield return new WaitForSeconds(dashCooldown);
+    canDash = true;
+}
 
 
 
