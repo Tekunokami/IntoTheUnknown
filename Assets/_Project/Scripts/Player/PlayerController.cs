@@ -5,15 +5,22 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    private Rigidbody2D rb;
+    private Vector2 moveInput;
+    private GameControls controls; 
+    private bool isGrounded;
+
     [Header("Movement Settings")]
     public float moveSpeed = 8f;
     public float jumpForce = 13.5f;
     
+
     [Header("Game Feel")]
     public float coyoteTime = 0.2f; 
     private float coyoteCounter;
     public float jumpBufferTime = 0.2f; 
     private float jumpBufferCounter;
+
 
     [Header("Detection")]
     public Transform groundCheck; 
@@ -22,10 +29,6 @@ public class PlayerController : MonoBehaviour
     public Vector2 ceilingBoxSize = new Vector2(0.8f, 0.1f);
     public LayerMask groundLayer; 
 
-    private Rigidbody2D rb;
-    private Vector2 moveInput;
-    private GameControls controls; 
-    private bool isGrounded;
 
     [Header("Dash Settings")]
     public float dashSpeed = 20f;
@@ -33,14 +36,24 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown = 1f;
     private bool canDash = true;
     private bool isDashing;
+
+
+    [Header("Ghost Effect Settings")]
+    public GameObject ghostPrefab;      
+    public float ghostSpawnDelay = 0.05f; 
+    private float lastGhostSpawnTime;   
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
         controls = new GameControls();
         controls.Player.Dash.performed += ctx => OnDashPerformed();
     }
 
-    void OnEnable() => controls.Enable();
+    void OnEnable()
+    {
+        controls.Player.Enable(); 
+    }
     void OnDisable() => controls.Disable();
 
     void Update()
@@ -74,10 +87,17 @@ public class PlayerController : MonoBehaviour
 
         if (moveInput.x > 0) transform.localScale = new Vector3(1, 1, 1);
         else if (moveInput.x < 0) transform.localScale = new Vector3(-1, 1, 1);
+
+        if (isDashing && Time.time - lastGhostSpawnTime >= ghostSpawnDelay)
+        {
+            SpawnGhost();
+            lastGhostSpawnTime = Time.time;
+        }
     }
 
     void FixedUpdate()
     {
+        if (isDashing) return;
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
     }
    
@@ -137,5 +157,18 @@ private IEnumerator PerformDash()
         canDash = true;
     }
 
+
+    private void SpawnGhost()
+{
+    GameObject ghost = Instantiate(ghostPrefab, transform.position, transform.rotation);
+    
+    SpriteRenderer ghostSR = ghost.GetComponent<SpriteRenderer>();
+    SpriteRenderer playerSR = GetComponent<SpriteRenderer>();
+    ghostSR.sprite = playerSR.sprite;
+
+    ghost.transform.localScale = transform.localScale;
+
+    ghost.SetActive(true); 
+}
 
 }
