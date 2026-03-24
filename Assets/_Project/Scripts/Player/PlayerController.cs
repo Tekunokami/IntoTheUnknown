@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private GameControls controls; 
+    public PlayerStats baseStats;
     private bool isGrounded;
 
     [Header("Movement Settings")]

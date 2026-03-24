@@ -41,6 +41,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleStats",
+                    "type": "Button",
+                    "id": "6f65f770-330c-4888-8d9b-5dd45c497f2a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -179,7 +188,7 @@
                 {
                     "name": "",
                     "id": "a9b70ab1-9f31-4f4f-a657-98526cc8b9bc",
-                    "path": "",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -189,12 +198,12 @@
                 },
                 {
                     "name": "",
-                    "id": "a1964f2c-e190-4231-b986-dcf90cfd6c7f",
-                    "path": "",
+                    "id": "9b1bd83f-2515-4a16-bd80-9399328471e9",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "ToggleStats",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
