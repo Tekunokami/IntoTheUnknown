@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem; 
 using System.Collections;
 
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         controls = new GameControls();
+        controls.Player.Dash.performed += ctx => OnDashPerformed();
     }
 
     void OnEnable() => controls.Enable();
@@ -78,7 +80,7 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
     }
-
+   
     private void ExecuteJump()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
@@ -107,28 +109,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator Dash()
-{
-    canDash = false;
-    isDashing = true;
-    
-    float originalGravity = rb.gravityScale;
-    rb.gravityScale = 0f;
-    
-    rb.linearVelocity = new Vector2(transform.localScale.x * dashSpeed, 0f);
-    
-    yield return new WaitForSeconds(dashDuration);
-    
-    rb.gravityScale = originalGravity;
-    isDashing = false;
-    
-    yield return new WaitForSeconds(dashCooldown);
-    canDash = true;
-}
+    private void OnDashPerformed()
+    {
+        if (canDash && !isDashing)
+        {
+            StartCoroutine(PerformDash());
+        }
+    }
 
 
 
+private IEnumerator PerformDash() 
+    {
+        canDash = false;
+        isDashing = true;
 
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.linearVelocity = new Vector2(transform.localScale.x * dashSpeed, 0f);
+
+        yield return new WaitForSeconds(dashDuration);
+
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
+    }
 
 
 }

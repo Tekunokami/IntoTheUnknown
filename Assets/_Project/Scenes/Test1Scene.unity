@@ -536,8 +536,8 @@ Camera:
   m_GameObject: {fileID: 1582849127}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.03396219, g: 0.01762189, b: 0.01762189, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -655,8 +655,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomManager
   roomPrefabs:
-  - {fileID: 4173401069868308753, guid: a18e1148575ac63488eb625f944ab0f2, type: 3}
   - {fileID: 4173401069868308753, guid: 4581dd3799a21f44cbb536e70818bf41, type: 3}
+  - {fileID: 4173401069868308753, guid: 19db43e3652dc7842a39602c8e2e55f5, type: 3}
   spawnPoint: {fileID: 579742670}
 --- !u!4 &1938228680
 Transform:
