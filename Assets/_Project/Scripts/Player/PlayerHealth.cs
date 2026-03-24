@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public PlayerStats baseStats;
-    private float currentHealth;
+    public float currentHealth;
     private bool isDead = false;
 
     void Start()
@@ -18,9 +18,19 @@ public class PlayerHealth : MonoBehaviour
         if (isDead) return;
 
         currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, baseStats.maxHealth);
+        
+        if(UIManager.Instance != null)
+        {
+            UIManager.Instance.UpdateHealth(currentHealth, baseStats.maxHealth);
+        }
+
         Debug.Log("You Lost! Remaining Health: " + currentHealth);
 
         if (currentHealth <= 0) Die();
+
+
+        
     }
 
     void Die()
