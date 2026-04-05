@@ -11,8 +11,11 @@ public class PlayerController : MonoBehaviour
     public PlayerStats baseStats;
     private bool isGrounded;
 
+    [SerializeField] private Animator animator;
+
     [Header("Movement Settings")]
-    public float moveSpeed = 8f;
+    // droped the move speed from 8f to 2f.
+    public float moveSpeed = 2f;
     public float jumpForce = 13.5f;
     
 
@@ -71,6 +74,15 @@ public class PlayerController : MonoBehaviour
         else coyoteCounter -= Time.deltaTime;
 
         moveInput = controls.Player.Move.ReadValue<Vector2>();
+
+        //Run Animation triger.
+        
+        if (moveInput != Vector2.zero) {
+            animator.SetBool("isRunning", true);
+        }
+        else { animator.SetBool("isRunning", false); }
+
+
 
         if (controls.Player.Jump.triggered) jumpBufferCounter = jumpBufferTime;
         else jumpBufferCounter -= Time.deltaTime;
