@@ -25,13 +25,11 @@ public class PlayerController : MonoBehaviour
     public float jumpBufferTime = 0.2f; 
     private float jumpBufferCounter;
 
-
     [Header("Detection")]
-    public Transform groundCheck; 
-    public float groundCheckRadius = 0.05f; 
-    public Transform ceilingCheck; 
-    public Vector2 ceilingBoxSize = new Vector2(0.8f, 0.1f);
-    public LayerMask groundLayer; 
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float groundCheckDistance = 0.1f; // How far below the player's feet to check for ground?  
+    [SerializeField] private float ceilingCheckDistance = 0.1f; // How far above the player's head to check for ceilings?
+    private BoxCollider2D coll;
 
 
     [Header("Dash Settings")]
@@ -46,9 +44,12 @@ public class PlayerController : MonoBehaviour
     public GameObject ghostPrefab;      
     public float ghostSpawnDelay = 0.05f; 
     private float lastGhostSpawnTime;   
+    
     void Awake()
     {
+        // Initialize components and input system
         rb = GetComponent<Rigidbody2D>();
+        coll = GetComponent<BoxCollider2D>();
 
         controls = new GameControls();
         controls.Player.Dash.performed += ctx => OnDashPerformed();
@@ -62,14 +63,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        bool isTouchingCeiling = Physics2D.OverlapBox(ceilingCheck.position, ceilingBoxSize, 0f, groundLayer);
+        // Ground Check
+        RaycastHit2D groundHit = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, groundCheckDistance, groundLayer);
+        isGrounded = groundHit.collider != null;
+        
+        // Ceiling Check
+        RaycastHit2D ceilingHit = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.up, ceilingCheckDistance, groundLayer);
+        bool isTouchingCeiling = ceilingHit.collider != null;
 
         if (isTouchingCeiling && rb.linearVelocity.y > 0)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
         }
-
         if (isGrounded) coyoteCounter = coyoteTime;
         else coyoteCounter -= Time.deltaTime;
 
@@ -83,7 +88,7 @@ public class PlayerController : MonoBehaviour
         else { animator.SetBool("isRunning", false); }
 
 
-
+        // Jump Buffering
         if (controls.Player.Jump.triggered) jumpBufferCounter = jumpBufferTime;
         else jumpBufferCounter -= Time.deltaTime;
 
@@ -101,6 +106,7 @@ public class PlayerController : MonoBehaviour
         if (moveInput.x > 0) transform.localScale = new Vector3(1, 1, 1);
         else if (moveInput.x < 0) transform.localScale = new Vector3(-1, 1, 1);
 
+        // Dash Ghost Effect
         if (isDashing && Time.time - lastGhostSpawnTime >= ghostSpawnDelay)
         {
             SpawnGhost();
@@ -123,16 +129,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if (groundCheck != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        }
-        if (ceilingCheck != null)
-        {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireCube(ceilingCheck.position, ceilingBoxSize);
-        }
+        if (coll == null) coll = GetComponent<BoxCollider2D>();
+    
+        Gizmos.color = Color.red;
+        //
+        Vector3 groundPos = coll.bounds.center + Vector3.down * groundCheckDistance;
+        Gizmos.DrawWireCube(groundPos, coll.bounds.size);
+
+        Gizmos.color = Color.blue;
+        //
+        Vector3 ceilingPos = coll.bounds.center + Vector3.up * ceilingCheckDistance;
+        Gizmos.DrawWireCube(ceilingPos, coll.bounds.size);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
