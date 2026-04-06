@@ -5,6 +5,12 @@ public static class SaveManager
 {
     private static string path = Path.Combine(Application.persistentDataPath, "savefile.json");
     
+    // Check if a save file exists
+    public static bool HasSave()
+    {
+        return File.Exists(path);
+    }
+
     // Save data to JSON file
     public static void Save(SaveData data)
     {

@@ -1525,9 +1525,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9a37ddcc388f02f4190ea504a527cc4c, type: 2}
     - target: {fileID: 3440713178511547366, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
+      propertyPath: moveSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440713178511547366, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
       propertyPath: ghostPrefab
       value: 
       objectReference: {fileID: 4129025471983579203, guid: 798cec1014a319d46ad8b950d6a4b74b, type: 3}
+    - target: {fileID: 3440713178511547366, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
+      propertyPath: acceleration
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5245990295032052055, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
       propertyPath: m_LocalScale.x
       value: -0.07978446

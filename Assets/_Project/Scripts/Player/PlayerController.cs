@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     // droped the move speed from 8f to 2f.
     public float moveSpeed = 2f;
     public float jumpForce = 13.5f;
-    
+    public float acceleration = 20f;
 
     [Header("Game Feel")]
     public float coyoteTime = 0.2f; 
@@ -117,7 +117,20 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         if (isDashing) return;
-        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+        
+        // Smooth horizontal movement with acceleration 
+        if (Mathf.Abs(moveInput.x) > 0)
+        {
+            // Player is pressing a movement key, accelerate towards target speed
+            float targetSpeed = moveInput.x * moveSpeed;
+            float newXVelocity = Mathf.MoveTowards(rb.linearVelocity.x, targetSpeed, acceleration * Time.fixedDeltaTime);
+            rb.linearVelocity = new Vector2(newXVelocity, rb.linearVelocity.y);
+        }
+        else
+        {
+            // Player is not pressing a movement key, decelerate to a stop
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+        }
     }
    
     private void ExecuteJump()
