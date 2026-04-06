@@ -18,7 +18,11 @@ public class RoomManager : MonoBehaviour
 
     void Start()
     {
-        SpawnNewRoom();
+        // If we have a GameManager instance (main game scene), spawn the first room. Else, don't spawn a room.
+        if (GameManager.Instance != null)
+        {
+            SpawnNewRoom(); 
+        }
     }
 
     public void SpawnNewRoom()
