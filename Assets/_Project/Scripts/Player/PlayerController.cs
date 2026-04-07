@@ -154,13 +154,6 @@ public class PlayerController : MonoBehaviour
         Vector3 ceilingPos = coll.bounds.center + Vector3.up * ceilingCheckDistance;
         Gizmos.DrawWireCube(ceilingPos, coll.bounds.size);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("RoomExit"))
-        {
-            RoomManager.Instance.SpawnNewRoom();
-        }
-    }
 
     private void OnDashPerformed()
     {

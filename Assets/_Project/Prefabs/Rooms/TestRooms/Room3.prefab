@@ -548,7 +548,7 @@ Transform:
   m_GameObject: {fileID: 2200653717322670965}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.86, y: -9.740001, z: 0}
+  m_LocalPosition: {x: 13.86, y: -8.950001, z: 0}
   m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -623,6 +623,7 @@ GameObject:
   - component: {fileID: 7454671709921732486}
   - component: {fileID: 4409912944077800235}
   - component: {fileID: 9193328101803470480}
+  - component: {fileID: 3696678279394681217}
   m_Layer: 0
   m_Name: ExitRoom (1)
   m_TagString: RoomExit
@@ -749,6 +750,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3696678279394681217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2458276171518412615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d106378be5067746ad39bfdfdfb4f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorTransition
+  targetRoomID: room_2
+  targetSpawnPointName: Spawn_Right
 --- !u!1 &2495041017478342961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,7 +1552,7 @@ Transform:
   m_GameObject: {fileID: 4012098237085852484}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.3566904, y: -7.217741, z: 0}
+  m_LocalPosition: {x: 6.3566904, y: -6.427741, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1767,6 +1782,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6382784282884331462}
+  - {fileID: 4986582197583066091}
   - {fileID: 1086090423223000383}
   - {fileID: 9208977225707711444}
   - {fileID: 6667718342763250579}
@@ -2195,6 +2211,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &5457851922338012197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4986582197583066091}
+  m_Layer: 0
+  m_Name: Spawn_Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4986582197583066091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5457851922338012197}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 32.31, y: -2.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6843823033907829675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5483168878685235473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,6 +2390,7 @@ GameObject:
   - component: {fileID: 302594376055268904}
   - component: {fileID: 6366450808401226667}
   - component: {fileID: 2220319523264373315}
+  - component: {fileID: 8786724078025080772}
   m_Layer: 0
   m_Name: ExitRoom
   m_TagString: RoomExit
@@ -2469,6 +2517,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8786724078025080772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5785993077959941482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d106378be5067746ad39bfdfdfb4f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorTransition
+  targetRoomID: 
+  targetSpawnPointName: Spawn_Left
 --- !u!1 &6078633505195532985
 GameObject:
   m_ObjectHideFlags: 0
@@ -3387,7 +3449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6382784282884331462}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: Spawn_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3402,7 +3464,7 @@ Transform:
   m_GameObject: {fileID: 7458857198035637802}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: -0.14, z: 0}
+  m_LocalPosition: {x: 0.81, y: -3.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3434,7 +3496,7 @@ Transform:
   m_GameObject: {fileID: 7544447969259187049}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.750001, y: -7.41, z: 0}
+  m_LocalPosition: {x: 12.750001, y: -6.62, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3851,7 +3913,7 @@ Transform:
   m_GameObject: {fileID: 8553787367310846234}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.5, y: -1.08, z: 0}
+  m_LocalPosition: {x: 4.55, y: -1.87, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3988,7 +4050,7 @@ Transform:
   m_GameObject: {fileID: 8570394466514806771}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.45, y: -5.88, z: 0}
+  m_LocalPosition: {x: 1.45, y: -6.75, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5196,7 +5258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1181692294825411281, guid: a31369b8f4b4bd24e87f07413361c511, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.17
+      value: -10.38
       objectReference: {fileID: 0}
     - target: {fileID: 1181692294825411281, guid: a31369b8f4b4bd24e87f07413361c511, type: 3}
       propertyPath: m_LocalPosition.z
