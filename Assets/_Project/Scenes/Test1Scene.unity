@@ -1392,10 +1392,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a940ff382bb8ee429b8aadec4f3d1c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomManager
-  roomPrefabs:
-  - {fileID: 4173401069868308753, guid: 4581dd3799a21f44cbb536e70818bf41, type: 3}
-  - {fileID: 4173401069868308753, guid: 19db43e3652dc7842a39602c8e2e55f5, type: 3}
-  spawnPoint: {fileID: 579742670}
+  allRooms:
+  - {fileID: 11400000, guid: 0813ab2e83388ff40b261e2bf49620f9, type: 2}
+  - {fileID: 11400000, guid: 39af8535c5f2b2e42942b726e13e3369, type: 2}
+  - {fileID: 11400000, guid: 74816a780ae8963469ba5d5f7a80d7dc, type: 2}
 --- !u!4 &1938228680
 Transform:
   m_ObjectHideFlags: 0

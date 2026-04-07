@@ -232,8 +232,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 302594376055268904}
   - {fileID: 1992177714253883539}
+  - {fileID: 302594376055268904}
   m_Father: {fileID: 6843823033907829675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650193385309803464
@@ -1378,7 +1378,7 @@ Transform:
   m_GameObject: {fileID: 4012098237085852484}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.30669, y: -2.757741, z: 0}
+  m_LocalPosition: {x: 14.746691, y: -2.757741, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1608,6 +1608,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6382784282884331462}
+  - {fileID: 5729236149094764771}
   - {fileID: 1086090423223000383}
   - {fileID: 9208977225707711444}
   - {fileID: 6667718342763250579}
@@ -1754,6 +1755,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!1 &4843115758198021928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5729236149094764771}
+  m_Layer: 0
+  m_Name: Spawn_Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5729236149094764771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4843115758198021928}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 31.1, y: 2.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6843823033907829675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4922147903422254404
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,7 +2083,7 @@ Transform:
   m_GameObject: {fileID: 5483168878685235473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.01, y: -3.51, z: 0}
+  m_LocalPosition: {x: 4.85, y: -4.11, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2172,8 +2204,9 @@ GameObject:
   - component: {fileID: 302594376055268904}
   - component: {fileID: 6366450808401226667}
   - component: {fileID: 2220319523264373315}
+  - component: {fileID: 8407789847258521150}
   m_Layer: 0
-  m_Name: ExitRoom
+  m_Name: Door_Right
   m_TagString: RoomExit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2298,6 +2331,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8407789847258521150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5785993077959941482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d106378be5067746ad39bfdfdfb4f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorTransition
+  targetRoomID: room_3
+  targetSpawnPointName: Spawn_Left
 --- !u!1 &6078633505195532985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2342,8 +2389,9 @@ GameObject:
   - component: {fileID: 1992177714253883539}
   - component: {fileID: 7940350142495537550}
   - component: {fileID: 3828253006822473748}
+  - component: {fileID: 6146040196821973963}
   m_Layer: 0
-  m_Name: StartRoom
+  m_Name: Door_Left
   m_TagString: RoomExit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2468,6 +2516,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &6146040196821973963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6343781889798471987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d106378be5067746ad39bfdfdfb4f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorTransition
+  targetRoomID: room_1
+  targetSpawnPointName: Spawn_Right
 --- !u!1 &6378092637161124500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,7 +2557,7 @@ Transform:
   m_GameObject: {fileID: 6378092637161124500}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.61, y: -4.66, z: 0}
+  m_LocalPosition: {x: 10.13, y: -4.66, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3202,7 +3264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6382784282884331462}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: Spawn_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3217,7 +3279,7 @@ Transform:
   m_GameObject: {fileID: 7458857198035637802}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: -0.14, z: 0}
+  m_LocalPosition: {x: 0.75, y: -2.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3249,7 +3311,7 @@ Transform:
   m_GameObject: {fileID: 7544447969259187049}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.010258, y: -2.8900013, z: 0}
+  m_LocalPosition: {x: 15.450258, y: -2.8900013, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3673,7 +3735,7 @@ Transform:
   m_GameObject: {fileID: 8553787367310846234}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.68, y: -5.83, z: 0}
+  m_LocalPosition: {x: 0.97, y: -6.3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3809,7 +3871,7 @@ Transform:
   m_GameObject: {fileID: 8898788574505288101}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.09026, y: -5.210001, z: 0}
+  m_LocalPosition: {x: 16.53026, y: -5.210001, z: 0}
   m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4217,7 +4279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9185290299937806703, guid: d45d284988e5aa449b4088dffe5d7f87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.97
+      value: 16.49
       objectReference: {fileID: 0}
     - target: {fileID: 9185290299937806703, guid: d45d284988e5aa449b4088dffe5d7f87, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4825,7 +4887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1181692294825411281, guid: a31369b8f4b4bd24e87f07413361c511, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.33
+      value: 15.77
       objectReference: {fileID: 0}
     - target: {fileID: 1181692294825411281, guid: a31369b8f4b4bd24e87f07413361c511, type: 3}
       propertyPath: m_LocalPosition.y
