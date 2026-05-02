@@ -1,41 +1,58 @@
 using UnityEngine;
-using UnityEngine.UI; //Needed for Button 
+using UnityEngine.UI;//Needed for Button 
 
 public class MainMenuController : MonoBehaviour
 {
-    [Header("Buttons")]
+    [Header("Panels")]
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject saveSlotPanel;
+
+    [Header("Main Buttons")]
     [SerializeField] private Button continueButton;
 
     void Start()
     {
-        // Check if a save file exists and update the Continue button's interactability and appearance accordingly
-        if (SaveManager.HasSave())
+        // Check if ANY slot has a save file to enable the main Continue button
+        bool anySaveExists = SaveManager.HasSave(1) || SaveManager.HasSave(2) || SaveManager.HasSave(3);
+        
+        continueButton.interactable = anySaveExists;
+        
+        if (!anySaveExists)
         {
-            // If a save file exists, make the button interactable
-            continueButton.interactable = true;
-            continueButton.targetGraphic.color = Color.white;
-        }
-        else
-        {
-            // If no save file exists, make the button non-interactable
-            continueButton.interactable = false;
-            
-            // For visual feedback (optional)
             Color fadedColor = continueButton.targetGraphic.color;
             fadedColor.a = 0.5f;
             continueButton.targetGraphic.color = fadedColor;
         }
+
+        // Ensure we start on the main panel
+        ShowMainMenu();
     }
 
-    // Button callback functions
+
+    // --- Navigation Functions ---
+    public void ShowSaveSlots()
+    {
+        mainMenuPanel.SetActive(false);
+        saveSlotPanel.SetActive(true);
+    }
+
+    public void ShowMainMenu()
+    {
+        mainMenuPanel.SetActive(true);
+        saveSlotPanel.SetActive(false);
+    }
+
+
+    // --- Button Callbacks ---
     public void OnNewGameClicked()
     {
-        GameManager.Instance.StartNewGame();
+        // Instead of starting, we show the slots so player can pick where to save
+        ShowSaveSlots();
     }
 
     public void OnContinueClicked()
     {
-        GameManager.Instance.ContinueGame();
+        ShowSaveSlots();
     }
 
     public void OnQuitClicked()
