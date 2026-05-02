@@ -753,7 +753,7 @@ GameObject:
   - component: {fileID: 273705002}
   - component: {fileID: 273705005}
   m_Layer: 5
-  m_Name: Slot6
+  m_Name: Save6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -888,8 +888,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146013ddde11e3a41b38a35000c18a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveSlotUI
-  slotNumber: 6
-  slotNumberText: {fileID: 639230771}
+  saveNumber: 6
+  saveNumberText: {fileID: 639230771}
   locationText: {fileID: 797325313}
   statsText: {fileID: 605895725}
   deleteButton: {fileID: 148767060}
@@ -1528,7 +1528,7 @@ GameObject:
   - component: {fileID: 361460312}
   - component: {fileID: 361460311}
   m_Layer: 5
-  m_Name: Slot3
+  m_Name: Save3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1569,8 +1569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146013ddde11e3a41b38a35000c18a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveSlotUI
-  slotNumber: 3
-  slotNumberText: {fileID: 2067442610}
+  saveNumber: 3
+  saveNumberText: {fileID: 2067442610}
   locationText: {fileID: 1579633364}
   statsText: {fileID: 1540802987}
   deleteButton: {fileID: 13063713}
@@ -1680,7 +1680,7 @@ GameObject:
   - component: {fileID: 467000604}
   - component: {fileID: 467000603}
   m_Layer: 5
-  m_Name: SlotNumber
+  m_Name: SaveNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2220,7 +2220,7 @@ GameObject:
   - component: {fileID: 639230772}
   - component: {fileID: 639230771}
   m_Layer: 5
-  m_Name: SlotNumber
+  m_Name: SaveNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2478,7 +2478,7 @@ GameObject:
   - component: {fileID: 781379768}
   - component: {fileID: 781379767}
   m_Layer: 5
-  m_Name: Slot2
+  m_Name: Save2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2519,8 +2519,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146013ddde11e3a41b38a35000c18a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveSlotUI
-  slotNumber: 2
-  slotNumberText: {fileID: 467000603}
+  saveNumber: 2
+  saveNumberText: {fileID: 467000603}
   locationText: {fileID: 2134931963}
   statsText: {fileID: 313942409}
   deleteButton: {fileID: 302674522}
@@ -3115,7 +3115,7 @@ GameObject:
   - component: {fileID: 939205373}
   - component: {fileID: 939205376}
   m_Layer: 5
-  m_Name: Slot1
+  m_Name: Save1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3250,8 +3250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146013ddde11e3a41b38a35000c18a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveSlotUI
-  slotNumber: 1
-  slotNumberText: {fileID: 1752451919}
+  saveNumber: 1
+  saveNumberText: {fileID: 1752451919}
   locationText: {fileID: 344422295}
   statsText: {fileID: 899449594}
   deleteButton: {fileID: 1706868355}
@@ -3643,7 +3643,7 @@ GameObject:
   - component: {fileID: 1421768099}
   - component: {fileID: 1421768098}
   m_Layer: 5
-  m_Name: SlotNumber
+  m_Name: SaveNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4186,7 +4186,7 @@ GameObject:
   - component: {fileID: 1576546723}
   - component: {fileID: 1576546726}
   m_Layer: 5
-  m_Name: Slot5
+  m_Name: Save5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4321,8 +4321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146013ddde11e3a41b38a35000c18a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveSlotUI
-  slotNumber: 5
-  slotNumberText: {fileID: 1421768098}
+  saveNumber: 5
+  saveNumberText: {fileID: 1421768098}
   locationText: {fileID: 1243187925}
   statsText: {fileID: 120062587}
   deleteButton: {fileID: 1469587956}
@@ -4476,7 +4476,7 @@ GameObject:
   - component: {fileID: 1604658896}
   - component: {fileID: 1604658899}
   m_Layer: 5
-  m_Name: Slot4
+  m_Name: Save4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4611,8 +4611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146013ddde11e3a41b38a35000c18a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveSlotUI
-  slotNumber: 4
-  slotNumberText: {fileID: 2095231202}
+  saveNumber: 4
+  saveNumberText: {fileID: 2095231202}
   locationText: {fileID: 2049696358}
   statsText: {fileID: 1037501551}
   deleteButton: {fileID: 1737829615}
@@ -5158,7 +5158,7 @@ GameObject:
   - component: {fileID: 1752451920}
   - component: {fileID: 1752451919}
   m_Layer: 5
-  m_Name: SlotNumber
+  m_Name: SaveNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5903,7 +5903,7 @@ GameObject:
   - component: {fileID: 2067442611}
   - component: {fileID: 2067442610}
   m_Layer: 5
-  m_Name: SlotNumber
+  m_Name: SaveNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6039,7 +6039,7 @@ GameObject:
   - component: {fileID: 2095231203}
   - component: {fileID: 2095231202}
   m_Layer: 5
-  m_Name: SlotNumber
+  m_Name: SaveNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

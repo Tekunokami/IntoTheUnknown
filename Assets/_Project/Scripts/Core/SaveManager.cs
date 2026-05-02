@@ -3,49 +3,48 @@ using UnityEngine;
 
 public static class SaveManager
 {
-    // Keeps track of the active slot for auto-saves during room transitions.
-    // Defaults to slot 1.
-    public static int CurrentSlot { get; private set; } = 1; 
+    // Keeps track of the active save number for auto-saves during room transitions.
+    // Defaults to save 1.
+    public static int CurrentSaveNumber { get; private set; } = 1;
 
-    // Generates a unique file path based on the slot number
-    private static string GetPath(int slot)
+    // Generates a unique file path based on the save number
+    private static string GetPath(int saveNumber)
     {
-        return Path.Combine(Application.persistentDataPath, $"save_slot_{slot}.json");
+        return Path.Combine(Application.persistentDataPath, $"save_file_{saveNumber}.json");
     }
 
-    // Checks if a specific slot has a save file (useful for UI button states)
-    public static bool HasSave(int slot)
+    // Checks if a save file exists for the given save number
+    public static bool HasSave(int saveNumber)
     {
-        return File.Exists(GetPath(slot));
+        return File.Exists(GetPath(saveNumber));
     }
-
     // --- SAVE OPERATIONS ---
     public static void Save(SaveData data)
     {
-        SaveToSlot(data, CurrentSlot);
+        SaveToNumber(data, CurrentSaveNumber);
     }
 
     // 2. For saving at checkpoints
-    public static void SaveToSlot(SaveData data, int slot)
+    public static void SaveToNumber(SaveData data, int saveNumber)
     {
-        CurrentSlot = slot; // Update the active slot
+        CurrentSaveNumber = saveNumber; 
         string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(GetPath(slot), json);
+        File.WriteAllText(GetPath(saveNumber), json);
     }
 
     // --- LOAD OPERATIONS ---
 
-    // 1. For in-game quick loads (e.g., respawning after death in the current slot)
+    // For in-game quick loads (like respawning after death in the current save)
     public static SaveData Load()
     {
-        return LoadFromSlot(CurrentSlot);
+        return LoadFromNumber(CurrentSaveNumber);
     }
 
-    // 2. For loading a specific slot from the UI
-    public static SaveData LoadFromSlot(int slot)
+    // 2. For loading a specific save from the UI
+    public static SaveData LoadFromNumber(int saveNumber)
     {
-        CurrentSlot = slot; // Set the chosen slot as the active one
-        string path = GetPath(slot);
+        CurrentSaveNumber = saveNumber; // Set the chosen save number as the active one
+        string path = GetPath(saveNumber);
 
         if (File.Exists(path))
         {
@@ -53,18 +52,18 @@ public static class SaveManager
             return JsonUtility.FromJson<SaveData>(json);
         }
         
-        Debug.LogWarning($"Slot {slot} is empty. Creating new save data.");
+        Debug.LogWarning($"Save {saveNumber} is empty. Creating new save data.");
         return new SaveData(); 
     }
 
-    // For a future "Delete Save" (Trash Bin) button in the UI
-    public static void DeleteSave(int slot)
+    // For DeleteButton in the UI
+    public static void DeleteSave(int saveNumber)
     {
-        string path = GetPath(slot);
+        string path = GetPath(saveNumber);
         if (File.Exists(path))
         {
             File.Delete(path);
-            Debug.Log($"Slot {slot} successfully deleted.");
+            Debug.Log($"Save {saveNumber} successfully deleted.");
         }
     }
 }

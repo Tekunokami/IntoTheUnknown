@@ -4,11 +4,11 @@ using TMPro; // Used for better Text
 
 public class SaveSlotUI : MonoBehaviour
 {
-    [Header("Slot Settings")]
-    [Range(1, 6)] public int slotNumber = 1;
+    [Header("Save Settings")]
+    [Range(1, 6)] public int saveNumber = 1;
 
     [Header("UI Elements")]
-    public TextMeshProUGUI slotNumberText; 
+    public TextMeshProUGUI saveNumberText; 
     public TextMeshProUGUI locationText;   
     public TextMeshProUGUI statsText;   
     public Button deleteButton;      
@@ -22,21 +22,21 @@ public class SaveSlotUI : MonoBehaviour
 
     public void UpdateSlotDisplay()
     {
-        hasData = SaveManager.HasSave(slotNumber);
-        slotNumberText.text = $"SLOT {slotNumber}";
+        hasData = SaveManager.HasSave(saveNumber);
+        saveNumberText.text = $"SAVE {saveNumber}";
 
         if (hasData)
         {
             // Load the data to display
-            SaveData data = SaveManager.LoadFromSlot(slotNumber);
+            SaveData data = SaveManager.LoadFromNumber(saveNumber);
             locationText.text = data.currentRoomID; //Later translete roomID to understandvable location names
             statsText.text = $"Health: {data.playerHealth}   Coins: {data.coins}";
-            
+
             deleteButton.gameObject.SetActive(true);
         }
         else
         {
-            locationText.text = "Empty Slot";
+            locationText.text = "Empty Save";
             statsText.text = "Start a new adventure";
 
             deleteButton.gameObject.SetActive(false);
@@ -48,17 +48,17 @@ public class SaveSlotUI : MonoBehaviour
     {
         if (hasData)
         {
-            GameManager.Instance.ContinueGame(slotNumber);
+            GameManager.Instance.ContinueGame(saveNumber);
         }
         else
         {
-            GameManager.Instance.StartNewGame(slotNumber);
+            GameManager.Instance.StartNewGame(saveNumber);
         }
     }
 
     public void OnDeleteClicked()
     {
-        SaveManager.DeleteSave(slotNumber);
+        SaveManager.DeleteSave(saveNumber);
         UpdateSlotDisplay();
     }
 }

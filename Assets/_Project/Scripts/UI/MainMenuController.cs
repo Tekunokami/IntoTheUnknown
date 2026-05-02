@@ -12,8 +12,18 @@ public class MainMenuController : MonoBehaviour
 
     void Start()
     {
-        // Check if ANY slot has a save file to enable the main Continue button
-        bool anySaveExists = SaveManager.HasSave(1) || SaveManager.HasSave(2) || SaveManager.HasSave(3);
+        // Check if ANY saveNumber has a save file to enable the main Continue button
+        bool anySaveExists = false;
+
+        for (int i = 1; i <= 6; i++)
+        {
+            if (SaveManager.HasSave(i))
+            {
+                anySaveExists = true;
+                break; 
+            }
+        }
+
         
         continueButton.interactable = anySaveExists;
         
