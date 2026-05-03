@@ -24,7 +24,6 @@ public class MainMenuController : MonoBehaviour
             }
         }
 
-        
         continueButton.interactable = anySaveExists;
         
         if (!anySaveExists)
@@ -63,6 +62,11 @@ public class MainMenuController : MonoBehaviour
     public void OnContinueClicked()
     {
         ShowSaveSlots();
+    }
+
+    public void OnBackClicked()
+    {
+        ShowMainMenu();
     }
 
     public void OnQuitClicked()

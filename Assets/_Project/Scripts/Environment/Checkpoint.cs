@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class Checkpoint : MonoBehaviour
 {
     [Header("Checkpoint Settings")]
-    public string roomID;            // Ex: "room_2"
+    public string roomID;            // Ex: "room_1"
     public string spawnPointName;    // Ex: "Spawn_Checkpoint"
     
     private bool isPlayerInRange = false;
@@ -14,6 +14,7 @@ public class Checkpoint : MonoBehaviour
     private void Awake()
     {
         controls = new GameControls(); 
+        controls.Player.Interact.performed += ctx => OnInteractPerformed();
     }
 
     private void OnInteractPerformed()
@@ -47,6 +48,7 @@ public class Checkpoint : MonoBehaviour
             // TODO: Hide the interaction icon when player leaves
         }
     }
+
     private void SaveGameAtCheckpoint()
     {
         if (GameManager.Instance != null)

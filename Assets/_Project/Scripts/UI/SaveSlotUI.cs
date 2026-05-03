@@ -17,10 +17,10 @@ public class SaveSlotUI : MonoBehaviour
 
     private void OnEnable()
     {
-        UpdateSlotDisplay();
+        UpdateSaveDisplay();
     }
 
-    public void UpdateSlotDisplay()
+    public void UpdateSaveDisplay()
     {
         hasData = SaveManager.HasSave(saveNumber);
         saveNumberText.text = $"SAVE {saveNumber}";
@@ -43,8 +43,8 @@ public class SaveSlotUI : MonoBehaviour
         }
     }
 
-    // Called when the main slot button is clicked
-    public void OnSlotClicked()
+    // Called when the main save button is clicked
+    public void OnSaveClicked()
     {
         if (hasData)
         {
@@ -59,6 +59,6 @@ public class SaveSlotUI : MonoBehaviour
     public void OnDeleteClicked()
     {
         SaveManager.DeleteSave(saveNumber);
-        UpdateSlotDisplay();
+        UpdateSaveDisplay();
     }
 }
