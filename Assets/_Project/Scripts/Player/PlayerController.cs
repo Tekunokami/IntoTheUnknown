@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.InputSystem; 
 using System.Collections;
 
-
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -14,10 +13,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
 
     [Header("Movement Settings")]
-    // droped the move speed from 8f to 2f.
     public float moveSpeed = 2f;
     public float jumpForce = 13.5f;
     public float acceleration = 20f;
+
+    [Header("Combat Settings")]
+    public float comboWindow = 1.0f; // Max time allowed between attacks
+    public float attackRate = 0.4f;  // Minimum time before next attack
+    private int comboStep = 0;
+    private float lastAttackTime = 0f;
+    private float nextAttackTime = 0f;
 
     [Header("Game Feel")]
     public float coyoteTime = 0.2f; 
@@ -27,10 +32,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Detection")]
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float groundCheckDistance = 0.1f; // How far below the player's feet to check for ground?  
-    [SerializeField] private float ceilingCheckDistance = 0.1f; // How far above the player's head to check for ceilings?
+    [SerializeField] private float groundCheckDistance = 0.1f;  
+    [SerializeField] private float ceilingCheckDistance = 0.1f; 
     private BoxCollider2D coll;
-
 
     [Header("Dash Settings")]
     public float dashSpeed = 20f;
@@ -38,7 +42,6 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown = 1f;
     private bool canDash = true;
     private bool isDashing;
-
 
     [Header("Ghost Effect Settings")]
     public GameObject ghostPrefab;      
@@ -55,17 +58,11 @@ public class PlayerController : MonoBehaviour
         controls.Player.Dash.performed += ctx => OnDashPerformed();
     }
 
-
-   
-
-
-
-
-
     void OnEnable()
     {
         controls.Player.Enable(); 
     }
+    
     void OnDisable() => controls.Disable();
 
     void Update()
@@ -80,20 +77,23 @@ public class PlayerController : MonoBehaviour
 
         if (isTouchingCeiling && rb.linearVelocity.y > 0)
         {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
         }
+        
         if (isGrounded) coyoteCounter = coyoteTime;
         else coyoteCounter -= Time.deltaTime;
 
         moveInput = controls.Player.Move.ReadValue<Vector2>();
 
-        //Run Animation triger.
-        
-        if (moveInput != Vector2.zero) {
+        // Run Animation trigger.
+        if (moveInput != Vector2.zero) 
+        {
             animator.SetBool("isRunning", true);
         }
-        else { animator.SetBool("isRunning", false); }
-
+        else 
+        { 
+            animator.SetBool("isRunning", false); 
+        }
 
         // Jump Buffering
         if (controls.Player.Jump.triggered) jumpBufferCounter = jumpBufferTime;
@@ -120,15 +120,19 @@ public class PlayerController : MonoBehaviour
             lastGhostSpawnTime = Time.time;
         }
 
-        //Attack Animation Trigger
-        if (Input.GetKeyDown(KeyCode.R))
+
+        // Combo Attack Logic
+        if (Time.time - lastAttackTime > comboWindow) // Reset combo if too much time has passed
         {
-            LightAttack();
+            comboStep = 0;
         }
-
-
-
-
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            if (Time.time >= nextAttackTime) // Enough time has passed since last attack
+            {
+                ExecuteAttackCombo();
+            }
+        }
     }
 
     void FixedUpdate()
@@ -138,14 +142,12 @@ public class PlayerController : MonoBehaviour
         // Smooth horizontal movement with acceleration 
         if (Mathf.Abs(moveInput.x) > 0)
         {
-            // Player is pressing a movement key, accelerate towards target speed
             float targetSpeed = moveInput.x * moveSpeed;
             float newXVelocity = Mathf.MoveTowards(rb.linearVelocity.x, targetSpeed, acceleration * Time.fixedDeltaTime);
             rb.linearVelocity = new Vector2(newXVelocity, rb.linearVelocity.y);
         }
         else
         {
-            // Player is not pressing a movement key, decelerate to a stop
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
         }
     }
@@ -162,12 +164,10 @@ public class PlayerController : MonoBehaviour
         if (coll == null) coll = GetComponent<BoxCollider2D>();
     
         Gizmos.color = Color.red;
-        //
         Vector3 groundPos = coll.bounds.center + Vector3.down * groundCheckDistance;
         Gizmos.DrawWireCube(groundPos, coll.bounds.size);
 
         Gizmos.color = Color.blue;
-        //
         Vector3 ceilingPos = coll.bounds.center + Vector3.up * ceilingCheckDistance;
         Gizmos.DrawWireCube(ceilingPos, coll.bounds.size);
     }
@@ -180,9 +180,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
-private IEnumerator PerformDash() 
+    private IEnumerator PerformDash() 
     {
         canDash = false;
         isDashing = true;
@@ -200,28 +198,39 @@ private IEnumerator PerformDash()
         canDash = true;
     }
 
-
     private void SpawnGhost()
-{
-    GameObject ghost = Instantiate(ghostPrefab, transform.position, transform.rotation);
-    
-    SpriteRenderer ghostSR = ghost.GetComponent<SpriteRenderer>();
-    SpriteRenderer playerSR = GetComponent<SpriteRenderer>();
-    ghostSR.sprite = playerSR.sprite;
-
-    ghost.transform.localScale = transform.localScale;
-
-    ghost.SetActive(true); 
-}
-
-
-    // Light Attack part
-    private void LightAttack()
     {
-        animator.SetTrigger("LightAttack");
+        GameObject ghost = Instantiate(ghostPrefab, transform.position, transform.rotation);
+    
+        SpriteRenderer ghostSR = ghost.GetComponent<SpriteRenderer>();
+        SpriteRenderer playerSR = GetComponent<SpriteRenderer>();
+        ghostSR.sprite = playerSR.sprite;
 
+        ghost.transform.localScale = transform.localScale;
+
+        ghost.SetActive(true); 
     }
 
+    private void ExecuteAttackCombo()
+    {
+        // Record the attack time 
+        lastAttackTime = Time.time;
+        nextAttackTime = Time.time + attackRate; // Set cooldown before next swing
+        comboStep++;
+
+        //Clear previous attack triggers to prevent animation conflicts
+        animator.ResetTrigger("LightAttack1");
+        animator.ResetTrigger("LightAttack2");
 
 
+        if (comboStep == 1)
+        {
+            animator.SetTrigger("LightAttack1");
+        }
+        else if (comboStep == 2)
+        {
+            animator.SetTrigger("LightAttack2");
+            comboStep = 0; // Reset combo 
+        }
+    }
 }
