@@ -29,18 +29,9 @@ public class RoomManager : MonoBehaviour
         }
     }
 
-    // Function triggered by the doors (DoorTransition script)
+    // Function triggered by the doors (DoorTransition)
     public void ChangeRoom(string targetRoomID, string targetSpawnPointName)
     {
-        // Update the save data with the new room ID 
-        GameManager.Instance.currentSaveData.currentRoomID = targetRoomID;
-
-        // Save the spawn point name for the new room 
-        GameManager.Instance.currentSaveData.currentSpawnPointName = targetSpawnPointName;
-        
-        // Auto-save the game
-        GameManager.Instance.SaveGame();
-
         // Load the new room
         LoadRoomByID(targetRoomID, targetSpawnPointName);
     }
@@ -71,7 +62,7 @@ public class RoomManager : MonoBehaviour
         // Instantiate the new room at the center (0,0,0)
         currentRoomObj = Instantiate(roomPrefab, Vector3.zero, Quaternion.identity);
         
-        // --- TELEPORT PLAYER TO THE DOOR ---
+        // Teleport Player to the door
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null) 
         {

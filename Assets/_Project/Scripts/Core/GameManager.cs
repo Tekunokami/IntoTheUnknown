@@ -23,24 +23,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start a new game (Reset everything)
-    public void StartNewGame()
+   // Start a new game on a specific save number (User selects a save from the UI)
+    public void StartNewGame(int saveNumber)
     {
-        currentSaveData = new SaveData(); // Initialize with default values
+        // Set the active save number in SaveManager
+        SaveManager.LoadFromNumber(saveNumber);
+        
+        // Initialize with default values
+        currentSaveData = new SaveData(); 
+        
+        // Save immediately so the slot registers as "taken" on the hard drive
+        SaveGame(); 
+        
         SceneManager.LoadScene("Test1Scene"); 
     }
 
     // Read from disk and load the game state
-    public void ContinueGame()
+    public void ContinueGame(int saveNumber)
     {
-        if (SaveManager.HasSave())
+        if (SaveManager.HasSave(saveNumber))
         {
-            currentSaveData = SaveManager.Load();
+            currentSaveData = SaveManager.LoadFromNumber(saveNumber);
             SceneManager.LoadScene("Test1Scene");
         }
         else
         {
-            Debug.LogWarning("Could not find save file!");
+            Debug.LogWarning($"Could not find save file in Save {saveNumber}!");
         }
     }
 

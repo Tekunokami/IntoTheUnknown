@@ -3,29 +3,67 @@ using UnityEngine;
 
 public static class SaveManager
 {
-    private static string path = Path.Combine(Application.persistentDataPath, "savefile.json");
-    
-    // Check if a save file exists
-    public static bool HasSave()
+    // Keeps track of the active save number for auto-saves during room transitions.
+    // Defaults to save 1.
+    public static int CurrentSaveNumber { get; private set; } = 1;
+
+    // Generates a unique file path based on the save number
+    private static string GetPath(int saveNumber)
     {
-        return File.Exists(path);
+        return Path.Combine(Application.persistentDataPath, $"save_file_{saveNumber}.json");
     }
 
-    // Save data to JSON file
+    // Checks if a save file exists for the given save number
+    public static bool HasSave(int saveNumber)
+    {
+        return File.Exists(GetPath(saveNumber));
+    }
+    // --- SAVE OPERATIONS ---
     public static void Save(SaveData data)
     {
-        string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(path, json);
+        SaveToNumber(data, CurrentSaveNumber);
     }
 
-    //Load data from JSON file
+    // 2. For saving at checkpoints
+    public static void SaveToNumber(SaveData data, int saveNumber)
+    {
+        CurrentSaveNumber = saveNumber; 
+        string json = JsonUtility.ToJson(data, true);
+        File.WriteAllText(GetPath(saveNumber), json);
+    }
+
+    // --- LOAD OPERATIONS ---
+
+    // For in-game quick loads (like respawning after death in the current save)
     public static SaveData Load()
     {
+        return LoadFromNumber(CurrentSaveNumber);
+    }
+
+    // 2. For loading a specific save from the UI
+    public static SaveData LoadFromNumber(int saveNumber)
+    {
+        CurrentSaveNumber = saveNumber; // Set the chosen save number as the active one
+        string path = GetPath(saveNumber);
+
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
             return JsonUtility.FromJson<SaveData>(json);
         }
-        return new SaveData(); // Return new data if no save file exists (New Game)
+        
+        Debug.LogWarning($"Save {saveNumber} is empty. Creating new save data.");
+        return new SaveData(); 
+    }
+
+    // For DeleteButton in the UI
+    public static void DeleteSave(int saveNumber)
+    {
+        string path = GetPath(saveNumber);
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+            Debug.Log($"Save {saveNumber} successfully deleted.");
+        }
     }
 }
