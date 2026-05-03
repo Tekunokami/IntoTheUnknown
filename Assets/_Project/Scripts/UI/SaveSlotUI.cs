@@ -37,7 +37,7 @@ public class SaveSlotUI : MonoBehaviour
         else
         {
             locationText.text = "Empty Save";
-            statsText.text = "Start a new adventure";
+            statsText.text = "";
 
             deleteButton.gameObject.SetActive(false);
         }
@@ -52,7 +52,7 @@ public class SaveSlotUI : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.StartNewGame(saveNumber);
+            Debug.Log($"Save {saveNumber} is empty. Use 'New Game' to start a save here.");
         }
     }
 

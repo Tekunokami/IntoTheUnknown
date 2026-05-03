@@ -7,6 +7,8 @@ public class Checkpoint : MonoBehaviour
     public string roomID;            // Ex: "room_1"
     public string spawnPointName;    // Ex: "Spawn_Checkpoint"
     
+    [Header("UI")]
+    public GameObject interactPrompt; // The floating "F" 
     private bool isPlayerInRange = false;
 
     private GameControls controls;
@@ -17,9 +19,18 @@ public class Checkpoint : MonoBehaviour
         controls.Player.Interact.performed += ctx => OnInteractPerformed();
     }
 
+    private void Start()
+    {
+        // Prompt hidden at start
+        if (interactPrompt != null)
+        {
+            interactPrompt.SetActive(false);
+        }
+    }
+
     private void OnInteractPerformed()
     {
-        // Only trigger if the player is in range of the checkpoint
+        // Triggered when player is in checkpoint range
         if (isPlayerInRange)
         {
             SaveGameAtCheckpoint();
@@ -33,8 +44,7 @@ public class Checkpoint : MonoBehaviour
             isPlayerInRange = true;
             controls.Enable(); // Start listening to input
             
-            Debug.Log("Press 'F' to Rest and Save.");
-            // TODO: Show interaction icon (F) when player is in range
+            if (interactPrompt != null) interactPrompt.SetActive(true); // Show icon
         }
     }
 
@@ -45,7 +55,7 @@ public class Checkpoint : MonoBehaviour
             isPlayerInRange = false;
             controls.Disable(); // Stop listening to input
             
-            // TODO: Hide the interaction icon when player leaves
+            if (interactPrompt != null) interactPrompt.SetActive(false); //Hide icon
         }
     }
 
@@ -57,10 +67,10 @@ public class Checkpoint : MonoBehaviour
             GameManager.Instance.currentSaveData.currentRoomID = roomID;
             GameManager.Instance.currentSaveData.currentSpawnPointName = spawnPointName;
 
-            // 2. Fully heal the player
+            // 2. Heal the player
             GameManager.Instance.currentSaveData.playerHealth = 100f; 
 
-            // 3. Save to the active slot
+            // 3. Save to active slot
             GameManager.Instance.SaveGame();
 
             Debug.Log($"[Checkpoint] Game Saved Successfully at {roomID}!");

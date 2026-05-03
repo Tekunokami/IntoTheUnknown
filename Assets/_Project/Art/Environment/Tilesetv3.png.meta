@@ -556,7 +556,7 @@ TextureImporter:
         width: 26
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1150,7 +1150,7 @@ TextureImporter:
         width: 16
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1964,7 +1964,7 @@ TextureImporter:
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1986,7 +1986,7 @@ TextureImporter:
         width: 16
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2008,7 +2008,7 @@ TextureImporter:
         width: 16
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2030,7 +2030,7 @@ TextureImporter:
         width: 26
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2052,7 +2052,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2074,7 +2074,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2083,6 +2083,28 @@ TextureImporter:
       bones: []
       spriteID: c958dd097bd5b544c83b79008a268806
       internalID: -916330401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statue
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 771
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a889b29d403e6446966a08f515a7295
+      internalID: -1925817341
       vertices: []
       indices: 
       edges: []
@@ -2105,6 +2127,7 @@ TextureImporter:
     nameFileIdTable:
       Column: -88384530
       Column2: 235165482
+      Statue: -1925817341
       Tilesetv3_0: 1956474311
       Tilesetv3_1: -4654865938361591282
       Tilesetv3_10: -3299089542843142554

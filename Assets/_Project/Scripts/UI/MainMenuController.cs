@@ -6,6 +6,7 @@ public class MainMenuController : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject saveSlotPanel;
+    [SerializeField] private GameObject savesFullPanel;
 
     [Header("Main Buttons")]
     [SerializeField] private Button continueButton;
@@ -33,8 +34,9 @@ public class MainMenuController : MonoBehaviour
             continueButton.targetGraphic.color = fadedColor;
         }
 
-        // Ensure we start on the main panel
-        ShowMainMenu();
+        if (savesFullPanel != null) savesFullPanel.SetActive(false); // Ensure Saves Full panel is hidden at  start
+        
+        ShowMainMenu();  // Ensure we start on the main panel
     }
 
 
@@ -52,11 +54,24 @@ public class MainMenuController : MonoBehaviour
     }
 
 
-    // --- Button Callbacks ---
+    // --- Button Functions ---
     public void OnNewGameClicked()
     {
-        // Instead of starting, we show the slots so player can pick where to save
-        ShowSaveSlots();
+        // Look if any empty save slot exists
+        for (int i = 1; i <= 6; i++)
+        {
+            if (!SaveManager.HasSave(i))
+            {
+                // Empty save found, start new game
+                GameManager.Instance.StartNewGame(i);
+                return; 
+            }
+        }
+
+        if (savesFullPanel != null)
+        {
+            savesFullPanel.SetActive(true);
+        }
     }
 
     public void OnContinueClicked()
@@ -73,5 +88,10 @@ public class MainMenuController : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quit Game!"); 
+    }
+
+    public void CloseSavesFullWarning()
+    {
+        savesFullPanel.SetActive(false);
     }
 }
