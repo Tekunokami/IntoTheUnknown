@@ -12,7 +12,11 @@ public class SaveData
     // player stats and inventory
     public float playerHealth;
     public int coins;
-    public List<string> inventoryItemIDs;
+    public List<string> inventoryItemIDs = new List<string>(); // A list of itemIDs that are in player's bag
+    public List<EquipSlot> equippedSlots = new List<EquipSlot>();
+    public List<string> equippedItemIDs = new List<string>();
+    public List<string> activeConsumableIDs = new List<string>();
+    public List<int> activeConsumableDurations = new List<int>();
 
     // World state info to save (which rooms/events have been cleared)
     public List<string> clearedEventIDs; 
@@ -28,6 +32,10 @@ public class SaveData
         coins = 0;
         
         inventoryItemIDs = new List<string>();
+        equippedSlots = new List<EquipSlot>();
+        equippedItemIDs = new List<string>();
+        activeConsumableIDs = new List<string>();
+        activeConsumableDurations = new List<int>();
         clearedEventIDs = new List<string>(); // Initially no cleared events
     }
 }
