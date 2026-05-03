@@ -55,6 +55,13 @@ public class PlayerController : MonoBehaviour
         controls.Player.Dash.performed += ctx => OnDashPerformed();
     }
 
+
+   
+
+
+
+
+
     void OnEnable()
     {
         controls.Player.Enable(); 
@@ -112,6 +119,16 @@ public class PlayerController : MonoBehaviour
             SpawnGhost();
             lastGhostSpawnTime = Time.time;
         }
+
+        //Attack Animation Trigger
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            LightAttack();
+        }
+
+
+
+
     }
 
     void FixedUpdate()
@@ -196,5 +213,15 @@ private IEnumerator PerformDash()
 
     ghost.SetActive(true); 
 }
+
+
+    // Light Attack part
+    private void LightAttack()
+    {
+        animator.SetTrigger("LightAttack");
+
+    }
+
+
 
 }
