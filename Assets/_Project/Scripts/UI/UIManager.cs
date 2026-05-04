@@ -31,15 +31,32 @@ public class UIManager : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
 
-        PlayerStats stats = player.GetComponent<PlayerHealth>().baseStats;
+        PlayerStats baseStats = player.GetComponent<PlayerHealth>().baseStats;
+        SaveData save = GameManager.Instance.currentSaveData;
 
-        healthText.text = $"Health: {stats.currentHealth}/{stats.maxHealth}";
-        
-        defenseText.text = $"Defense: {stats.defense}"; 
-        
-        attackText.text = $"Attack: {stats.attackDamage}";
+        // Base Stats
+        float totalMaxHealth = baseStats.maxHealth;
+        float totalAttack = baseStats.attackDamage;
+        float totalDefense = baseStats.defense;
 
-        float critPercentage = stats.critRate * 100f;
-        critText.text = $"Critical Chance: %{critPercentage:F1} (x{stats.critDamage})";
+        // Add up all bonuses from equipped items
+        ItemData[] allGameItems = Resources.LoadAll<ItemData>("Items");
+        foreach (string equipID in save.equippedItemIDs)
+        {
+            EquipmentData equipData = System.Array.Find(allGameItems, item => item.itemID == equipID) as EquipmentData;
+            if (equipData != null)
+            {
+                totalMaxHealth += equipData.bonusHealth;
+                totalAttack += equipData.bonusDamage;
+            }
+        }
+
+        // Display the Totals
+        healthText.text = $"Health: {baseStats.currentHealth}/{totalMaxHealth}";
+        defenseText.text = $"Defense: {totalDefense}"; 
+        attackText.text = $"Attack: {totalAttack}";
+
+        float critPercentage = baseStats.critRate * 100f;
+        critText.text = $"Critical Chance: %{critPercentage:F1} (x{baseStats.critDamage})";
     }
 }

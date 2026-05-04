@@ -11,7 +11,13 @@ public class InventoryUI : MonoBehaviour
     public Animator bookAnimator;           
     public CanvasGroup leftPageGroup;   
     public CanvasGroup rightPageGroup;  
-    
+
+    [Header("Equip Slot References")]
+    public Transform headSlot;
+    public Transform bodySlot;
+    public Transform weaponSlot;
+    public Transform accessorySlot;
+
     [Header("Grid References")]
     public Transform slotsContainer;  
     public GameObject slotPrefab;     
@@ -44,7 +50,10 @@ public class InventoryUI : MonoBehaviour
 
         if (isInventoryOpen)
         {
+
+            controls.Player.Attack.Disable(); // Disable combat when inventory is open
             Time.timeScale = 0f; // Pause game
+
             inventoryPanel.SetActive(true);
             RefreshUI();
             UpdateStats(); 
@@ -92,51 +101,101 @@ public class InventoryUI : MonoBehaviour
 
         inventoryPanel.SetActive(false); 
         Time.timeScale = 1f; // Unpause game
+
+        yield return new WaitForEndOfFrame();
+        controls.Player.Attack.Enable(); // Enable combat after inventory closed
     }
 
     private void RefreshUI()
     {
-        foreach (Transform child in slotsContainer) Destroy(child.gameObject);
         if (GameManager.Instance == null) return;
 
-        List<string> savedItems = GameManager.Instance.currentSaveData.inventoryItemIDs;
+        // Clear existing UI 
+        foreach (Transform child in slotsContainer) Destroy(child.gameObject);
+        foreach (Transform child in headSlot) Destroy(child.gameObject);
+        foreach (Transform child in bodySlot) Destroy(child.gameObject);
+        foreach (Transform child in weaponSlot) Destroy(child.gameObject);
+        foreach (Transform child in accessorySlot) Destroy(child.gameObject);
+
+        SaveData save = GameManager.Instance.currentSaveData;
         ItemData[] allGameItems = Resources.LoadAll<ItemData>("Items");
 
-        foreach (string itemID in savedItems)
+        // Rebuild Bag
+        int maxBagSize = 12; 
+        for (int i = 0; i < maxBagSize; i++)
         {
-            if (string.IsNullOrEmpty(itemID)) continue; // Skip empty saves
-            
-            ItemData itemData = System.Array.Find(allGameItems, item => item.itemID == itemID);
-
-            if (itemData != null)
+            if (i < save.inventoryItemIDs.Count)
             {
-                if (slotPrefab == null)
-                {
-                    Debug.LogError("CRASH AVOIDED: Your Slot Prefab is missing in the InventoryUI Inspector!");
-                    return;
-                }
-
-                GameObject newSlot = Instantiate(slotPrefab, slotsContainer);
-                Transform iconTransform = newSlot.transform.Find("Icon");
-                
-                if (iconTransform == null)
-                {
-                    Debug.LogError("CRASH AVOIDED: Your Slot Prefab does not have a child object named EXACTLY 'Icon'!");
-                    continue;
-                }
-
-                Image icon = iconTransform.GetComponent<Image>();
-                
-                icon.sprite = itemData.icon; 
+                // We have an item for this slot
+                string itemID = save.inventoryItemIDs[i];
+                ItemData itemData = System.Array.Find(allGameItems, item => item.itemID == itemID);
+                SpawnItemIcon(itemData, slotsContainer);
             }
             else
             {
-                Debug.LogWarning($"Inventory Warning: Could not find any ItemData in Resources/Items with the ID: '{itemID}'");
+                // Empty white box (out of items)
+                SpawnItemIcon(null, slotsContainer);
+            }
+        }
+
+        // Rebuild Equipped Items
+        foreach (string equipID in save.equippedItemIDs)
+        {
+            if (string.IsNullOrEmpty(equipID)) continue;
+            EquipmentData equipData = System.Array.Find(allGameItems, item => item.itemID == equipID) as EquipmentData;
+            
+            if (equipData != null)
+            {
+                Transform targetSlot = null;
+                switch (equipData.equipSlot)
+                {
+                    case EquipSlot.Head: targetSlot = headSlot; break;
+                    case EquipSlot.Body: targetSlot = bodySlot; break;
+                    case EquipSlot.Weapon: targetSlot = weaponSlot; break;
+                    case EquipSlot.Accessory: targetSlot = accessorySlot; break;
+                }
+                
+                if (targetSlot != null) SpawnItemIcon(equipData, targetSlot);
             }
         }
     }
 
-    private void UpdateStats()
+    // Helper function to spawn an item icon in a given slot
+    private void SpawnItemIcon(ItemData itemData, Transform parentSlot)
+    {
+        GameObject newSlot = Instantiate(slotPrefab, parentSlot);
+        
+        // Based on slot scripts and sync their types
+        InventorySlot parentSlotScript = parentSlot.GetComponent<InventorySlot>();
+        InventorySlot newSlotScript = newSlot.GetComponent<InventorySlot>();
+
+        if (parentSlotScript != null && newSlotScript != null)
+        {
+            newSlotScript.slotType = parentSlotScript.slotType;
+        }
+
+        // Centers the icon in the slot and sets it up
+        RectTransform rt = newSlot.GetComponent<RectTransform>();
+        rt.localPosition = Vector3.zero;
+        rt.localScale = Vector3.one;
+
+        DraggableItem dragItem = newSlot.transform.Find("Icon").GetComponent<DraggableItem>();
+        if (dragItem != null)
+        {
+            if (itemData != null)
+            {
+                dragItem.Setup(itemData);
+                dragItem.GetComponent<Image>().color = Color.white;
+            }
+            else
+            {
+                Image iconImg = dragItem.GetComponent<Image>();
+                iconImg.sprite = null;
+                iconImg.color = Color.clear;
+                iconImg.raycastTarget = false;
+            }
+        }
+    }    private void UpdateStats()
     {
         if (UIManager.Instance != null)
         {

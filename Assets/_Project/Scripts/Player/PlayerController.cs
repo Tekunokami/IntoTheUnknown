@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem; 
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private GameControls controls; 
     public PlayerStats baseStats;
     private bool isGrounded;
+    private bool isMouseOverUI;
 
     [SerializeField] private Animator animator;
 
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour
         
         // Listen for Interaction key [F]
         controls.Player.Interact.performed += ctx => TryInteract();
+        controls.Player.Attack.performed += ctx => OnAttackInput();
     }
 
     void OnEnable()
@@ -126,17 +129,13 @@ public class PlayerController : MonoBehaviour
         }
 
         // Combo Attack Logic
-        if (Time.time - lastAttackTime > comboWindow) 
+        if (Time.time - lastAttackTime > comboWindow)
         {
             comboStep = 0;
         }
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            if (Time.time >= nextAttackTime) 
-            {
-                ExecuteAttackCombo();
-            }
-        }
+
+        // Update UI
+        isMouseOverUI = EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
     }
 
     void FixedUpdate()
@@ -214,6 +213,21 @@ public class PlayerController : MonoBehaviour
 
         ghost.SetActive(true); 
     }
+
+    private void OnAttackInput()
+{
+    // Prevent attacking if inventory is open
+    if (Time.timeScale == 0) return;
+
+    // Prevent attacking through UI
+    if (isMouseOverUI) return;
+
+    // Check if we can attack based on attack rate
+    if (Time.time >= nextAttackTime) 
+    {
+        ExecuteAttackCombo();
+    }
+}
 
     private void ExecuteAttackCombo()
     {
