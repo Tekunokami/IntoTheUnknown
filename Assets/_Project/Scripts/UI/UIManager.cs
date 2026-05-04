@@ -31,7 +31,9 @@ public class UIManager : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
 
-        PlayerStats baseStats = player.GetComponent<PlayerHealth>().baseStats;
+        PlayerHealth healthComponent = player.GetComponent<PlayerHealth>();
+        PlayerStats baseStats = healthComponent.baseStats;
+
         SaveData save = GameManager.Instance.currentSaveData;
 
         // Base Stats
@@ -52,7 +54,7 @@ public class UIManager : MonoBehaviour
         }
 
         // Display the Totals
-        healthText.text = $"Health: {baseStats.currentHealth}/{totalMaxHealth}";
+        healthText.text = $"Health: {healthComponent.currentHealth}/{totalMaxHealth}";
         defenseText.text = $"Defense: {totalDefense}"; 
         attackText.text = $"Attack: {totalAttack}";
 

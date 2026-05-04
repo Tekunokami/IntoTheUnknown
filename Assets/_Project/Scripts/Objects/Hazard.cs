@@ -12,6 +12,12 @@ public class Hazard : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damageAmount);
+
+                if (UIManager.Instance != null)
+                {
+                    UIManager.Instance.UpdateStatsDisplay();
+                }
+                
                 Debug.Log("You step on a spike! Remaining Health: " + playerHealth.currentHealth);
             }
         }

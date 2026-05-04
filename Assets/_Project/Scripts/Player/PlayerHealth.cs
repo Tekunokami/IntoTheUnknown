@@ -16,7 +16,6 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float amount)
     {
         if (isDead) return;
-        Debug.Log("Hasar alma fonksiyonu tetiklendi!");
 
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, baseStats.maxHealth);
@@ -24,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
         if(UIManager.Instance != null)
         {
             UIManager.Instance.UpdateHealth(currentHealth, baseStats.maxHealth);
+            UIManager.Instance.UpdateStatsDisplay();
         }
 
         Debug.Log("You Lost! Remaining Health: " + currentHealth);
