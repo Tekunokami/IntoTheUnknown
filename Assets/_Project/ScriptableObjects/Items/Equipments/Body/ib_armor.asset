@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3bfb7c8fa4313e48849918ce0ab1dca, type: 3}
-  m_Name: Helmet1
+  m_Name: ib_armor
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
-  itemID: ironbound_helmet
-  itemName: Ironbound Helmet
-  description: A heavy iron helm forged for novice knights.
-  icon: {fileID: 1200530715876801766, guid: e103b91a9c08eb14ba330ea140a45e02, type: 3}
+  itemID: ironbound_armor
+  itemName: Ironbound Armor
+  description: 
+  icon: {fileID: 8232441783650044048, guid: 5055e77355713874b8a335d0ff43a454, type: 3}
   itemType: 0
-  coinValue: 10
-  equipSlot: 0
-  bonusHealth: 5
+  coinValue: 15
+  equipSlot: 1
+  bonusHealth: 10
   bonusDamage: 0
