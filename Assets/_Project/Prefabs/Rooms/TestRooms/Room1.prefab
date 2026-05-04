@@ -4604,6 +4604,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1563045902095788152, guid: 6251f263990ba1345b2c9dd249aeda60, type: 3}
+      propertyPath: itemDrops.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563045902095788152, guid: 6251f263990ba1345b2c9dd249aeda60, type: 3}
+      propertyPath: 'itemDrops.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ce4b3ea607cf0b4f8cbbded26c91ea6, type: 2}
     - target: {fileID: 2195777469220790538, guid: 6251f263990ba1345b2c9dd249aeda60, type: 3}
       propertyPath: m_Name
       value: Chest_Prefab

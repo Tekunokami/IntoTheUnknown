@@ -12,8 +12,8 @@ public class UIManager : MonoBehaviour
     [Header("Stats Panel UI")]
     public GameObject statsPanel;
     public TextMeshProUGUI healthText;
-    public TextMeshProUGUI speedText;
-    public TextMeshProUGUI dashText;
+    public TextMeshProUGUI defenseText; 
+    public TextMeshProUGUI critText;  
     public TextMeshProUGUI attackText;
     
     private void Awake()
@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     {
         healthFill.fillAmount = currentHealth / maxHealth;
     }
+
     public void UpdateStatsDisplay()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -32,11 +33,13 @@ public class UIManager : MonoBehaviour
 
         PlayerStats stats = player.GetComponent<PlayerHealth>().baseStats;
 
-        healthText.text = "Health: " + stats.maxHealth;
-        speedText.text = "Defense: " + stats.defense; 
-        attackText.text = "Attack: " + stats.attackDamage + " (Speed: " + stats.attackSpeed + ")";
+        healthText.text = $"Health: {stats.currentHealth}/{stats.maxHealth}";
+        
+        defenseText.text = $"Defense: {stats.defense}"; 
+        
+        attackText.text = $"Attack: {stats.attackDamage}";
 
-        float critYuzde = stats.critRate * 100f;
-        dashText.text = "Critical Chance: %" + critYuzde + " (x" + stats.critDamage + ")";
+        float critPercentage = stats.critRate * 100f;
+        critText.text = $"Critical Chance: %{critPercentage:F1} (x{stats.critDamage})";
     }
 }

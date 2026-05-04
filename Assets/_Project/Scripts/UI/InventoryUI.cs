@@ -9,8 +9,8 @@ public class InventoryUI : MonoBehaviour
     [Header("UI References")]
     public GameObject inventoryPanel;       
     public Animator bookAnimator;           
-    public CanvasGroup leftPageGroup;   // Replaced the single Canvas Group
-    public CanvasGroup rightPageGroup;  // Replaced the single Canvas Group
+    public CanvasGroup leftPageGroup;   
+    public CanvasGroup rightPageGroup;  
     
     [Header("Grid References")]
     public Transform slotsContainer;  
@@ -80,7 +80,7 @@ public class InventoryUI : MonoBehaviour
         leftPageGroup.alpha = 0; 
         rightPageGroup.alpha = 0; 
         
-        // CRITICAL FIX: Wait exactly 1 frame!
+        // Wait exactly 1 frame!
         yield return null; 
 
         if (inventoryPanel.activeInHierarchy && bookAnimator != null) 
@@ -100,14 +100,38 @@ public class InventoryUI : MonoBehaviour
         if (GameManager.Instance == null) return;
 
         List<string> savedItems = GameManager.Instance.currentSaveData.inventoryItemIDs;
+        ItemData[] allGameItems = Resources.LoadAll<ItemData>("Items");
+
         foreach (string itemID in savedItems)
         {
-            ItemData itemData = Resources.Load<ItemData>($"Items/{itemID}");
+            if (string.IsNullOrEmpty(itemID)) continue; // Skip empty saves
+            
+            ItemData itemData = System.Array.Find(allGameItems, item => item.itemID == itemID);
+
             if (itemData != null)
             {
+                if (slotPrefab == null)
+                {
+                    Debug.LogError("CRASH AVOIDED: Your Slot Prefab is missing in the InventoryUI Inspector!");
+                    return;
+                }
+
                 GameObject newSlot = Instantiate(slotPrefab, slotsContainer);
-                Image icon = newSlot.transform.Find("Icon").GetComponent<Image>();
+                Transform iconTransform = newSlot.transform.Find("Icon");
+                
+                if (iconTransform == null)
+                {
+                    Debug.LogError("CRASH AVOIDED: Your Slot Prefab does not have a child object named EXACTLY 'Icon'!");
+                    continue;
+                }
+
+                Image icon = iconTransform.GetComponent<Image>();
+                
                 icon.sprite = itemData.icon; 
+            }
+            else
+            {
+                Debug.LogWarning($"Inventory Warning: Could not find any ItemData in Resources/Items with the ID: '{itemID}'");
             }
         }
     }
