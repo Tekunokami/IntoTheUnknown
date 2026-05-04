@@ -43,18 +43,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ToggleStats",
+                    "name": "Interact",
                     "type": "Button",
-                    "id": "6f65f770-330c-4888-8d9b-5dd45c497f2a",
+                    "id": "774be59c-1f26-4836-b940-ad129d7d9954",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
+                    "name": "Inventory",
                     "type": "Button",
-                    "id": "774be59c-1f26-4836-b940-ad129d7d9954",
+                    "id": "e35656b2-169f-4638-bdf6-23b0176df776",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -207,23 +207,23 @@
                 },
                 {
                     "name": "",
-                    "id": "9b1bd83f-2515-4a16-bd80-9399328471e9",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ToggleStats",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "46d349f7-be2e-476e-a47c-0ac817f40965",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b94f930-61e0-4b8c-ac75-c693bbe66748",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
