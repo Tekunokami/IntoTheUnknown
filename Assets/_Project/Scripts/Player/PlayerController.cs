@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
     public float acceleration = 20f;
 
     [Header("Combat Settings")]
-    public float comboWindow = 1.0f; // Max time allowed between attacks
-    public float attackRate = 0.4f;  // Minimum time before next attack
+    public float comboWindow = 1.0f; 
+    public float attackRate = 0.4f;  
     private int comboStep = 0;
     private float lastAttackTime = 0f;
     private float nextAttackTime = 0f;
@@ -47,15 +47,20 @@ public class PlayerController : MonoBehaviour
     public GameObject ghostPrefab;      
     public float ghostSpawnDelay = 0.05f; 
     private float lastGhostSpawnTime;   
+
+    [Header("Interaction")]
+    private IInteractable currentInteractable; // Tracks the object player is infront of
     
     void Awake()
     {
-        // Initialize components and input system
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
 
         controls = new GameControls();
         controls.Player.Dash.performed += ctx => OnDashPerformed();
+        
+        // Listen for Interaction key [F]
+        controls.Player.Interact.performed += ctx => TryInteract();
     }
 
     void OnEnable()
@@ -85,7 +90,7 @@ public class PlayerController : MonoBehaviour
 
         moveInput = controls.Player.Move.ReadValue<Vector2>();
 
-        // Run Animation trigger.
+        // Run Animation trigger
         if (moveInput != Vector2.zero) 
         {
             animator.SetBool("isRunning", true);
@@ -120,15 +125,14 @@ public class PlayerController : MonoBehaviour
             lastGhostSpawnTime = Time.time;
         }
 
-
         // Combo Attack Logic
-        if (Time.time - lastAttackTime > comboWindow) // Reset combo if too much time has passed
+        if (Time.time - lastAttackTime > comboWindow) 
         {
             comboStep = 0;
         }
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
-            if (Time.time >= nextAttackTime) // Enough time has passed since last attack
+            if (Time.time >= nextAttackTime) 
             {
                 ExecuteAttackCombo();
             }
@@ -139,7 +143,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isDashing) return;
         
-        // Smooth horizontal movement with acceleration 
+        // Smooth horizontal movement 
         if (Mathf.Abs(moveInput.x) > 0)
         {
             float targetSpeed = moveInput.x * moveSpeed;
@@ -213,15 +217,12 @@ public class PlayerController : MonoBehaviour
 
     private void ExecuteAttackCombo()
     {
-        // Record the attack time 
         lastAttackTime = Time.time;
-        nextAttackTime = Time.time + attackRate; // Set cooldown before next swing
+        nextAttackTime = Time.time + attackRate; 
         comboStep++;
 
-        //Clear previous attack triggers to prevent animation conflicts
         animator.ResetTrigger("LightAttack1");
         animator.ResetTrigger("LightAttack2");
-
 
         if (comboStep == 1)
         {
@@ -230,7 +231,38 @@ public class PlayerController : MonoBehaviour
         else if (comboStep == 2)
         {
             animator.SetTrigger("LightAttack2");
-            comboStep = 0; // Reset combo 
+            comboStep = 0; 
+        }
+    }
+
+    // --- Interaction Logic ---
+    private void TryInteract()
+    {
+        if (currentInteractable != null)
+        {
+            currentInteractable.Interact();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Checks if the object we collided has an IInteractable script
+        IInteractable interactable = collision.GetComponent<IInteractable>();
+        if (interactable != null)
+        {
+            currentInteractable = interactable;
+            currentInteractable.ShowPrompt();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Clear the interactable if we walk away from it
+        IInteractable interactable = collision.GetComponent<IInteractable>();
+        if (interactable != null && interactable == currentInteractable)
+        {
+            currentInteractable.HidePrompt();
+            currentInteractable = null;
         }
     }
 }

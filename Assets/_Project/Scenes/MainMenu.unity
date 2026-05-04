@@ -7092,6 +7092,10 @@ MonoBehaviour:
     playerHealth: 100
     coins: 0
     inventoryItemIDs: []
+    equippedSlots: 
+    equippedItemIDs: []
+    activeConsumableIDs: []
+    activeConsumableDurations: 
     clearedEventIDs: []
 --- !u!4 &2098319681
 Transform:
