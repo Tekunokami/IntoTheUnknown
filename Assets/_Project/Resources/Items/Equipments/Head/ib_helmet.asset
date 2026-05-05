@@ -20,4 +20,4 @@ MonoBehaviour:
   coinValue: 10
   equipSlot: 0
   bonusHealth: 5
-  bonusDamage: 0
+  bonusDamage: 5
