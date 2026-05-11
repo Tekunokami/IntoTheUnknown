@@ -3753,7 +3753,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 17.620905
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4791,6 +4791,10 @@ PrefabInstance:
     - target: {fileID: 8795167785723845422, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
       propertyPath: m_Name
       value: Player_ModelV1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795167785723845422, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
