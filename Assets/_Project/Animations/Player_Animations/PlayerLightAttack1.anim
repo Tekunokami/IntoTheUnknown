@@ -36,6 +36,8 @@ AnimationClip:
       value: {fileID: 3376759573393186379, guid: 55d51a66abc136b4385b5954afca5562, type: 3}
     - time: 0.38333333
       value: {fileID: -6049819719904594389, guid: 55d51a66abc136b4385b5954afca5562, type: 3}
+    - time: 0.41666666
+      value: {fileID: -7844166419546778139, guid: 55d51a66abc136b4385b5954afca5562, type: 3}
     - time: 0.43333334
       value: {fileID: 5481211725651430337, guid: 55d51a66abc136b4385b5954afca5562, type: 3}
     - time: 0.5
@@ -88,6 +90,7 @@ AnimationClip:
     - {fileID: 8909231491866324010, guid: 55d51a66abc136b4385b5954afca5562, type: 3}
     - {fileID: 3376759573393186379, guid: 55d51a66abc136b4385b5954afca5562, type: 3}
     - {fileID: -6049819719904594389, guid: 55d51a66abc136b4385b5954afca5562, type: 3}
+    - {fileID: -7844166419546778139, guid: 55d51a66abc136b4385b5954afca5562, type: 3}
     - {fileID: 5481211725651430337, guid: 55d51a66abc136b4385b5954afca5562, type: 3}
     - {fileID: 3847725756701390359, guid: 55d51a66abc136b4385b5954afca5562, type: 3}
     - {fileID: 5902032526798917794, guid: 55d51a66abc136b4385b5954afca5562, type: 3}
@@ -124,6 +127,13 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.38333333
+    functionName: ExecuteHit
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
   - time: 1.05
     functionName: 
     data: 

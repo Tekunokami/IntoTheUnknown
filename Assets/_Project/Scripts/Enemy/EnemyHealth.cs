@@ -18,11 +18,16 @@ public class EnemyHealth : MonoBehaviour
         if (isDead) return;
 
         currentHealth -= damage;
-        animator.SetTrigger("Hurt");
 
         if (currentHealth <= 0)
         {
+            // If health is 0 or less, trigger Death
             Die();
+        }
+        else
+        {
+            // If he survived the hit, trigger Hurt
+            animator.SetTrigger("Hurt");
         }
     }
 

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &908872042036904518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3289572504909812191}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3289572504909812191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908872042036904518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.91, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2348982320100407452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5471059249402920978
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +128,7 @@ Transform:
   m_Children:
   - {fileID: 5826385419262770173}
   - {fileID: 5245990295032052055}
+  - {fileID: 3289572504909812191}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &789506532617748569
@@ -221,8 +253,8 @@ BoxCollider2D:
   m_Offset: {x: -0.013913572, y: -0.005866587}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.75}
+    pivot: {x: 0.5854079, y: 0.55211174}
+    oldSize: {x: 1.5625, y: 2.4375}
     newSize: {x: 0.32, y: 0.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -242,14 +274,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a12c9c048431d4ab518ba264cbaeef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  baseStats: {fileID: 0}
+  animator: {fileID: 0}
   moveSpeed: 10
   jumpForce: 12
+  acceleration: 20
+  comboWindow: 1
+  attackRate: 0.4
   coyoteTime: 0.2
   jumpBufferTime: 0.1
-  groundCheck: {fileID: 5826385419262770173}
-  groundCheckRadius: 0.05
-  ceilingCheck: {fileID: 5245990295032052055}
-  ceilingBoxSize: {x: 0.9, y: 0.1}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  groundCheckDistance: 0.1
+  ceilingCheckDistance: 0.1
+  attackPoint: {fileID: 0}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  swingRadius: 1.2
+  spinRadius: 2.2
+  dashSpeed: 20
+  dashDuration: 0.2
+  dashCooldown: 1
+  isDead: 0
+  ghostPrefab: {fileID: 0}
+  ghostSpawnDelay: 0.05

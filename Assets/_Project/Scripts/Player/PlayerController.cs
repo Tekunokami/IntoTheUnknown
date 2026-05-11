@@ -38,6 +38,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ceilingCheckDistance = 0.1f; 
     private BoxCollider2D coll;
 
+    [Header("Hit Detection")]
+    public Transform attackPoint;
+    public LayerMask enemyLayers;
+    public float swingRadius = 1.2f;
+    public float spinRadius = 2.2f;
+
     [Header("Dash Settings")]
     public float dashSpeed = 20f;
     public float dashDuration = 0.2f;
@@ -181,6 +187,19 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.blue;
         Vector3 ceilingPos = coll.bounds.center + Vector3.up * ceilingCheckDistance;
         Gizmos.DrawWireCube(ceilingPos, coll.bounds.size);
+
+
+        //For Attack Ranges
+        if (attackPoint == null) return;
+        
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(attackPoint.position, swingRadius);
+        
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(attackPoint.position, spinRadius);
+
+
+
     }
 
     private void OnDashPerformed()
@@ -286,5 +305,42 @@ public class PlayerController : MonoBehaviour
             currentInteractable.HidePrompt();
             currentInteractable = null;
         }
+    }
+
+
+
+    // --- Combat Hit Detection called by Animation Events ---
+    public void ExecuteHit(int attackIndex)
+    {
+        // Determine which attack is being executed for radius
+        float currentRadius = (attackIndex == 2) ? spinRadius : swingRadius;
+
+        // Find all enemies in range of the attack
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, currentRadius, enemyLayers);
+
+        // Apply damage
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            if (enemy.TryGetComponent(out EnemyHealth health))
+            {
+                float finalDamage = CalculateDamage();
+                health.TakeDamage(finalDamage);
+            }
+        }
+    }
+
+    private float CalculateDamage()
+    {
+        // pull base damage from PlayerStats
+        float damage = baseStats.attackDamage;
+
+        // The Crit Logic 
+        if (Random.value <= baseStats.critRate)
+        {
+            damage *= baseStats.critDamage;
+            Debug.Log("<color=yellow>CRITICAL HIT!</color> Dealt: " + damage);
+        }
+
+        return damage;
     }
 }

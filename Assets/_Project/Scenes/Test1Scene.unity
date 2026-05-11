@@ -4407,9 +4407,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   baseStats: {fileID: 11400000, guid: 9a37ddcc388f02f4190ea504a527cc4c, type: 2}
-  currentHealth: 0
   animator: {fileID: 1998301819}
   playerController: {fileID: 1998301820}
+  currentHealth: 0
+  invincibilityDuration: 0.5
 --- !u!95 &1998301819
 Animator:
   serializedVersion: 7
@@ -4708,6 +4709,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3289572504909812191, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289572504909812191, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 3440713178511547366, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
       propertyPath: animator
       value: 
@@ -4721,12 +4730,20 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3440713178511547366, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 3999747305742822326}
+    - target: {fileID: 3440713178511547366, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
       propertyPath: ghostPrefab
       value: 
       objectReference: {fileID: 4129025471983579203, guid: 798cec1014a319d46ad8b950d6a4b74b, type: 3}
     - target: {fileID: 3440713178511547366, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
       propertyPath: acceleration
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440713178511547366, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 5245990295032052055, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
       propertyPath: m_LocalScale.x
@@ -4813,6 +4830,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1998301819}
   m_SourcePrefab: {fileID: 100100000, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
+--- !u!4 &3999747305742822326 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3289572504909812191, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
+  m_PrefabInstance: {fileID: 3999747305742822325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5191541359708132334
 PrefabInstance:
   m_ObjectHideFlags: 0
