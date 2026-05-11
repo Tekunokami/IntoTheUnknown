@@ -4777,6 +4777,10 @@ PrefabInstance:
       value: -0.08472216
       objectReference: {fileID: 0}
     - target: {fileID: 7285325597330957114, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7285325597330957114, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
       value: 0.55211174
       objectReference: {fileID: 0}

@@ -16,21 +16,22 @@ public class EnemyController : MonoBehaviour
     private Transform player;
 
     [Header("Refined Settings")]
-    public float yThreshold = 2f;
+    public float yThreshold = 2f; // To prevent attacking/chasing while player is on a different level
+    private float lastFlipTime;
 
     // The State Machine 
     private enum EnemyState { Patrolling, Chasing, Attacking }
     private EnemyState currentState;
 
     private float nextAttackTime;
-    private bool isFacingRight = true;
+    
+    private bool isFacingRight = true; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentState = EnemyState.Patrolling;
 
-        // Find object with tag "Player"
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null) player = playerObj.transform;
     }
@@ -39,66 +40,61 @@ public class EnemyController : MonoBehaviour
     {
         if (player == null) return;
 
-        // Based on distance to player, decide on state
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        bool isLevelWithPlayer = Mathf.Abs(player.position.y - transform.position.y) < yThreshold; // Check if player is on same platform 
+        
+        // Check if player is on roughly the same vertical level 
+        bool isLevelWithPlayer = Mathf.Abs(player.position.y - transform.position.y) < yThreshold; 
 
+        // Decision Logics
         if (distanceToPlayer <= data.attackRange && isLevelWithPlayer)
         {
             currentState = EnemyState.Attacking;
         }
         else if (distanceToPlayer <= data.detectionRange && isLevelWithPlayer)
         {
-            // Only chase if player is on same platform 
-            if (Mathf.Abs(player.position.y - transform.position.y) < 2f) 
-            {
-                currentState = EnemyState.Chasing;
-            }
-            else
-            {
-                currentState = EnemyState.Patrolling;
-            }
+            currentState = EnemyState.Chasing;
         }
         else
         {
             currentState = EnemyState.Patrolling;
         }
 
-        // Based on current state, perform actions
         switch (currentState)
         {
-            case EnemyState.Patrolling:
-                Patrol();
-                break;
-            case EnemyState.Chasing:
-                Chase();
-                break;
-            case EnemyState.Attacking:
-                Attack();
-                break;
+            case EnemyState.Patrolling: Patrol(); break;
+            case EnemyState.Chasing: Chase(); break;
+            case EnemyState.Attacking: Attack(); break;
         }
     }
 
-    private void Patrol() // Move forward, turn around at edges or walls
+    private void Patrol() 
     {
         animator.SetBool("isRunning", true);
 
+        // Move forward
         rb.linearVelocity = new Vector2((isFacingRight ? 1 : -1) * data.patrolSpeed, rb.linearVelocity.y);
 
-        // Check for ground ahead (Laser pointing down)
-        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, detectionDistance, groundLayer);
-        // Check for Walls (Laser pointing forward)
-        RaycastHit2D wallInfo = Physics2D.Raycast(wallDetection.position, isFacingRight ? Vector2.right : Vector2.left, detectionDistance, groundLayer);
-
-        // If there's no ground or there's a wall ahead, turn around
-        if (groundInfo.collider == false || wallInfo.collider == true)
+        // If at an edge or wall, turn around and brake for a split second
+        if (Time.time >= lastFlipTime + 0.5f) // The cooldown
         {
-            Flip();
+            if (IsAtEdge() || IsAtWall())
+            {
+                Flip();
+                lastFlipTime = Time.time; // Reset the timer
+            }
         }
     }
 
-    private void Chase() // Move towards player with faster speed
+    private void Chase() 
     {
+        // If there's no ground ahead or a wall in front, stop and wait 
+        if (IsAtEdge() || IsAtWall())
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            animator.SetBool("isRunning", false);
+            return;
+        }
+
         animator.SetBool("isRunning", true);
 
         // Determine direction to player
@@ -110,29 +106,21 @@ public class EnemyController : MonoBehaviour
         // Face the player
         if (directionToPlayer > 0 && !isFacingRight) Flip();
         else if (directionToPlayer < 0 && isFacingRight) Flip();
-
-        // If we lose the ground beneath us, stop moving to prevent falling
-        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, detectionDistance, groundLayer);
-        if (groundInfo.collider == false)
-        {
-            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-            animator.SetBool("isRunning", false);
-        }
     }
 
     private void Attack()
     {
-        // Stop moving
+        // Stop moving while attacking
         rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         animator.SetBool("isRunning", false);
 
         // Check Cooldown
         if (Time.time >= nextAttackTime)
         {
-            animator.SetTrigger("Attack"); // Trigger attack
+            animator.SetTrigger("Attack"); 
             nextAttackTime = Time.time + data.attackCooldown;
             
-            // TODO: Damage is dealt via Animation Events 
+            // TODO: Implement damage dealt via Animation Events
         }
     }
 
@@ -144,7 +132,20 @@ public class EnemyController : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    // Draw lasers in the editor to adjust their positions
+    // --- HELPER METHODS ---
+    private bool IsAtEdge() 
+    {
+        // Laser shoots downwards, if it hits nothing
+        return !Physics2D.Raycast(groundDetection.position, Vector2.down, detectionDistance, groundLayer);
+    }
+
+    private bool IsAtWall() 
+    {
+        // Laser shoots forward, if it hits a wall
+        Vector2 dir = isFacingRight ? Vector2.right : Vector2.left;
+        return Physics2D.Raycast(wallDetection.position, dir, detectionDistance, groundLayer);
+    }
+
     private void OnDrawGizmos()
     {
         if (groundDetection != null)
@@ -155,7 +156,8 @@ public class EnemyController : MonoBehaviour
         if (wallDetection != null)
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawLine(wallDetection.position, wallDetection.position + (isFacingRight ? Vector3.right : Vector3.left) * detectionDistance);
+            Vector3 dir = isFacingRight ? Vector3.right : Vector3.left;
+            Gizmos.DrawLine(wallDetection.position, wallDetection.position + dir * detectionDistance);
         }
     }
 }
