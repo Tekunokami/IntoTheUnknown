@@ -17,7 +17,9 @@ public class EnemyCombat : MonoBehaviour
         {
             if (hitPlayer.TryGetComponent(out PlayerHealth pHealth))
             {
-                pHealth.TakeDamage(data.attackDamage);
+                // Apply damage to player and knockback
+                pHealth.TakeDamage(data.attackDamage, transform);
+                
                 Debug.Log("Enemy hit the player!");
             }
         }

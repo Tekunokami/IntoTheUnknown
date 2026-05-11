@@ -37,5 +37,6 @@ public class SaveData
         activeConsumableIDs = new List<string>();
         activeConsumableDurations = new List<int>();
         clearedEventIDs = new List<string>(); // Initially no cleared events
+        
     }
 }

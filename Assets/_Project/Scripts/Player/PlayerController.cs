@@ -59,6 +59,12 @@ public class PlayerController : MonoBehaviour
 
     [Header("Interaction")]
     private IInteractable currentInteractable; // Tracks the object player is infront of
+
+    [Header("Knockback Settings")]
+    public float knockbackForceX = 8f;
+    public float knockbackForceY = 4f;
+    public float knockbackDuration = 0.2f;
+    private bool isKnockedBack;
     
     void Awake()
     {
@@ -82,7 +88,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (isDead || animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerHurtAnimation")) return;
+        if (isDead) 
+        {
+            rb.linearVelocity = Vector2.zero; // Force stop
+            return; 
+        }
+        
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerHurtAnimation")) return;
 
         // Ground Check
         RaycastHit2D groundHit = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, groundCheckDistance, groundLayer);
@@ -149,13 +161,16 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {   
-       if (isDead || animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerHurtAnimation"))
+        
+
+        if (isDead || animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerHurtAnimation"))
         {
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y); // Lock horizontal movement when dead or hurt// to prevent slide
             return; 
         }
         if (isDashing) return;
-        
+        if (isKnockedBack) return;
+
         // Smooth horizontal movement 
         if (Mathf.Abs(moveInput.x) > 0)
         {
@@ -342,5 +357,25 @@ public class PlayerController : MonoBehaviour
         }
 
         return damage;
+    }
+
+    public void ApplyKnockback(Transform attacker)
+    {
+        isKnockedBack = true;
+        
+        // Enemy pushes player in opposite direction of where they are
+        float pushDirection = (transform.position.x < attacker.position.x) ? -1f : 1f;
+        rb.linearVelocity = Vector2.zero; 
+        
+        // Apply knockback force
+        rb.AddForce(new Vector2(pushDirection * knockbackForceX, knockbackForceY), ForceMode2D.Impulse);
+        
+        StartCoroutine(KnockbackRoutine());
+    }
+
+    private IEnumerator KnockbackRoutine()
+    {
+        yield return new WaitForSeconds(knockbackDuration);
+        isKnockedBack = false;
     }
 }

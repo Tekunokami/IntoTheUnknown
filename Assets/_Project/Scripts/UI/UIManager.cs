@@ -8,6 +8,9 @@ public class UIManager : MonoBehaviour
 
     [Header("UI Elements")]
     public Image healthFill; 
+    public TMPro.TextMeshProUGUI coinText; 
+    public GameObject deathScreenPanel; 
+    public TMPro.TextMeshProUGUI deathScreenText;
 
     [Header("Stats Panel UI")]
     public GameObject statsPanel;
@@ -24,6 +27,12 @@ public class UIManager : MonoBehaviour
     public void UpdateHealth(float currentHealth, float maxHealth)
     {
         healthFill.fillAmount = currentHealth / maxHealth;
+    }
+
+    void Start()
+    {
+        // Initialize coin display 
+        UpdateCoinDisplay();
     }
 
     public void UpdateStatsDisplay()
@@ -60,5 +69,22 @@ public class UIManager : MonoBehaviour
 
         float critPercentage = baseStats.critRate * 100f;
         critText.text = $"Critical Chance: %{critPercentage:F1} (x{baseStats.critDamage})";
+    }
+
+    public void UpdateCoinDisplay()
+    {
+        if (coinText != null && GameManager.Instance != null)
+        {
+            coinText.text = "Coins: " + GameManager.Instance.GetCurrentDisplayCoins();
+        }
+    }
+
+    public void ShowDeathScreen(string message)
+    {
+        if (deathScreenPanel != null && deathScreenText != null)
+        {
+            deathScreenPanel.SetActive(true);
+            deathScreenText.text = message;
+        }
     }
 }

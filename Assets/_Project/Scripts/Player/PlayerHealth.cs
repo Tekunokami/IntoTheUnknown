@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, Transform attacker = null)
     {
         // Ignore damage if dead or invincible
         if (isDead || isInvincible) return;
@@ -50,6 +50,10 @@ public class PlayerHealth : MonoBehaviour
             // Triggers Hurt Animation
             if (animator != null) animator.SetTrigger("Player_Damaged");
             
+            if (attacker != null && playerController != null) {
+                playerController.ApplyKnockback(attacker);
+            }
+
             // Start the brief invincibility period
             StartCoroutine(InvincibilityFrames());
         }
@@ -65,10 +69,13 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
+        // Wipe un-saved progress
+        if (GameManager.Instance != null) GameManager.Instance.ClearSessionData();
+        
         isDead = true;
         if (playerController != null) playerController.isDead = true; // Lock movement
         
-        Debug.Log("DIE FUNCTION CALLED - Sending 'Health_Zero' to Animator");
+        Debug.Log("Died! Restoring to latest save...");
         
         if (animator != null) 
         {
@@ -76,12 +83,20 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            Debug.LogError("ANIMATOR MISSING ON PLAYERHEALTH SCRIPT!");
+            Debug.LogError("PlayerHealth: No Animator found for death animation!");
         }
 
         // Disable physical body so enemies don't keep hitting player
         if (TryGetComponent(out Collider2D coll)) coll.enabled = false;
         if (TryGetComponent(out Rigidbody2D rb)) rb.simulated = false;
+
+        // UI Updates
+        if(UIManager.Instance != null) {
+            UIManager.Instance.ShowDeathScreen("You died, restoring to latest save...");
+            
+            // Update coin display
+            UIManager.Instance.UpdateCoinDisplay(); 
+        }
 
         StartCoroutine(DeathRoutine());
     }
@@ -99,7 +114,7 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator DeathRoutine()
     {
         // Wait for death animation to finish
-        yield return new WaitForSeconds(3f); 
+        yield return new WaitForSeconds(1f); 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -9,63 +9,69 @@ public class EnemyController : MonoBehaviour
     public Transform wallDetection;  
     public float detectionDistance = 0.5f;
     public LayerMask groundLayer;
+    public float stoppingDistance = 0.8f;
 
     [Header("References")]
     public Animator animator;
     private Rigidbody2D rb;
     private Transform player;
+    private EnemyCombat combat;
 
     [Header("Refined Settings")]
-    public float yThreshold = 2f; // To prevent attacking/chasing while player is on a different level
+    public float yThreshold = 2f; // To prevent attacking/chasing while player is on a different level  
+    private float nextAttackTime = 0f;
     private float lastFlipTime;
 
     // The State Machine 
     private enum EnemyState { Patrolling, Chasing, Attacking }
-    private EnemyState currentState;
-
-    private float nextAttackTime;
-    
+    private EnemyState currentState;    
     private bool isFacingRight = true; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentState = EnemyState.Patrolling;
+        
+        combat = GetComponent<EnemyCombat>();
+
+        if (combat == null)
+        {   
+            Debug.LogError("EnemyCombat script is MISSING on " + gameObject.name + "!");
+        }
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null) player = playerObj.transform;
     }
 
     void Update()
+{
+    if (player == null) return;
+
+    float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+    bool isLevelWithPlayer = Mathf.Abs(player.position.y - transform.position.y) < yThreshold; 
+
+    // Change state based on distance and level alignment
+    if (distanceToPlayer <= data.attackRange && isLevelWithPlayer)
     {
-        if (player == null) return;
-
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        
-        // Check if player is on roughly the same vertical level 
-        bool isLevelWithPlayer = Mathf.Abs(player.position.y - transform.position.y) < yThreshold; 
-
-        // Decision Logics
-        if (distanceToPlayer <= data.attackRange && isLevelWithPlayer)
-        {
-            currentState = EnemyState.Attacking;
-        }
-        else if (distanceToPlayer <= data.detectionRange && isLevelWithPlayer)
-        {
-            currentState = EnemyState.Chasing;
-        }
-        else
-        {
-            currentState = EnemyState.Patrolling;
-        }
-
-        switch (currentState)
-        {
-            case EnemyState.Patrolling: Patrol(); break;
-            case EnemyState.Chasing: Chase(); break;
-            case EnemyState.Attacking: Attack(); break;
-        }
+        currentState = EnemyState.Attacking;
     }
+    else if (distanceToPlayer <= data.detectionRange && isLevelWithPlayer)
+    {
+        currentState = EnemyState.Chasing;
+    }
+    else
+    {
+        currentState = EnemyState.Patrolling;
+    }
+
+    // Execute the logic
+    switch (currentState)
+    {
+        case EnemyState.Patrolling: Patrol(); break;
+        case EnemyState.Chasing: Chase(); break;
+        case EnemyState.Attacking: Attack(); break;
+    }
+}
 
     private void Patrol() 
     {
@@ -86,41 +92,63 @@ public class EnemyController : MonoBehaviour
     }
 
     private void Chase() 
+{
+    // Direction to player 
+    float directionToPlayer = player.position.x - transform.position.x;
+    float absoluteDistance = Mathf.Abs(directionToPlayer);
+
+    // lip Logic
+    if (absoluteDistance > 0.5f)
     {
-        // If there's no ground ahead or a wall in front, stop and wait 
-        if (IsAtEdge() || IsAtWall())
-        {
-            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-            animator.SetBool("isRunning", false);
-            return;
-        }
-
-        animator.SetBool("isRunning", true);
-
-        // Determine direction to player
-        float directionToPlayer = player.position.x - transform.position.x;
-
-        // Move towards player
-        rb.linearVelocity = new Vector2(Mathf.Sign(directionToPlayer) * data.chaseSpeed, rb.linearVelocity.y);
-
-        // Face the player
         if (directionToPlayer > 0 && !isFacingRight) Flip();
         else if (directionToPlayer < 0 && isFacingRight) Flip();
     }
+    
+    // Check if player is in attack range 
+    Collider2D playerInSlot = Physics2D.OverlapCircle(combat.attackPoint.position, combat.attackRadius, combat.playerLayer);
+    
+    if (playerInSlot != null && Time.time >= nextAttackTime)
+    {
+        // Target is in attack range, stop and attack
+        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        animator.SetBool("isRunning", false);
+        
+        animator.SetTrigger("Attack");
+        
+        nextAttackTime = Time.time + data.attackCooldown; 
+        return; 
+    }
+
+    // If we're farther than stopping distance and not at an edge/wall, keep chasing
+    if (absoluteDistance > stoppingDistance && !IsAtEdge() && !IsAtWall())
+    {
+        animator.SetBool("isRunning", true);
+        rb.linearVelocity = new Vector2(Mathf.Sign(directionToPlayer) * data.chaseSpeed, rb.linearVelocity.y);
+    }
+    else
+    {
+        // Otherwise, stop and wait for the next attack opportunity
+        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        animator.SetBool("isRunning", false);
+    }
+}
 
     private void Attack()
     {
-        // Stop moving while attacking
+        // Stop moving
         rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         animator.SetBool("isRunning", false);
 
-        // Check Cooldown
+        // Face the player while attacking 
+        float directionToPlayer = player.position.x - transform.position.x;
+        if (directionToPlayer > 0 && !isFacingRight) Flip();
+        else if (directionToPlayer < 0 && isFacingRight) Flip();
+
+        // 3. Check Cooldown
         if (Time.time >= nextAttackTime)
         {
             animator.SetTrigger("Attack"); 
             nextAttackTime = Time.time + data.attackCooldown;
-            
-            // TODO: Implement damage dealt via Animation Events
         }
     }
 
@@ -133,10 +161,17 @@ public class EnemyController : MonoBehaviour
     }
 
     // --- HELPER METHODS ---
-    private bool IsAtEdge() 
+    private bool IsAtEdge()
     {
-        // Laser shoots downwards, if it hits nothing
-        return !Physics2D.Raycast(groundDetection.position, Vector2.down, detectionDistance, groundLayer);
+        // Check the direction we're facing
+        float xOffset = isFacingRight ? 0.5f : -0.5f;
+        Vector2 checkPosition = new Vector2(transform.position.x + xOffset, transform.position.y);
+
+        // Shoot a laser straight down
+        RaycastHit2D groundInfo = Physics2D.Raycast(checkPosition, Vector2.down, 1.5f, groundLayer);
+
+        // If the laser doesn't hit, we're on edge
+        return groundInfo.collider == null; 
     }
 
     private bool IsAtWall() 
@@ -145,7 +180,7 @@ public class EnemyController : MonoBehaviour
         Vector2 dir = isFacingRight ? Vector2.right : Vector2.left;
         return Physics2D.Raycast(wallDetection.position, dir, detectionDistance, groundLayer);
     }
-
+    
     private void OnDrawGizmos()
     {
         if (groundDetection != null)

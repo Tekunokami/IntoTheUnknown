@@ -63,14 +63,17 @@ public class Checkpoint : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            // 1. Update the respawn location to THIS checkpoint
+            // Update the respawn location to THIS checkpoint
             GameManager.Instance.currentSaveData.currentRoomID = roomID;
             GameManager.Instance.currentSaveData.currentSpawnPointName = spawnPointName;
-
-            // 2. Heal the player
+            
+            // Heal the player
             GameManager.Instance.currentSaveData.playerHealth = 100f; 
 
-            // 3. Save to active slot
+            // Lock in kills and coins    
+            GameManager.Instance.CommitSessionDataToSave();
+
+            // Save to active slot
             GameManager.Instance.SaveGame();
 
             Debug.Log($"[Checkpoint] Game Saved Successfully at {roomID}!");

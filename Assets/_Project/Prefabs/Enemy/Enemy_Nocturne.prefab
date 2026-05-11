@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 4508069785402940047}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.65, y: 0.65, z: 0}
+  m_LocalPosition: {x: -0.06, y: 1.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -126,7 +126,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 25.01107, y: 0.165, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2594189547917334419}
@@ -306,6 +306,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  stoppingDistance: 1
   animator: {fileID: 927294554914673317}
   yThreshold: 2
 --- !u!114 &4575563480777321526
@@ -322,7 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCombat
   data: {fileID: 11400000, guid: d23479693f69c694097b0a9d84efe10f, type: 2}
   attackPoint: {fileID: 4856154392816647435}
-  attackRadius: 0.5
+  attackRadius: 1.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -340,3 +341,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   data: {fileID: 11400000, guid: d23479693f69c694097b0a9d84efe10f, type: 2}
   animator: {fileID: 927294554914673317}
+  uniqueEnemyID: 

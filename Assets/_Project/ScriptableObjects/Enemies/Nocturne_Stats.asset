@@ -15,9 +15,11 @@ MonoBehaviour:
   enemyID: nocturne
   enemyName: Nocturne
   maxHealth: 50
-  attackDamage: 30
   patrolSpeed: 2
   chaseSpeed: 4
+  attackDamage: 30
   detectionRange: 6
   attackRange: 1.5
   attackCooldown: 1.5
+  rarity: 0
+  coinValue: 15

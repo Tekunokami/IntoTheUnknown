@@ -4,15 +4,27 @@ public class EnemyHealth : MonoBehaviour
 {
     public EnemyData data;
     public Animator animator;
-    
     private float currentHealth;
     private bool isDead = false;
 
-    void Start()
-    {
-        currentHealth = data.maxHealth;
+    [Header("Unique Enemy ID")]
+    [Tooltip("Right-click this script in the inspector and select 'Generate ID'")]
+    public string uniqueEnemyID;
+
+    [ContextMenu("Generate Unique ID")]
+    private void GenerateID() {
+        uniqueEnemyID = System.Guid.NewGuid().ToString();
     }
 
+    void Start()
+    {
+        if (GameManager.Instance != null && GameManager.Instance.IsEventCleared(uniqueEnemyID))
+        {
+            Destroy(gameObject);
+            return;
+        }
+        currentHealth = data.maxHealth;
+    }
     public void TakeDamage(float damage)
     {
         if (isDead) return;
@@ -21,12 +33,10 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            // If health is 0 or less, trigger Death
             Die();
         }
         else
         {
-            // If he survived the hit, trigger Hurt
             animator.SetTrigger("Hurt");
         }
     }
@@ -36,12 +46,19 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
         animator.SetTrigger("Death");
         
-        // Disable movement and collisions
         GetComponent<EnemyController>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().simulated = false;
 
-        // Destroy after 3 seconds
+        // Enemy death tracked
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.MarkEventCleared(uniqueEnemyID, data.coinValue);
+        }
+
+        // Update the UI
+        if (UIManager.Instance != null) UIManager.Instance.UpdateCoinDisplay();
+
         Destroy(gameObject, 3f);
     }
 }
