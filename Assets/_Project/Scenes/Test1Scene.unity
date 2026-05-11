@@ -3753,7 +3753,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 17.620905
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4408,6 +4408,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   baseStats: {fileID: 11400000, guid: 9a37ddcc388f02f4190ea504a527cc4c, type: 2}
   currentHealth: 0
+  animator: {fileID: 1998301819}
+  playerController: {fileID: 1998301820}
 --- !u!95 &1998301819
 Animator:
   serializedVersion: 7
@@ -4430,6 +4432,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1998301820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3440713178511547366, guid: 7e9ca44491b6649458e936cfbe6059ad, type: 3}
+  m_PrefabInstance: {fileID: 3999747305742822325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368816254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a12c9c048431d4ab518ba264cbaeef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
 --- !u!1001 &2104698041
 PrefabInstance:
   m_ObjectHideFlags: 0

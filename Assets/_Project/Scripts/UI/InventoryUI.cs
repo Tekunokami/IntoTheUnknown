@@ -118,6 +118,10 @@ public class InventoryUI : MonoBehaviour
         foreach (Transform child in accessorySlot) Destroy(child.gameObject);
 
         SaveData save = GameManager.Instance.currentSaveData;
+
+        // For safety, prevent crash if lists are null
+        if (save.inventoryItemIDs == null) save.inventoryItemIDs = new System.Collections.Generic.List<string>();
+        if (save.equippedItemIDs == null) save.equippedItemIDs = new System.Collections.Generic.List<string>();
         ItemData[] allGameItems = Resources.LoadAll<ItemData>("Items");
 
         // Rebuild Bag
