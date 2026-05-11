@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown = 1f;
     private bool canDash = true;
     private bool isDashing;
+    public bool isDead = false;
 
     [Header("Ghost Effect Settings")]
     public GameObject ghostPrefab;      
@@ -75,6 +76,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (isDead || animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerHurtAnimation")) return;
+
         // Ground Check
         RaycastHit2D groundHit = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, groundCheckDistance, groundLayer);
         isGrounded = groundHit.collider != null;
@@ -139,7 +142,12 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
+    {   
+       if (isDead || animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerHurtAnimation"))
+        {
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y); // Lock horizontal movement when dead or hurt// to prevent slide
+            return; 
+        }
         if (isDashing) return;
         
         // Smooth horizontal movement 
