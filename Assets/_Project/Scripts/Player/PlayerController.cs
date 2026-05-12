@@ -346,8 +346,8 @@ public class PlayerController : MonoBehaviour
 
     private float CalculateDamage()
     {
-        // pull base damage from PlayerStats
-        float damage = baseStats.attackDamage;
+        // Get total damage from base stats + equipment bonuses
+        float damage = GetTotalDamage();
 
         // The Crit Logic 
         if (Random.value <= baseStats.critRate)
@@ -357,6 +357,37 @@ public class PlayerController : MonoBehaviour
         }
 
         return damage;
+    }
+
+    private float GetTotalDamage()
+    {
+        // Start with base damage
+        float totalDamage = baseStats.attackDamage; 
+
+        // Make sure we have save data
+        if (GameManager.Instance != null && GameManager.Instance.currentSaveData != null)
+        {
+            // Load all items from ItemData ScriptableObjects
+            ItemData[] allItems = Resources.LoadAll<ItemData>("Items");
+
+            // Loop through equipped item IDs and find corresponding ItemData
+            foreach (string itemID in GameManager.Instance.currentSaveData.equippedItemIDs)
+            {
+                if (string.IsNullOrEmpty(itemID)) continue;
+
+                // Find the specific item matching the ID
+                ItemData foundItem = System.Array.Find(allItems, i => i.itemID == itemID);
+                
+                // If the item exists and equipped
+                if (foundItem != null && foundItem is EquipmentData equipData)
+                {
+                    // Add its bonus damage!
+                    totalDamage += equipData.bonusDamage;
+                }
+            }
+        }
+
+        return totalDamage;
     }
 
     public void ApplyKnockback(Transform attacker)
