@@ -70,8 +70,7 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         // Wipe un-saved progress
-        if (GameManager.Instance != null) GameManager.Instance.ClearSessionData();
-        
+        if (GameManager.Instance != null) GameManager.Instance.ReloadFromLastSave();
         isDead = true;
         if (playerController != null) playerController.isDead = true; // Lock movement
         

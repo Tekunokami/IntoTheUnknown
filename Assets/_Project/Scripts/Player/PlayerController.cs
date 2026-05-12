@@ -84,7 +84,10 @@ public class PlayerController : MonoBehaviour
         controls.Player.Enable(); 
     }
     
-    void OnDisable() => controls.Disable();
+    private void OnDisable()
+{
+    if (controls != null) controls.Disable();
+}
 
     void Update()
     {
@@ -346,7 +349,7 @@ public class PlayerController : MonoBehaviour
 
     private float CalculateDamage()
     {
-        // Get total damage from base stats + equipment bonuses
+        // Get total damage from base stats + equipment bonuses 
         float damage = GetTotalDamage();
 
         // The Crit Logic 

@@ -70,9 +70,6 @@ public class Checkpoint : MonoBehaviour
             // Heal the player
             GameManager.Instance.currentSaveData.playerHealth = 100f; 
 
-            // Lock in kills and coins    
-            GameManager.Instance.CommitSessionDataToSave();
-
             // Save to active slot
             GameManager.Instance.SaveGame();
 

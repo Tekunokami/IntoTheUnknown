@@ -21,8 +21,8 @@ public class Chest : MonoBehaviour, IInteractable
     {
         if (interactPrompt != null) interactPrompt.SetActive(false);
 
-        // Check if already opened in previous save
-        if (GameManager.Instance != null && GameManager.Instance.currentSaveData.clearedEventIDs.Contains(chestID))
+        // Check if already opened in save/session data
+        if (GameManager.Instance != null && GameManager.Instance.IsEventCleared(chestID))
         {
             isOpened = true;
             if (animator != null) animator.Play("ChestOpen_Idle");
@@ -33,31 +33,26 @@ public class Chest : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (isOpened) return; // Do nothing if already opened
-
+        if (isOpened) return;
         isOpened = true;
-        
-        HidePrompt(); // Hide prompt
-
-        // Play Animation
+        HidePrompt(); 
         if (animator != null) animator.SetTrigger("Open");
 
-        // Give Loot
         if (GameManager.Instance != null)
         {
+            // Give loot directly to save data
             GameManager.Instance.currentSaveData.coins += coinDropAmount;
-            Debug.Log($"Looted {coinDropAmount} coins! Total: {GameManager.Instance.currentSaveData.coins}");
+            GameManager.Instance.currentSaveData.clearedEventIDs.Add(chestID);
 
             foreach (ItemData item in itemDrops)
             {
                 GameManager.Instance.currentSaveData.inventoryItemIDs.Add(item.itemID);
-                Debug.Log($"Looted item: {item.itemName}!");
             }
 
-            GameManager.Instance.currentSaveData.clearedEventIDs.Add(chestID);
+            // 2. Update UI
+            if (UIManager.Instance != null) UIManager.Instance.UpdateCoinDisplay();
         }
     }
-
     public void ShowPrompt()
     {
         if (!isOpened && interactPrompt != null) interactPrompt.SetActive(true);

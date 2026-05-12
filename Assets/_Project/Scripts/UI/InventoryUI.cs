@@ -33,7 +33,10 @@ public class InventoryUI : MonoBehaviour
     }
 
     private void OnEnable() => controls.Enable();
-    private void OnDisable() => controls.Disable();
+    private void OnDisable()
+{
+    if (controls != null) controls.Disable();
+}
 
     private void Start()
     {
@@ -124,20 +127,18 @@ public class InventoryUI : MonoBehaviour
         if (save.equippedItemIDs == null) save.equippedItemIDs = new System.Collections.Generic.List<string>();
         ItemData[] allGameItems = Resources.LoadAll<ItemData>("Items");
 
-        // Rebuild Bag
+        
         int maxBagSize = 12; 
         for (int i = 0; i < maxBagSize; i++)
         {
             if (i < save.inventoryItemIDs.Count)
             {
-                // We have an item for this slot
-                string itemID = save.inventoryItemIDs[i];
+                string itemID = save.inventoryItemIDs[i]; 
                 ItemData itemData = System.Array.Find(allGameItems, item => item.itemID == itemID);
                 SpawnItemIcon(itemData, slotsContainer);
             }
             else
             {
-                // Empty white box (out of items)
                 SpawnItemIcon(null, slotsContainer);
             }
         }

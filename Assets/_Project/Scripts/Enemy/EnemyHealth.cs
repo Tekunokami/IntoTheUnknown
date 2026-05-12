@@ -50,12 +50,18 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().simulated = false;
 
-        // Enemy death tracked
-        if (GameManager.Instance != null)
+        // Give loot directly to save data
+        if (GameManager.Instance != null && GameManager.Instance.currentSaveData != null)
         {
-            GameManager.Instance.MarkEventCleared(uniqueEnemyID, data.coinValue);
+            // Add coins
+            GameManager.Instance.currentSaveData.coins += data.coinValue;
+            
+            // Remember that this specific enemy is dead
+            if (!GameManager.Instance.currentSaveData.clearedEventIDs.Contains(uniqueEnemyID))
+            {
+                GameManager.Instance.currentSaveData.clearedEventIDs.Add(uniqueEnemyID);
+            }
         }
-
         // Update the UI
         if (UIManager.Instance != null) UIManager.Instance.UpdateCoinDisplay();
 
