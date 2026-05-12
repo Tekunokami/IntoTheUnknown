@@ -18,10 +18,15 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
+        if (string.IsNullOrEmpty(uniqueEnemyID))
+        {
+            Debug.LogError($"<color=red>WAIT!</color> The enemy '{gameObject.name}' is missing a Unique ID! It will not save correctly.");
+        }
+
         if (GameManager.Instance != null && GameManager.Instance.IsEventCleared(uniqueEnemyID))
         {
+            // This enemy is already dead in the save data, so we destroy it 
             Destroy(gameObject);
-            return;
         }
         currentHealth = data.maxHealth;
     }
