@@ -54,7 +54,6 @@ public class Seller : MonoBehaviour, IInteractable
     {
         if (GameManager.Instance == null) return;
          
-        
         SellerData myData = GameManager.Instance.currentSaveData.sellerInventories.Find(v => v.sellerID == sellerID);
         if (myData == null) 
         {
@@ -62,12 +61,22 @@ public class Seller : MonoBehaviour, IInteractable
             return;
         }   
         
-        Debug.Log($"[Shop] Interacting with seller: {sellerID}");
-
-        // Open shop UI with this seller's inventory
-        if (UIManager.Instance != null)
+        if (ShopUI.Instance != null)
         {
-            UIManager.Instance.OpenShop(sellerID);
+            // If the shop UI is currently open, close it and return
+            if (ShopUI.Instance.gameObject.activeInHierarchy)
+            {
+                ShopUI.Instance.CloseShop();
+                return;
+            }
+            
+            // If it's closed, open it
+            Debug.Log($"[Shop] Interacting with seller: {sellerID}");
+            ShopUI.Instance.OpenShop(sellerID);
+        }
+        else
+        {
+            Debug.LogError("[Shop] ShopUI is missing in the scene!");
         }
     }
 

@@ -47,6 +47,10 @@ public class InventoryUI : MonoBehaviour
 
     public void ToggleInventory()
     {   
+        if (ShopUI.Instance != null && ShopUI.Instance.gameObject.activeInHierarchy)
+        {
+            return; // If Shop UI is open, ignore inventory 
+        }
         isInventoryOpen = !isInventoryOpen;
 
         if (animationCoroutine != null) StopCoroutine(animationCoroutine);
