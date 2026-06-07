@@ -5,10 +5,11 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; }
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private GameControls controls; 
-    public PlayerStats baseStats;
     private bool isGrounded;
     private bool isMouseOverUI;
 
@@ -68,6 +69,10 @@ public class PlayerController : MonoBehaviour
     
     void Awake()
     {
+        // With Singleton, we can safely accessGameManager data from PlayerController 
+        if (Instance == null) Instance = this;
+
+        // Initialize components and input system
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
 
@@ -349,49 +354,19 @@ public class PlayerController : MonoBehaviour
 
     private float CalculateDamage()
     {
-        // Get total damage from base stats + equipment bonuses 
-        float damage = GetTotalDamage();
+        float damage = PlayerHealth.Instance.GetTotalAttackDamage();
+        float currentCritChance = PlayerHealth.Instance.GetTotalCritChance(); 
 
-        // The Crit Logic 
-        if (Random.value <= baseStats.critRate)
+        if (Random.value <= currentCritChance)
         {
-            damage *= baseStats.critDamage;
+            damage *= PlayerHealth.Instance.baseStats.critDamage;
             Debug.Log("<color=yellow>CRITICAL HIT!</color> Dealt: " + damage);
         }
 
         return damage;
     }
 
-    private float GetTotalDamage()
-    {
-        // Start with base damage
-        float totalDamage = baseStats.attackDamage; 
 
-        // Make sure we have save data
-        if (GameManager.Instance != null && GameManager.Instance.currentSaveData != null)
-        {
-            // Load all items from ItemData ScriptableObjects
-            ItemData[] allItems = Resources.LoadAll<ItemData>("Items");
-
-            // Loop through equipped item IDs and find corresponding ItemData
-            foreach (string itemID in GameManager.Instance.currentSaveData.equippedItemIDs)
-            {
-                if (string.IsNullOrEmpty(itemID)) continue;
-
-                // Find the specific item matching the ID
-                ItemData foundItem = System.Array.Find(allItems, i => i.itemID == itemID);
-                
-                // If the item exists and equipped
-                if (foundItem != null && foundItem is EquipmentData equipData)
-                {
-                    // Add its bonus damage!
-                    totalDamage += equipData.bonusDamage;
-                }
-            }
-        }
-
-        return totalDamage;
-    }
 
     public void ApplyKnockback(Transform attacker)
     {

@@ -47,40 +47,25 @@ public class UIManager : MonoBehaviour
 
     public void UpdateStatsDisplay()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null) return;
+        // Access player stats from PlayerHealth singleton
+        if (PlayerHealth.Instance == null) return;
 
-        PlayerHealth healthComponent = player.GetComponent<PlayerHealth>();
-        PlayerStats baseStats = healthComponent.baseStats;
+        PlayerStats baseStats = PlayerHealth.Instance.baseStats;
 
-        SaveData save = GameManager.Instance.currentSaveData;
+        float totalMaxHealth = PlayerHealth.Instance.GetTotalMaxHealth();
+        float totalAttack = PlayerHealth.Instance.GetTotalAttackDamage();
+        float totalDefense = PlayerHealth.Instance.GetTotalDefense(); // Uzmandan çekildi
+        float totalCritChance = PlayerHealth.Instance.GetTotalCritChance(); // Uzmandan çekildi
 
-        // Base Stats
-        float totalMaxHealth = baseStats.maxHealth;
-        float totalAttack = baseStats.attackDamage;
-        float totalDefense = baseStats.defense;
 
-        // Add up all bonuses from equipped items
-        ItemData[] allGameItems = Resources.LoadAll<ItemData>("Items");
-        foreach (string equipID in save.equippedItemIDs)
-        {
-            EquipmentData equipData = System.Array.Find(allGameItems, item => item.itemID == equipID) as EquipmentData;
-            if (equipData != null)
-            {
-                totalMaxHealth += equipData.bonusHealth;
-                totalAttack += equipData.bonusDamage;
-            }
-        }
-
-        // Display the Totals
-        healthText.text = $"Health: {healthComponent.currentHealth}/{totalMaxHealth}";
+        // Add bonuses from equipped items
+        healthText.text = $"Health: {PlayerHealth.Instance.currentHealth}/{totalMaxHealth}";
         defenseText.text = $"Defense: {totalDefense}"; 
         attackText.text = $"Attack: {totalAttack}";
 
-        float critPercentage = baseStats.critRate * 100f;
+        float critPercentage = totalCritChance * 100f;
         critText.text = $"Critical Chance: %{critPercentage:F1} (x{baseStats.critDamage})";
     }
-
     public void UpdateCoinDisplay()
     {
         if (coinText != null && GameManager.Instance != null)
@@ -116,45 +101,31 @@ public class UIManager : MonoBehaviour
         {
             SaveData save = GameManager.Instance.currentSaveData;
 
-            // Time format
             System.TimeSpan timePlaying = System.TimeSpan.FromSeconds(save.totalPlayTime);
             string formattedTime = timePlaying.ToString(@"hh\:mm\:ss");
 
-            // Stats
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            float finalMaxHP = 0, finalAttack = 0, finalDefense = 0;
+            // Calculate final stats including equipment bonuses for display on victory screen
+            float finalMaxHP = 0, finalAttack = 0, finalDefense = 0, finalCrit = 0;
 
-            if (player != null && player.TryGetComponent(out PlayerHealth ph))
+            if (PlayerHealth.Instance != null)
             {
-                finalMaxHP = ph.GetTotalMaxHealth();
-                finalAttack = ph.baseStats.attackDamage;
-                finalDefense = ph.baseStats.defense;
-                
-                // Equip bonuses
-                ItemData[] allItems = Resources.LoadAll<ItemData>("Items");
-                foreach (string equipID in save.equippedItemIDs)
-                {
-                    EquipmentData eq = System.Array.Find(allItems, i => i.itemID == equipID) as EquipmentData;
-                    if (eq != null)
-                    {
-                        finalAttack += eq.bonusDamage;
-                    }
-                }
+                finalMaxHP = PlayerHealth.Instance.GetTotalMaxHealth();
+                finalAttack = PlayerHealth.Instance.GetTotalAttackDamage();
+                finalDefense = PlayerHealth.Instance.GetTotalDefense();
+                finalCrit = PlayerHealth.Instance.GetTotalCritChance() * 100f;
             }
 
-            // Final Stats Summary
             if (victoryStatsText != null)
             {
                 victoryStatsText.text = 
-                    $"TOTAL TIME: <color=#FFD700>{formattedTime}</color>\n" +
-                    $"ENEMIES KILLED: <color=#FF4500>{save.enemiesKilledCount}</color>\n" +
-                    $"TOTAL COINS LOOTED: <color=#FFFF00>{save.totalCoinsLooted}</color>\n" +
-                    $"TOTAL DAMAGE TAKEN: <color=#FF0000>{save.totalDamageTaken}</color>\n\n" +
+                    $"Total Time Spent: <color=#FFD700>{formattedTime}</color>\n" +
+                    $"Enemies Killed: <color=#FF4500>{save.enemiesKilledCount}</color>\n" +
+                    $"Total Coins Looted: <color=#FFFF00>{save.totalCoinsLooted}</color>\n" +
+                    $"Total Damage Taken: <color=#FF0000>{save.totalDamageTaken}</color>\n\n" +
                     $"-- FINAL STATS --\n" +
-                    $"Max HP: {finalMaxHP} | Attack: {finalAttack} | Defense: {finalDefense}";
+                    $"Max HP: {finalMaxHP} | Attack: {finalAttack} | Defense: {finalDefense} | Crit: %{finalCrit:F1}";
             }
 
-            // Final Equipment List
             if (victoryEquipText != null)
             {
                 string equipString = "EQUIPPED ITEMS:\n";
@@ -164,10 +135,10 @@ public class UIManager : MonoBehaviour
                 }
                 else
                 {
-                    ItemData[] allGameItems = Resources.LoadAll<ItemData>("Items");
+                    // List equipped items by name and type
                     foreach (string itemID in save.equippedItemIDs)
                     {
-                        ItemData item = System.Array.Find(allGameItems, i => i.itemID == itemID);
+                        ItemData item = GameManager.Instance.GetItemByID(itemID);
                         if (item != null)
                         {
                             equipString += $"- {item.itemName} ({item.itemType})\n";
@@ -177,7 +148,6 @@ public class UIManager : MonoBehaviour
                 victoryEquipText.text = equipString;
             }
 
-            //  Prevent player from moving
             Time.timeScale = 0f; 
         }
     }

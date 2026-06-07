@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [Header("Current Game State")]
     public SaveData currentSaveData;
 
+    // Temporary in-memory database for item information
+    private Dictionary<string, ItemData> itemDatabase = new Dictionary<string, ItemData>();
 
     void Awake()
     {   
@@ -17,18 +19,57 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             currentSaveData = new SaveData();
+
+            LoadItemDatabase(); //Load item data from database
         }
         else Destroy(gameObject);
     }
+
+
+    // ---Item Database Methods---
+    private void LoadItemDatabase()
+    {
+        ItemData[] allItems = Resources.LoadAll<ItemData>("Items");
+        foreach (ItemData item in allItems)
+        {
+            if (!itemDatabase.ContainsKey(item.itemID))
+            {
+                itemDatabase.Add(item.itemID, item);
+            }
+        }
+        Debug.Log($"[Database] Successfully loaded {itemDatabase.Count} items into memory.");
+    }
+    
+    // Retrieves item data by ID
+    public ItemData GetItemByID(string id)
+    {
+        if (string.IsNullOrEmpty(id)) return null;
+        
+        if (itemDatabase.TryGetValue(id, out ItemData item))
+        {
+            return item;
+        }
+        
+        Debug.LogWarning($"[Database] '{id}' item not found!");
+        return null;
+    }
+
+
+    // Lists all items in the database
+    public List<ItemData> GetAllItems()
+    {
+        return new List<ItemData>(itemDatabase.Values);
+    }
+
+
     void Update()
     {
         if (currentSaveData != null)
         {
-            // Increment total play time every frame
             currentSaveData.totalPlayTime += Time.deltaTime;
         }
     }
-
+    
     public void StartNewGame(int saveNumber)
     {
         SaveManager.LoadFromNumber(saveNumber);
@@ -51,6 +92,8 @@ public class GameManager : MonoBehaviour
     {
         SaveManager.Save(currentSaveData);
     }
+
+
 
     // ---Enemy and Event Tracking Methods---
 

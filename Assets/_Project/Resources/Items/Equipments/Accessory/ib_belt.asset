@@ -22,3 +22,5 @@ MonoBehaviour:
   equipSlot: 3
   bonusHealth: 5
   bonusDamage: 10
+  bonusDefense: 5
+  bonusCritChance: 5

@@ -11,7 +11,8 @@ public class EquipmentData : ItemData
     [Header("Stat Bonuses")]
     public float bonusHealth;
     public float bonusDamage;
-    //TODO:Add more stats here later like critChance
+    public float bonusDefense; 
+    public float bonusCritChance;
 
     private void Awake()
     {

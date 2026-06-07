@@ -125,16 +125,14 @@ public class InventoryUI : MonoBehaviour
         // For safety, prevent crash if lists are null
         if (save.inventoryItemIDs == null) save.inventoryItemIDs = new System.Collections.Generic.List<string>();
         if (save.equippedItemIDs == null) save.equippedItemIDs = new System.Collections.Generic.List<string>();
-        ItemData[] allGameItems = Resources.LoadAll<ItemData>("Items");
-
-        
+             
         int maxBagSize = 12; 
         for (int i = 0; i < maxBagSize; i++)
         {
             if (i < save.inventoryItemIDs.Count)
             {
                 string itemID = save.inventoryItemIDs[i]; 
-                ItemData itemData = System.Array.Find(allGameItems, item => item.itemID == itemID);
+                ItemData itemData = GameManager.Instance.GetItemByID(itemID);
                 SpawnItemIcon(itemData, slotsContainer);
             }
             else
@@ -147,7 +145,7 @@ public class InventoryUI : MonoBehaviour
         foreach (string equipID in save.equippedItemIDs)
         {
             if (string.IsNullOrEmpty(equipID)) continue;
-            EquipmentData equipData = System.Array.Find(allGameItems, item => item.itemID == equipID) as EquipmentData;
+            EquipmentData equipData = GameManager.Instance.GetItemByID(equipID) as EquipmentData;
             
             if (equipData != null)
             {

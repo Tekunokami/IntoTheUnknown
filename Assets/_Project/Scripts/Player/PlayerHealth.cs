@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public Animator animator;
     public PlayerController playerController;
 
+    public static PlayerHealth Instance { get; private set; }
+
     [Header("State")]
     public float currentHealth;
     private bool isDead = false;
@@ -26,13 +28,18 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    void Awake()
+    {
+        if (Instance == null) Instance = this;
+    }
+
     public void TakeDamage(float amount, Transform attacker = null)
     {
         // Ignore damage if dead or invincible
         if (isDead || isInvincible) return;
 
         // apply defense and ensure at least 1 damage is taken
-        float actualDamage = Mathf.Max(amount - baseStats.defense, 1f);
+        float actualDamage = Mathf.Max(amount - GetTotalDefense(), 1f);
         
         // Update total damage taken in save data for stats tracking
         if (GameManager.Instance != null && GameManager.Instance.currentSaveData != null)
@@ -69,11 +76,11 @@ public class PlayerHealth : MonoBehaviour
         
         if (GameManager.Instance != null && GameManager.Instance.currentSaveData != null)
         {
-            ItemData[] allGameItems = Resources.LoadAll<ItemData>("Items");
             foreach (string equipID in GameManager.Instance.currentSaveData.equippedItemIDs)
-            {
-                EquipmentData equipData = System.Array.Find(allGameItems, item => item.itemID == equipID) as EquipmentData;
-                if (equipData != null)
+            {   
+                // Look for item data of each equipped items health bonus and add it 
+                ItemData item = GameManager.Instance.GetItemByID(equipID);
+                if (item != null && item is EquipmentData equipData)
                 {
                     totalMaxHealth += equipData.bonusHealth;
                 }
@@ -81,12 +88,66 @@ public class PlayerHealth : MonoBehaviour
         }
         return totalMaxHealth;
     }
+
     private IEnumerator InvincibilityFrames() // Makes the player temporarily invincible after taking damage
     {
         isInvincible = true;
                 
         yield return new WaitForSeconds(invincibilityDuration);
         isInvincible = false;
+    }
+    public float GetTotalAttackDamage()
+    {
+        float totalDamage = baseStats.attackDamage; 
+
+        if (GameManager.Instance != null && GameManager.Instance.currentSaveData != null)
+        {
+            foreach (string equipID in GameManager.Instance.currentSaveData.equippedItemIDs)
+            {
+                ItemData item = GameManager.Instance.GetItemByID(equipID);
+                if (item != null && item is EquipmentData equipData)
+                {
+                    totalDamage += equipData.bonusDamage;
+                }
+            }
+        }
+        return totalDamage;
+    }
+
+    public float GetTotalDefense()
+    {
+        float totalDefense = baseStats.defense; 
+
+        if (GameManager.Instance != null && GameManager.Instance.currentSaveData != null)
+        {
+            foreach (string equipID in GameManager.Instance.currentSaveData.equippedItemIDs)
+            {
+                ItemData item = GameManager.Instance.GetItemByID(equipID);
+                if (item != null && item is EquipmentData equipData)
+                {
+                    totalDefense += equipData.bonusDefense;
+                }
+            }
+        }
+        return totalDefense;
+    }
+
+    public float GetTotalCritChance()
+    {
+        float totalCrit = baseStats.critRate; 
+
+        if (GameManager.Instance != null && GameManager.Instance.currentSaveData != null)
+        {
+            foreach (string equipID in GameManager.Instance.currentSaveData.equippedItemIDs)
+            {
+                ItemData item = GameManager.Instance.GetItemByID(equipID);
+                if (item != null && item is EquipmentData equipData)
+                {
+                    totalCrit += equipData.bonusCritChance;
+                }
+            }
+        }
+        return totalCrit;
     }
 
     void Die()
@@ -105,7 +166,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.LogError("PlayerHealth: No Animator found for death animation!");
         }
 
-        // Disable physical body so enemies don't keep hitting player
+        // Prevent enemies from hitting player
         if (TryGetComponent(out Collider2D coll)) coll.enabled = false;
         if (TryGetComponent(out Rigidbody2D rb)) rb.simulated = false;
 
@@ -116,7 +177,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void UpdateUI()
     {
-        // Helper function to keep code clean
         if(UIManager.Instance != null)
         {
             UIManager.Instance.UpdateHealth(currentHealth, GetTotalMaxHealth());

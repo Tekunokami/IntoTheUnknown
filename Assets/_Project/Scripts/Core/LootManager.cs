@@ -23,7 +23,9 @@ public class LootManager : MonoBehaviour
     // At the start of the game, load all items and categorize them
     private void InitializeLootPools()
     {
-        ItemData[] allItems = Resources.LoadAll<ItemData>("Items");
+        // Access all items from the GameManager's item database
+        List<ItemData> allItems = GameManager.Instance.GetAllItems();
+        
         foreach (var item in allItems)
         {
             if (item.rarity == ItemRarity.Poor) poorItems.Add(item);

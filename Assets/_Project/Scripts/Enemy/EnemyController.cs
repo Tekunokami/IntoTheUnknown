@@ -39,8 +39,10 @@ public class EnemyController : MonoBehaviour
             Debug.LogError("EnemyCombat script is MISSING on " + gameObject.name + "!");
         }
 
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null) player = playerObj.transform;
+        if (PlayerController.Instance != null)
+        {
+            player = PlayerController.Instance.transform;
+        }
     }
 
     void Update()
