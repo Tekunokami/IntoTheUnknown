@@ -10,8 +10,6 @@ public class Seller : MonoBehaviour, IInteractable
     [Header("References")]
     public GameObject interactPrompt;
 
-    private bool isPlayerInRange = false;
-
     private void Start()
     {
         if (interactPrompt != null) interactPrompt.SetActive(false);
@@ -88,15 +86,5 @@ public class Seller : MonoBehaviour, IInteractable
     public void HidePrompt()
     {
         if (interactPrompt != null) interactPrompt.SetActive(false);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player")) isPlayerInRange = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player")) isPlayerInRange = false;
     }
 }

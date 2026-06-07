@@ -41,7 +41,7 @@ public class ShopUI : MonoBehaviour
     {
         currentSellerID = sellerID;
         gameObject.SetActive(true);
-        infoPanel.SetActive(false); // Başlangıçta detay paneli kapalı
+        infoPanel.SetActive(false); // At first, hide panel
         selectedSlot = null;
         Time.timeScale = 0f;
         
@@ -59,7 +59,7 @@ public class ShopUI : MonoBehaviour
         if (GameManager.Instance == null) return;
         SaveData save = GameManager.Instance.currentSaveData;
 
-        // 1. SATICININ RAFLARI (Sabit 4 Slot)
+        // Sellers slots
         SellerData seller = save.sellerInventories.Find(s => s.sellerID == currentSellerID);
         for (int i = 0; i < sellerSlots.Length; i++)
         {
@@ -74,7 +74,7 @@ public class ShopUI : MonoBehaviour
             }
         }
 
-        // 2. OYUNCUNUN ÇANTASI (Sabit 16 Slot)
+        // Player slots
         for (int i = 0; i < playerSlots.Length; i++)
         {
             if (i < save.inventoryItemIDs.Count)
@@ -89,7 +89,7 @@ public class ShopUI : MonoBehaviour
         }
     }
 
-    // Herhangi bir ShopSlot'a tıklandığında bu çalışır
+    // When a ShopSlot is selected, based on equipment type, show stats and enable buy/sell button
     public void SelectItem(ShopSlot slot)
     {
         selectedSlot = slot;
@@ -109,14 +109,14 @@ public class ShopUI : MonoBehaviour
         }
         infoStats.text = statsStr;
 
-        // SATIYOR MUYUZ ALIYOR MUYUZ?
+        // Buy or sell logic
         if (slot.isOwnedByPlayer)
         {
-            int sellPrice = Mathf.RoundToInt(item.coinValue * 0.5f); // Yarı fiyatına satış
+            int sellPrice = Mathf.RoundToInt(item.coinValue * 0.5f); // 50% price for selling
             infoPrice.text = "Sell for: " + sellPrice + "G";
             
             actionButtonText.text = "SELL";
-            actionButton.interactable = true; // Kendi eşyanı her zaman satabilirsin
+            actionButton.interactable = true; // You can always sell an item you own
         }
         else
         {
@@ -128,7 +128,7 @@ public class ShopUI : MonoBehaviour
         }
     }
 
-    // Action_Button (Ortadaki paneldeki buton) tıklandığında çalışır
+    // Executed when clicked on Action_Button 
     public void ExecuteTransaction()
     {
         if (selectedSlot == null || selectedSlot.currentItem == null) return;
@@ -136,14 +136,14 @@ public class ShopUI : MonoBehaviour
         SaveData save = GameManager.Instance.currentSaveData;
         ItemData item = selectedSlot.currentItem;
 
-        if (selectedSlot.isOwnedByPlayer) // SATIŞ İŞLEMİ
+        if (selectedSlot.isOwnedByPlayer) // Sell Process
         {
             int sellPrice = Mathf.RoundToInt(item.coinValue * 0.5f);
             save.coins += sellPrice;
             save.inventoryItemIDs.Remove(item.itemID);
             Debug.Log($"Sold {item.itemName} for {sellPrice}G");
         }
-        else // SATIN ALMA İŞLEMİ
+        else // Buy Process
         {
             if (save.coins >= item.coinValue)
             {
@@ -157,7 +157,7 @@ public class ShopUI : MonoBehaviour
             }
         }
 
-        // UI'ı yenile
+        // Refresh UI and coin display after transaction
         if (UIManager.Instance != null) UIManager.Instance.UpdateCoinDisplay();
         infoPanel.SetActive(false); 
         selectedSlot = null;
