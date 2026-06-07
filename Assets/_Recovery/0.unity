@@ -7105,7 +7105,6 @@ MonoBehaviour:
     chestBadLuckCounter: 0
     chestGoodLuckCounter: 0
     clearedEventIDs: []
-    sellerInventories: []
 --- !u!4 &2098319681
 Transform:
   m_ObjectHideFlags: 0

@@ -6,5 +6,6 @@ public class RoomData : ScriptableObject
     [Header("Room Info")]
     public string roomID;
     public GameObject roomPrefab;
+    public RoomType roomType;
 
 }

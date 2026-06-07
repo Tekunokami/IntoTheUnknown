@@ -17,6 +17,7 @@ MonoBehaviour:
   description: 
   icon: {fileID: 8232441783650044048, guid: 5055e77355713874b8a335d0ff43a454, type: 3}
   itemType: 0
+  rarity: 1
   coinValue: 15
   equipSlot: 1
   bonusHealth: 10

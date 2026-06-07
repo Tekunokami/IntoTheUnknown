@@ -1,10 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
+public enum RoomType { Corridor, Combat, Shop, Boss }
 public class DoorTransition : MonoBehaviour
 {
     [Header("Destination Settings")]
-    public string targetRoomID; 
+    public RoomData destinationRoom;
     public string targetSpawnPointName; 
+    
+    [Header("Room Type Settings")]
+    public RoomType targetRoomType;
+    public int requiredCoinsForShop = 50;
+
+    [Header("End Game Settings")]
+    [Tooltip("Final door that leads to victory screen.")]
+    public bool isVictoryDoor = false;
 
     private bool isPlayerInRange = false;
     private GameControls controls;
@@ -19,13 +29,45 @@ public class DoorTransition : MonoBehaviour
     private void OnInteractPerformed()
     {
         // Only trigger if the player is in range of the door and presses the interaction key.
-        if (isPlayerInRange)
+        if (isPlayerInRange && destinationRoom != null)
         {
-            RoomManager.Instance.ChangeRoom(targetRoomID, targetSpawnPointName);
+            if (isVictoryDoor)
+            {
+                Debug.Log("<color=green>Game End! Victory Screen is being called...</color>");
+                if (UIManager.Instance != null) UIManager.Instance.ShowVictoryScreen();
+                
+                isPlayerInRange = false;
+                return; // Prevent further execution since we're showing the victory screen
+            }
+
+            // Room type checks before allowing transition
+            if (destinationRoom.roomType == RoomType.Shop && GameManager.Instance.currentSaveData.coins < requiredCoinsForShop)
+            {
+                Debug.Log($"Door is locked! You need at least {requiredCoinsForShop} coins to enter.");
+                // TODO: Not enough coins message
+                return; 
+            }
+
+            // If it's a combat or boss room, when entered its considered as cleared
+            if (destinationRoom.roomType == RoomType.Combat || destinationRoom.roomType == RoomType.Boss)
+            {
+                if (!GameManager.Instance.currentSaveData.clearedEventIDs.Contains(destinationRoom.roomID))
+            {
+                    // New room, increase difficulty
+                    GameManager.Instance.currentSaveData.roomsClearedCount++;
+                   
+                   // Mark this as cleared
+                    GameManager.Instance.currentSaveData.clearedEventIDs.Add(destinationRoom.roomID);
+                    
+                    Debug.Log($"First time entering {destinationRoom.roomID}. Difficulty increased!");
+                }
+            }
+
+            RoomManager.Instance.ChangeRoom(destinationRoom.roomID, targetSpawnPointName);
             
-            Debug.Log($"[Door] {targetRoomID} Room Changed!");
+            Debug.Log($"[Door] Changed to {destinationRoom.roomID}! Type: {destinationRoom.roomType}");
             
-            isPlayerInRange = false; // To prevent multiple triggers (spamming)
+            isPlayerInRange = false;
         }
     }
 

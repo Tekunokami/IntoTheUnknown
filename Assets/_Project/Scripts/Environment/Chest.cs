@@ -9,7 +9,9 @@ public class Chest : MonoBehaviour, IInteractable
     
     [Header("Loot Settings")]
     public int coinDropAmount;
-    public List<ItemData> itemDrops; 
+
+    [Tooltip("Number of items to drop")]
+    public int numberOfItemsToDrop = 3;
 
     [Header("References")]
     public GameObject interactPrompt; 
@@ -39,17 +41,36 @@ public class Chest : MonoBehaviour, IInteractable
         if (animator != null) animator.SetTrigger("Open");
 
         if (GameManager.Instance != null)
-        {
+        {   
+            int progress = GameManager.Instance.currentSaveData.roomsClearedCount;
+
+            //Formula for scaling coin drops:
+            float coinMultiplier = 1f + (progress * 0.15f);
+            int finalCoins = Mathf.RoundToInt(coinDropAmount * coinMultiplier);
+
             // Give loot directly to save data
-            GameManager.Instance.currentSaveData.coins += coinDropAmount;
+            GameManager.Instance.currentSaveData.coins += finalCoins;
+            GameManager.Instance.currentSaveData.totalCoinsLooted += finalCoins;
             GameManager.Instance.currentSaveData.clearedEventIDs.Add(chestID);
 
-            foreach (ItemData item in itemDrops)
+            if (LootManager.Instance != null)
             {
-                GameManager.Instance.currentSaveData.inventoryItemIDs.Add(item.itemID);
+                List<ItemData> randomLoot = LootManager.Instance.GenerateChestLoot(numberOfItemsToDrop);
+                
+                foreach (ItemData item in randomLoot)
+                {
+                    if (item != null)
+                    {
+                        GameManager.Instance.currentSaveData.inventoryItemIDs.Add(item.itemID);
+                        Debug.Log($"<color=#FFD700>RNG Loot Output: {item.itemName} (Rarity: {item.rarity})</color>");
+                    }
+                }
+            }
+            else
+            {
+                Debug.LogError("hest couldn't find LootManager!");
             }
 
-            // 2. Update UI
             if (UIManager.Instance != null) UIManager.Instance.UpdateCoinDisplay();
         }
     }

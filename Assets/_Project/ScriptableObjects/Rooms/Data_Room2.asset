@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomData
   roomID: room_2
   roomPrefab: {fileID: 4173401069868308753, guid: 4581dd3799a21f44cbb536e70818bf41, type: 3}
+  roomType: 1

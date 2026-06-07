@@ -67,8 +67,24 @@ public class Checkpoint : MonoBehaviour
             GameManager.Instance.currentSaveData.currentRoomID = roomID;
             GameManager.Instance.currentSaveData.currentSpawnPointName = spawnPointName;
             
-            // Heal the player
-            GameManager.Instance.currentSaveData.playerHealth = 100f; 
+            PlayerHealth player = FindFirstObjectByType<PlayerHealth>();
+            if (player != null && player.baseStats != null)
+            {
+                float actualMaxHealth = player.GetTotalMaxHealth(); 
+
+                player.currentHealth = actualMaxHealth;
+                GameManager.Instance.currentSaveData.playerHealth = actualMaxHealth;
+                
+                if (UIManager.Instance != null)
+                {
+                    UIManager.Instance.UpdateHealth(player.currentHealth, actualMaxHealth);
+                }
+            }
+            else
+            {
+                // Safety fallback
+                GameManager.Instance.currentSaveData.playerHealth = 100f; 
+            }
 
             // Save to active slot
             GameManager.Instance.SaveGame();

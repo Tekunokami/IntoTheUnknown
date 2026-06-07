@@ -18,6 +18,16 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI defenseText; 
     public TextMeshProUGUI critText;  
     public TextMeshProUGUI attackText;
+
+    [Header("Death Screen UI References")]
+    public GameObject deathPanel;
+    public TMPro.TextMeshProUGUI deathMessageText;
+    public TMPro.TextMeshProUGUI statsText;
+
+    [Header("Victory Screen UI")]
+    public GameObject victoryPanel;
+    public TMPro.TextMeshProUGUI victoryStatsText; 
+    public TMPro.TextMeshProUGUI victoryEquipText;
     
     private void Awake()
     {
@@ -37,40 +47,25 @@ public class UIManager : MonoBehaviour
 
     public void UpdateStatsDisplay()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null) return;
+        // Access player stats from PlayerHealth singleton
+        if (PlayerHealth.Instance == null) return;
 
-        PlayerHealth healthComponent = player.GetComponent<PlayerHealth>();
-        PlayerStats baseStats = healthComponent.baseStats;
+        PlayerStats baseStats = PlayerHealth.Instance.baseStats;
 
-        SaveData save = GameManager.Instance.currentSaveData;
+        float totalMaxHealth = PlayerHealth.Instance.GetTotalMaxHealth();
+        float totalAttack = PlayerHealth.Instance.GetTotalAttackDamage();
+        float totalDefense = PlayerHealth.Instance.GetTotalDefense(); // Uzmandan çekildi
+        float totalCritChance = PlayerHealth.Instance.GetTotalCritChance(); // Uzmandan çekildi
 
-        // Base Stats
-        float totalMaxHealth = baseStats.maxHealth;
-        float totalAttack = baseStats.attackDamage;
-        float totalDefense = baseStats.defense;
 
-        // Add up all bonuses from equipped items
-        ItemData[] allGameItems = Resources.LoadAll<ItemData>("Items");
-        foreach (string equipID in save.equippedItemIDs)
-        {
-            EquipmentData equipData = System.Array.Find(allGameItems, item => item.itemID == equipID) as EquipmentData;
-            if (equipData != null)
-            {
-                totalMaxHealth += equipData.bonusHealth;
-                totalAttack += equipData.bonusDamage;
-            }
-        }
-
-        // Display the Totals
-        healthText.text = $"Health: {healthComponent.currentHealth}/{totalMaxHealth}";
+        // Add bonuses from equipped items
+        healthText.text = $"Health: {PlayerHealth.Instance.currentHealth}/{totalMaxHealth}";
         defenseText.text = $"Defense: {totalDefense}"; 
         attackText.text = $"Attack: {totalAttack}";
 
-        float critPercentage = baseStats.critRate * 100f;
+        float critPercentage = totalCritChance * 100f;
         critText.text = $"Critical Chance: %{critPercentage:F1} (x{baseStats.critDamage})";
     }
-
     public void UpdateCoinDisplay()
     {
         if (coinText != null && GameManager.Instance != null)
@@ -81,10 +76,87 @@ public class UIManager : MonoBehaviour
 
     public void ShowDeathScreen(string message)
     {
-        if (deathScreenPanel != null && deathScreenText != null)
+        if (deathPanel != null) deathPanel.SetActive(true);
+        if (deathMessageText != null) deathMessageText.text = message;
+
+        if (GameManager.Instance != null && statsText != null)
         {
-            deathScreenPanel.SetActive(true);
-            deathScreenText.text = message;
+            SaveData save = GameManager.Instance.currentSaveData;
+
+           // Format total play time into hrs:min:sec
+            System.TimeSpan timePlaying = System.TimeSpan.FromSeconds(save.totalPlayTime);
+            string formattedTime = timePlaying.ToString(@"hh\:mm\:ss");
+
+            statsText.text = $"Total Play Time: {formattedTime}\n" +
+                             $"Rooms Cleared: {save.roomsClearedCount}\n" +
+                             $"Enemies Killed: {save.enemiesKilledCount}";
         }
     }
+
+    public void ShowVictoryScreen()
+    {
+        if (victoryPanel != null) victoryPanel.SetActive(true);
+
+        if (GameManager.Instance != null)
+        {
+            SaveData save = GameManager.Instance.currentSaveData;
+
+            System.TimeSpan timePlaying = System.TimeSpan.FromSeconds(save.totalPlayTime);
+            string formattedTime = timePlaying.ToString(@"hh\:mm\:ss");
+
+            // Calculate final stats including equipment bonuses for display on victory screen
+            float finalMaxHP = 0, finalAttack = 0, finalDefense = 0, finalCrit = 0;
+
+            if (PlayerHealth.Instance != null)
+            {
+                finalMaxHP = PlayerHealth.Instance.GetTotalMaxHealth();
+                finalAttack = PlayerHealth.Instance.GetTotalAttackDamage();
+                finalDefense = PlayerHealth.Instance.GetTotalDefense();
+                finalCrit = PlayerHealth.Instance.GetTotalCritChance() * 100f;
+            }
+
+            if (victoryStatsText != null)
+            {
+                victoryStatsText.text = 
+                    $"Total Time Spent: <color=#FFD700>{formattedTime}</color>\n" +
+                    $"Enemies Killed: <color=#FF4500>{save.enemiesKilledCount}</color>\n" +
+                    $"Total Coins Looted: <color=#FFFF00>{save.totalCoinsLooted}</color>\n" +
+                    $"Total Damage Taken: <color=#FF0000>{save.totalDamageTaken}</color>\n\n" +
+                    $"-- FINAL STATS --\n" +
+                    $"Max HP: {finalMaxHP} | Attack: {finalAttack} | Defense: {finalDefense} | Crit: %{finalCrit:F1}";
+            }
+
+            if (victoryEquipText != null)
+            {
+                string equipString = "EQUIPPED ITEMS:\n";
+                if (save.equippedItemIDs.Count == 0)
+                {
+                    equipString += "<color=grey>No Equipment Used (Challenge Run!)</color>";
+                }
+                else
+                {
+                    // List equipped items by name and type
+                    foreach (string itemID in save.equippedItemIDs)
+                    {
+                        ItemData item = GameManager.Instance.GetItemByID(itemID);
+                        if (item != null)
+                        {
+                            equipString += $"- {item.itemName} ({item.itemType})\n";
+                        }
+                    }
+                }
+                victoryEquipText.text = equipString;
+            }
+
+            Time.timeScale = 0f; 
+        }
+    }
+
+
+
+    
+
+    
+
+  
 }

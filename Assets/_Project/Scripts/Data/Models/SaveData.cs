@@ -9,17 +9,32 @@ public class SaveData
     public string lastRoomID;
     public string currentSpawnPointName;
 
-    // player stats and inventory
+    // player stats
     public float playerHealth;
     public int coins;
+    // player inventory and equipment
     public List<string> inventoryItemIDs = new List<string>(); // A list of itemIDs that are in player's bag
     public List<EquipSlot> equippedSlots = new List<EquipSlot>();
     public List<string> equippedItemIDs = new List<string>();
     public List<string> activeConsumableIDs = new List<string>();
     public List<int> activeConsumableDurations = new List<int>();
 
+    // progress tracking
+    public int roomsClearedCount;     
+    public int enemiesKilledCount;    
+    public float totalPlayTime;
+    public float totalDamageTaken; 
+    public int totalCoinsLooted;
+
+    // Luck counters for chest drops
+    public int chestBadLuckCounter; 
+    public int chestGoodLuckCounter;
+
     // World state info to save (which rooms/events have been cleared)
     public List<string> clearedEventIDs; 
+
+    //Sellers and their inventories
+    public List<SellerData> sellerInventories = new List<SellerData>();
 
     public SaveData()
     {
@@ -36,7 +51,21 @@ public class SaveData
         equippedItemIDs = new List<string>();
         activeConsumableIDs = new List<string>();
         activeConsumableDurations = new List<int>();
+
+        roomsClearedCount = 0;
+        enemiesKilledCount = 0;
+        totalPlayTime = 0f;
+        totalDamageTaken = 0f;
+        totalCoinsLooted = 0;
+        
         clearedEventIDs = new List<string>(); // Initially no cleared events
         
     }
+}
+
+[System.Serializable]
+public class SellerData
+{
+    public string sellerID;
+    public System.Collections.Generic.List<string> availableItemIDs = new System.Collections.Generic.List<string>();
 }

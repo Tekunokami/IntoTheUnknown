@@ -309,8 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Chest
   chestID: Chest_1
   coinDropAmount: 10
-  itemDrops:
-  - {fileID: 11400000, guid: 2ce4b3ea607cf0b4f8cbbded26c91ea6, type: 2}
+  numberOfItemsToDrop: 1
   interactPrompt: {fileID: 99527914754138161}
   animator: {fileID: 4875560983513654127}
 --- !u!61 &601298293502620260

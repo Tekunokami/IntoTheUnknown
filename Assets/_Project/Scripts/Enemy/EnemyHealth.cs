@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
     public Animator animator;
     private float currentHealth;
     private bool isDead = false;
+    private int scaledCoinValue;
 
     [Header("Unique Enemy ID")]
     [Tooltip("Right-click this script in the inspector and select 'Generate ID'")]
@@ -28,7 +29,17 @@ public class EnemyHealth : MonoBehaviour
             // This enemy is already dead in the save data, so we destroy it 
             Destroy(gameObject);
         }
-        currentHealth = data.maxHealth;
+
+        int progress = 0;
+        if (GameManager.Instance != null && GameManager.Instance.currentSaveData != null)
+        {
+            progress = GameManager.Instance.currentSaveData.roomsClearedCount;
+        }
+
+        float hpMultiplier = 1f + (progress * 0.10f);
+        currentHealth = data.maxHealth * hpMultiplier;
+        
+        scaledCoinValue = Mathf.RoundToInt(data.coinValue * (1f + (progress * 0.05f)));
     }
     public void TakeDamage(float damage)
     {
@@ -54,22 +65,27 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<EnemyController>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().simulated = false;
-
-        // Give loot directly to save data
+        
         if (GameManager.Instance != null && GameManager.Instance.currentSaveData != null)
         {
-            // Add coins
-            GameManager.Instance.currentSaveData.coins += data.coinValue;
+            // Dynamically scale coin rewards and track stats based on player progress
+            int progress = GameManager.Instance.currentSaveData.roomsClearedCount;
+            int finalCoinValue = Mathf.RoundToInt(data.coinValue * (1f + (progress * 0.05f)));
             
-            // Remember that this specific enemy is dead
+            GameManager.Instance.currentSaveData.coins += finalCoinValue;
+
+            GameManager.Instance.currentSaveData.totalCoinsLooted += finalCoinValue;
+
+            GameManager.Instance.currentSaveData.enemiesKilledCount++;
+            
             if (!GameManager.Instance.currentSaveData.clearedEventIDs.Contains(uniqueEnemyID))
             {
                 GameManager.Instance.currentSaveData.clearedEventIDs.Add(uniqueEnemyID);
             }
-        }
-        // Update the UI
-        if (UIManager.Instance != null) UIManager.Instance.UpdateCoinDisplay();
 
+            if (UIManager.Instance != null) UIManager.Instance.UpdateCoinDisplay();
         Destroy(gameObject, 3f);
+        }
+    
     }
 }
