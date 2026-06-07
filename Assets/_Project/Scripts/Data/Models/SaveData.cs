@@ -23,6 +23,8 @@ public class SaveData
     public int roomsClearedCount;     
     public int enemiesKilledCount;    
     public float totalPlayTime;
+    public float totalDamageTaken; 
+    public int totalCoinsLooted;
 
     // Luck counters for chest drops
     public int chestBadLuckCounter; 
@@ -46,9 +48,13 @@ public class SaveData
         equippedItemIDs = new List<string>();
         activeConsumableIDs = new List<string>();
         activeConsumableDurations = new List<int>();
+
         roomsClearedCount = 0;
         enemiesKilledCount = 0;
         totalPlayTime = 0f;
+        totalDamageTaken = 0f;
+        totalCoinsLooted = 0;
+        
         clearedEventIDs = new List<string>(); // Initially no cleared events
         
     }

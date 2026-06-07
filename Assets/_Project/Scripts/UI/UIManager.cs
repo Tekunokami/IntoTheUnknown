@@ -23,6 +23,11 @@ public class UIManager : MonoBehaviour
     public GameObject deathPanel;
     public TMPro.TextMeshProUGUI deathMessageText;
     public TMPro.TextMeshProUGUI statsText;
+
+    [Header("Victory Screen UI")]
+    public GameObject victoryPanel;
+    public TMPro.TextMeshProUGUI victoryStatsText; 
+    public TMPro.TextMeshProUGUI victoryEquipText;
     
     private void Awake()
     {
@@ -100,6 +105,80 @@ public class UIManager : MonoBehaviour
             statsText.text = $"Total Play Time: {formattedTime}\n" +
                              $"Rooms Cleared: {save.roomsClearedCount}\n" +
                              $"Enemies Killed: {save.enemiesKilledCount}";
+        }
+    }
+
+    public void ShowVictoryScreen()
+    {
+        if (victoryPanel != null) victoryPanel.SetActive(true);
+
+        if (GameManager.Instance != null)
+        {
+            SaveData save = GameManager.Instance.currentSaveData;
+
+            // Time format
+            System.TimeSpan timePlaying = System.TimeSpan.FromSeconds(save.totalPlayTime);
+            string formattedTime = timePlaying.ToString(@"hh\:mm\:ss");
+
+            // Stats
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            float finalMaxHP = 0, finalAttack = 0, finalDefense = 0;
+
+            if (player != null && player.TryGetComponent(out PlayerHealth ph))
+            {
+                finalMaxHP = ph.GetTotalMaxHealth();
+                finalAttack = ph.baseStats.attackDamage;
+                finalDefense = ph.baseStats.defense;
+                
+                // Equip bonuses
+                ItemData[] allItems = Resources.LoadAll<ItemData>("Items");
+                foreach (string equipID in save.equippedItemIDs)
+                {
+                    EquipmentData eq = System.Array.Find(allItems, i => i.itemID == equipID) as EquipmentData;
+                    if (eq != null)
+                    {
+                        finalAttack += eq.bonusDamage;
+                    }
+                }
+            }
+
+            // Final Stats Summary
+            if (victoryStatsText != null)
+            {
+                victoryStatsText.text = 
+                    $"TOTAL TIME: <color=#FFD700>{formattedTime}</color>\n" +
+                    $"ENEMIES KILLED: <color=#FF4500>{save.enemiesKilledCount}</color>\n" +
+                    $"TOTAL COINS LOOTED: <color=#FFFF00>{save.totalCoinsLooted}</color>\n" +
+                    $"TOTAL DAMAGE TAKEN: <color=#FF0000>{save.totalDamageTaken}</color>\n\n" +
+                    $"-- FINAL STATS --\n" +
+                    $"Max HP: {finalMaxHP} | Attack: {finalAttack} | Defense: {finalDefense}";
+            }
+
+            // Final Equipment List
+            if (victoryEquipText != null)
+            {
+                string equipString = "EQUIPPED ITEMS:\n";
+                if (save.equippedItemIDs.Count == 0)
+                {
+                    equipString += "<color=grey>No Equipment Used (Challenge Run!)</color>";
+                }
+                else
+                {
+                    ItemData[] allGameItems = Resources.LoadAll<ItemData>("Items");
+                    foreach (string itemID in save.equippedItemIDs)
+                    {
+                        ItemData item = System.Array.Find(allGameItems, i => i.itemID == itemID);
+                        if (item != null)
+                        {
+                            equipString += $"- {item.itemName} ({item.itemType})\n";
+                        }
+                    }
+                }
+                victoryEquipText.text = equipString;
+            }
+
+            //  Prevent player from moving
+            Time.timeScale = 0f; 
         }
     }
 }

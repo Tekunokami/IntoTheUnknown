@@ -50,6 +50,7 @@ public class Chest : MonoBehaviour, IInteractable
 
             // Give loot directly to save data
             GameManager.Instance.currentSaveData.coins += finalCoins;
+            GameManager.Instance.currentSaveData.totalCoinsLooted += finalCoins;
             GameManager.Instance.currentSaveData.clearedEventIDs.Add(chestID);
 
             if (LootManager.Instance != null)

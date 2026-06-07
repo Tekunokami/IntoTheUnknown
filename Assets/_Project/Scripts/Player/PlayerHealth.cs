@@ -33,6 +33,10 @@ public class PlayerHealth : MonoBehaviour
 
         // apply defense and ensure at least 1 damage is taken
         float actualDamage = Mathf.Max(amount - baseStats.defense, 1f);
+        
+        // Update total damage taken in save data for stats tracking
+        if (GameManager.Instance != null && GameManager.Instance.currentSaveData != null)
+        GameManager.Instance.currentSaveData.totalDamageTaken += actualDamage;
 
         currentHealth -= actualDamage;
         currentHealth = Mathf.Clamp(currentHealth, 0, GetTotalMaxHealth());

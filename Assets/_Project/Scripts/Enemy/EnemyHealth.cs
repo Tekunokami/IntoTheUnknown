@@ -68,11 +68,13 @@ public class EnemyHealth : MonoBehaviour
         
         if (GameManager.Instance != null && GameManager.Instance.currentSaveData != null)
         {
-            // Dynamically scale coin rewards
+            // Dynamically scale coin rewards and track stats based on player progress
             int progress = GameManager.Instance.currentSaveData.roomsClearedCount;
             int finalCoinValue = Mathf.RoundToInt(data.coinValue * (1f + (progress * 0.05f)));
             
             GameManager.Instance.currentSaveData.coins += finalCoinValue;
+
+            GameManager.Instance.currentSaveData.totalCoinsLooted += finalCoinValue;
 
             GameManager.Instance.currentSaveData.enemiesKilledCount++;
             

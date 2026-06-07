@@ -12,6 +12,10 @@ public class DoorTransition : MonoBehaviour
     public RoomType targetRoomType;
     public int requiredCoinsForShop = 50;
 
+    [Header("End Game Settings")]
+    [Tooltip("Final door that leads to victory screen.")]
+    public bool isVictoryDoor = false;
+
     private bool isPlayerInRange = false;
     private GameControls controls;
     private void Awake()
@@ -27,6 +31,15 @@ public class DoorTransition : MonoBehaviour
         // Only trigger if the player is in range of the door and presses the interaction key.
         if (isPlayerInRange && destinationRoom != null)
         {
+            if (isVictoryDoor)
+            {
+                Debug.Log("<color=green>Game End! Victory Screen is being called...</color>");
+                if (UIManager.Instance != null) UIManager.Instance.ShowVictoryScreen();
+                
+                isPlayerInRange = false;
+                return; // Prevent further execution since we're showing the victory screen
+            }
+
             // Room type checks before allowing transition
             if (destinationRoom.roomType == RoomType.Shop && GameManager.Instance.currentSaveData.coins < requiredCoinsForShop)
             {

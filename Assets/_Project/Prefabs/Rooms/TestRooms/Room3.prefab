@@ -766,6 +766,7 @@ MonoBehaviour:
   targetSpawnPointName: Spawn_Right
   targetRoomType: 1
   requiredCoinsForShop: 0
+  isVictoryDoor: 0
 --- !u!1 &2495041017478342961
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,10 +2532,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d106378be5067746ad39bfdfdfb4f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorTransition
-  destinationRoom: {fileID: 0}
+  destinationRoom: {fileID: 11400000, guid: 0813ab2e83388ff40b261e2bf49620f9, type: 2}
   targetSpawnPointName: Spawn_Left
-  targetRoomType: 0
-  requiredCoinsForShop: 50
+  targetRoomType: 1
+  requiredCoinsForShop: 0
+  isVictoryDoor: 1
 --- !u!1 &6078633505195532985
 GameObject:
   m_ObjectHideFlags: 0
