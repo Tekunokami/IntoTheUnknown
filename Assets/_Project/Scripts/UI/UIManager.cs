@@ -28,6 +28,12 @@ public class UIManager : MonoBehaviour
     public GameObject victoryPanel;
     public TMPro.TextMeshProUGUI victoryStatsText; 
     public TMPro.TextMeshProUGUI victoryEquipText;
+
+    [Header("Shop UI References")]
+    public GameObject shopPanel;
+    public Transform shopSlotsContainer; 
+    public GameObject shopSlotPrefab;  
+    private string activeSellerID;
     
     private void Awake()
     {
@@ -149,6 +155,54 @@ public class UIManager : MonoBehaviour
             }
 
             Time.timeScale = 0f; 
+        }
+    }
+
+
+
+    public void OpenShop(string sellerID)
+    {
+        activeSellerID = sellerID;
+        shopPanel.SetActive(true);
+        Time.timeScale = 0f; // Stop game time while shopping
+        
+        RefreshShopUI(sellerID);
+    }
+
+    public void CloseShop()
+    {
+        shopPanel.SetActive(false);
+        activeSellerID = "";
+        Time.timeScale = 1f; // Resume game time
+    }
+
+    public void RefreshShopUI(string sellerID)
+    {
+        if (GameManager.Instance == null) return;
+
+        // Clear existing shop slots
+        foreach (Transform child in shopSlotsContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        SellerData seller = GameManager.Instance.currentSaveData.sellerInventories.Find(s => s.sellerID == sellerID);
+        if (seller == null) return;
+
+        // Spawn seller's inventory items in the shop UI
+        foreach (string itemID in seller.availableItemIDs)
+        {
+            ItemData item = GameManager.Instance.GetItemByID(itemID);
+            if (item != null)
+            {
+                GameObject newSlot = Instantiate(shopSlotPrefab, shopSlotsContainer);
+                ShopItemSlot slotScript = newSlot.GetComponent<ShopItemSlot>();
+                
+                if (slotScript != null)
+                {
+                    slotScript.SetupSlot(item, sellerID);
+                }
+            }
         }
     }
 }

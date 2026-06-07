@@ -33,6 +33,9 @@ public class SaveData
     // World state info to save (which rooms/events have been cleared)
     public List<string> clearedEventIDs; 
 
+    //Sellers and their inventories
+    public List<SellerData> sellerInventories = new List<SellerData>();
+
     public SaveData()
     {
         currentFloor = 1;
@@ -58,4 +61,11 @@ public class SaveData
         clearedEventIDs = new List<string>(); // Initially no cleared events
         
     }
+}
+
+[System.Serializable]
+public class SellerData
+{
+    public string sellerID;
+    public System.Collections.Generic.List<string> availableItemIDs = new System.Collections.Generic.List<string>();
 }

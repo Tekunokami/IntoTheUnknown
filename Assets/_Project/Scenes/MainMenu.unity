@@ -7100,9 +7100,12 @@ MonoBehaviour:
     roomsClearedCount: 0
     enemiesKilledCount: 0
     totalPlayTime: 0
+    totalDamageTaken: 0
+    totalCoinsLooted: 0
     chestBadLuckCounter: 0
     chestGoodLuckCounter: 0
     clearedEventIDs: []
+    sellerInventories: []
 --- !u!4 &2098319681
 Transform:
   m_ObjectHideFlags: 0

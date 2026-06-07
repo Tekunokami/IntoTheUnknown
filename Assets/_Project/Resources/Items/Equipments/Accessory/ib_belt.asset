@@ -23,4 +23,4 @@ MonoBehaviour:
   bonusHealth: 5
   bonusDamage: 10
   bonusDefense: 5
-  bonusCritChance: 5
+  bonusCritChance: 0.05
