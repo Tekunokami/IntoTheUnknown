@@ -20,6 +20,14 @@ public class GameManager : MonoBehaviour
         }
         else Destroy(gameObject);
     }
+    void Update()
+    {
+        if (currentSaveData != null)
+        {
+            // Increment total play time every frame
+            currentSaveData.totalPlayTime += Time.deltaTime;
+        }
+    }
 
     public void StartNewGame(int saveNumber)
     {

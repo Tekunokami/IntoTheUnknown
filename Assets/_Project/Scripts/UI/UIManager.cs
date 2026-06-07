@@ -18,6 +18,11 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI defenseText; 
     public TextMeshProUGUI critText;  
     public TextMeshProUGUI attackText;
+
+    [Header("Death Screen UI References")]
+    public GameObject deathPanel;
+    public TMPro.TextMeshProUGUI deathMessageText;
+    public TMPro.TextMeshProUGUI statsText;
     
     private void Awake()
     {
@@ -81,10 +86,20 @@ public class UIManager : MonoBehaviour
 
     public void ShowDeathScreen(string message)
     {
-        if (deathScreenPanel != null && deathScreenText != null)
+        if (deathPanel != null) deathPanel.SetActive(true);
+        if (deathMessageText != null) deathMessageText.text = message;
+
+        if (GameManager.Instance != null && statsText != null)
         {
-            deathScreenPanel.SetActive(true);
-            deathScreenText.text = message;
+            SaveData save = GameManager.Instance.currentSaveData;
+
+           // Format total play time into hrs:min:sec
+            System.TimeSpan timePlaying = System.TimeSpan.FromSeconds(save.totalPlayTime);
+            string formattedTime = timePlaying.ToString(@"hh\:mm\:ss");
+
+            statsText.text = $"Total Play Time: {formattedTime}\n" +
+                             $"Rooms Cleared: {save.roomsClearedCount}\n" +
+                             $"Enemies Killed: {save.enemiesKilledCount}";
         }
     }
 }

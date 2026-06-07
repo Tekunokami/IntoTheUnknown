@@ -39,9 +39,15 @@ public class Chest : MonoBehaviour, IInteractable
         if (animator != null) animator.SetTrigger("Open");
 
         if (GameManager.Instance != null)
-        {
+        {   
+            int progress = GameManager.Instance.currentSaveData.roomsClearedCount;
+
+            //Formula for scaling coin drops:
+            float coinMultiplier = 1f + (progress * 0.15f);
+            int finalCoins = Mathf.RoundToInt(coinDropAmount * coinMultiplier);
+
             // Give loot directly to save data
-            GameManager.Instance.currentSaveData.coins += coinDropAmount;
+            GameManager.Instance.currentSaveData.coins += finalCoins;
             GameManager.Instance.currentSaveData.clearedEventIDs.Add(chestID);
 
             foreach (ItemData item in itemDrops)
@@ -49,7 +55,7 @@ public class Chest : MonoBehaviour, IInteractable
                 GameManager.Instance.currentSaveData.inventoryItemIDs.Add(item.itemID);
             }
 
-            // 2. Update UI
+            // Update UI
             if (UIManager.Instance != null) UIManager.Instance.UpdateCoinDisplay();
         }
     }

@@ -17,6 +17,9 @@ public class SaveData
     public List<string> equippedItemIDs = new List<string>();
     public List<string> activeConsumableIDs = new List<string>();
     public List<int> activeConsumableDurations = new List<int>();
+    public int roomsClearedCount;     
+    public int enemiesKilledCount;    
+    public float totalPlayTime;
 
     // World state info to save (which rooms/events have been cleared)
     public List<string> clearedEventIDs; 
@@ -36,6 +39,9 @@ public class SaveData
         equippedItemIDs = new List<string>();
         activeConsumableIDs = new List<string>();
         activeConsumableDurations = new List<int>();
+        roomsClearedCount = 0;
+        enemiesKilledCount = 0;
+        totalPlayTime = 0f;
         clearedEventIDs = new List<string>(); // Initially no cleared events
         
     }

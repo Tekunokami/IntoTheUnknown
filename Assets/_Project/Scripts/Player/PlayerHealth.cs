@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (baseStats != null) 
         {
-            currentHealth = baseStats.maxHealth;
+            currentHealth = GetTotalMaxHealth(); 
             UpdateUI();
         }
     }
@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
         float actualDamage = Mathf.Max(amount - baseStats.defense, 1f);
 
         currentHealth -= actualDamage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, baseStats.maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth, 0, GetTotalMaxHealth());
         
         UpdateUI();
 
@@ -59,6 +59,24 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public float GetTotalMaxHealth()
+    {
+        float totalMaxHealth = baseStats.maxHealth; 
+        
+        if (GameManager.Instance != null && GameManager.Instance.currentSaveData != null)
+        {
+            ItemData[] allGameItems = Resources.LoadAll<ItemData>("Items");
+            foreach (string equipID in GameManager.Instance.currentSaveData.equippedItemIDs)
+            {
+                EquipmentData equipData = System.Array.Find(allGameItems, item => item.itemID == equipID) as EquipmentData;
+                if (equipData != null)
+                {
+                    totalMaxHealth += equipData.bonusHealth;
+                }
+            }
+        }
+        return totalMaxHealth;
+    }
     private IEnumerator InvincibilityFrames() // Makes the player temporarily invincible after taking damage
     {
         isInvincible = true;
@@ -69,8 +87,6 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        // Wipe un-saved progress
-        if (GameManager.Instance != null) GameManager.Instance.ReloadFromLastSave();
         isDead = true;
         if (playerController != null) playerController.isDead = true; // Lock movement
         
@@ -89,13 +105,7 @@ public class PlayerHealth : MonoBehaviour
         if (TryGetComponent(out Collider2D coll)) coll.enabled = false;
         if (TryGetComponent(out Rigidbody2D rb)) rb.simulated = false;
 
-        // UI Updates
-        if(UIManager.Instance != null) {
-            UIManager.Instance.ShowDeathScreen("You died, restoring to latest save...");
-            
-            // Update coin display
-            UIManager.Instance.UpdateCoinDisplay(); 
-        }
+        
 
         StartCoroutine(DeathRoutine());
     }
@@ -105,7 +115,7 @@ public class PlayerHealth : MonoBehaviour
         // Helper function to keep code clean
         if(UIManager.Instance != null)
         {
-            UIManager.Instance.UpdateHealth(currentHealth, baseStats.maxHealth);
+            UIManager.Instance.UpdateHealth(currentHealth, GetTotalMaxHealth());
             UIManager.Instance.UpdateStatsDisplay();
         }
     }
@@ -113,7 +123,20 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator DeathRoutine()
     {
         // Wait for death animation to finish
-        yield return new WaitForSeconds(1f); 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        yield return new WaitForSeconds(1.5f); 
+
+        // UI Updates
+        if(UIManager.Instance != null) {
+            UIManager.Instance.ShowDeathScreen("You died, restoring to latest save...");
+            UIManager.Instance.UpdateCoinDisplay(); 
+        }
+
+        yield return new WaitForSeconds(2.5f);
+
+        //Wipe unsaved progress and reload last save
+        if (GameManager.Instance != null) GameManager.Instance.ReloadFromLastSave();
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Test1Scene");
+
     }
 }
