@@ -9,17 +9,24 @@ public class SaveData
     public string lastRoomID;
     public string currentSpawnPointName;
 
-    // player stats and inventory
+    // player stats
     public float playerHealth;
     public int coins;
+    // player inventory and equipment
     public List<string> inventoryItemIDs = new List<string>(); // A list of itemIDs that are in player's bag
     public List<EquipSlot> equippedSlots = new List<EquipSlot>();
     public List<string> equippedItemIDs = new List<string>();
     public List<string> activeConsumableIDs = new List<string>();
     public List<int> activeConsumableDurations = new List<int>();
+
+    // progress tracking
     public int roomsClearedCount;     
     public int enemiesKilledCount;    
     public float totalPlayTime;
+
+    // Luck counters for chest drops
+    public int chestBadLuckCounter; 
+    public int chestGoodLuckCounter;
 
     // World state info to save (which rooms/events have been cleared)
     public List<string> clearedEventIDs; 

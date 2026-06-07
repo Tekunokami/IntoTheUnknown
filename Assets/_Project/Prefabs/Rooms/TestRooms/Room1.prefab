@@ -4721,6 +4721,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1563045902095788152, guid: 6251f263990ba1345b2c9dd249aeda60, type: 3}
+      propertyPath: numberOfItemsToDrop
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563045902095788152, guid: 6251f263990ba1345b2c9dd249aeda60, type: 3}
       propertyPath: itemDrops.Array.size
       value: 2
       objectReference: {fileID: 0}
