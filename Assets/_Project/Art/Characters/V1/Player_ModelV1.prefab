@@ -177,7 +177,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 3290039402902736005, guid: 408109217df507841b77155e5f4ecf70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -260,7 +260,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.96447194, y: 1.7329265}
+  m_Size: {x: 0.96447194, y: 1.732926}
   m_EdgeRadius: 0
 --- !u!114 &3440713178511547366
 MonoBehaviour:
@@ -300,3 +300,6 @@ MonoBehaviour:
   isDead: 0
   ghostPrefab: {fileID: 0}
   ghostSpawnDelay: 0.05
+  knockbackForceX: 8
+  knockbackForceY: 4
+  knockbackDuration: 0.2
