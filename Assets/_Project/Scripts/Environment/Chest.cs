@@ -11,7 +11,7 @@ public class Chest : MonoBehaviour, IInteractable
     public int coinDropAmount;
 
     [Tooltip("Number of items to drop")]
-    public int numberOfItemsToDrop = 3;
+    public int numberOfItems = 3;
 
     [Header("References")]
     public GameObject interactPrompt; 
@@ -55,7 +55,7 @@ public class Chest : MonoBehaviour, IInteractable
 
             if (LootManager.Instance != null)
             {
-                List<ItemData> randomLoot = LootManager.Instance.GenerateChestLoot(numberOfItemsToDrop);
+                List<ItemData> randomLoot = LootManager.Instance.GenerateChestLoot(numberOfItems);
                 
                 foreach (ItemData item in randomLoot)
                 {

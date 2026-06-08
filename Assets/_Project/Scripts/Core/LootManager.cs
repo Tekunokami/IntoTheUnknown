@@ -98,7 +98,7 @@ public class LootManager : MonoBehaviour
         return droppedItems;
     }
 
-    private ItemData GetRandomItemFromPool(ItemRarity rarity)
+    public ItemData GetRandomItemFromPool(ItemRarity rarity)
     {
         List<ItemData> targetPool = commonItems; // Default to common if something goes wrongs
 
@@ -112,17 +112,4 @@ public class LootManager : MonoBehaviour
         return targetPool[Random.Range(0, targetPool.Count)];
     }
 
-
-    public ItemData GetItemByExactRarity(ItemRarity rarity)
-    {
-        List<ItemData> targetPool = commonItems; 
-
-        if (rarity == ItemRarity.Common && commonItems.Count > 0) targetPool = commonItems;
-        else if (rarity == ItemRarity.Rare && rareItems.Count > 0) targetPool = rareItems;
-        else if (rarity == ItemRarity.Epic && epicItems.Count > 0) targetPool = epicItems;
-
-        if (targetPool.Count == 0) return null; 
-        
-        return targetPool[Random.Range(0, targetPool.Count)];
-    }
 }

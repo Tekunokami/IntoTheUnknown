@@ -9,8 +9,6 @@ public class UIManager : MonoBehaviour
     [Header("UI Elements")]
     public Image healthFill; 
     public TMPro.TextMeshProUGUI coinText; 
-    public GameObject deathScreenPanel; 
-    public TMPro.TextMeshProUGUI deathScreenText;
 
     [Header("Stats Panel UI")]
     public GameObject statsPanel;

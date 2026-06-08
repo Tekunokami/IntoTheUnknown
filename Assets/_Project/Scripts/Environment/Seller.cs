@@ -34,10 +34,10 @@ public class Seller : MonoBehaviour, IInteractable
             myData.sellerID = sellerID;
 
             // Inventory always contains 2 common, 1 rare, 1 epic item
-            ItemData common1 = LootManager.Instance.GetItemByExactRarity(ItemRarity.Common);
-            ItemData common2 = LootManager.Instance.GetItemByExactRarity(ItemRarity.Common);
-            ItemData rare = LootManager.Instance.GetItemByExactRarity(ItemRarity.Rare);
-            ItemData epic = LootManager.Instance.GetItemByExactRarity(ItemRarity.Epic);
+            ItemData common1 = LootManager.Instance.GetRandomItemFromPool(ItemRarity.Common);
+            ItemData common2 = LootManager.Instance.GetRandomItemFromPool(ItemRarity.Common);
+            ItemData rare = LootManager.Instance.GetRandomItemFromPool(ItemRarity.Rare);
+            ItemData epic = LootManager.Instance.GetRandomItemFromPool(ItemRarity.Epic);
 
             if (common1 != null) myData.availableItemIDs.Add(common1.itemID);
             if (common2 != null) myData.availableItemIDs.Add(common2.itemID);
