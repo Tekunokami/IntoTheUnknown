@@ -1,0 +1,1781 @@
+fileFormatVersion: 2
+guid: 6930513d720584544b0988407caecf6f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2417681161773095934
+    second: ExplodingCrab Whole 80x80_0
+  - first:
+      213: -106918022646383925
+    second: ExplodingCrab Whole 80x80_1
+  - first:
+      213: -1411392694801561488
+    second: ExplodingCrab Whole 80x80_2
+  - first:
+      213: -3251618792525137953
+    second: ExplodingCrab Whole 80x80_3
+  - first:
+      213: -3394391192299081078
+    second: ExplodingCrab Whole 80x80_4
+  - first:
+      213: 7503462001282809370
+    second: ExplodingCrab Whole 80x80_5
+  - first:
+      213: -1671402111611007432
+    second: ExplodingCrab Whole 80x80_6
+  - first:
+      213: -4596390244769527240
+    second: ExplodingCrab Whole 80x80_7
+  - first:
+      213: -6635377148639600415
+    second: ExplodingCrab Whole 80x80_8
+  - first:
+      213: -5171863849768809782
+    second: ExplodingCrab Whole 80x80_9
+  - first:
+      213: -4821683490032560441
+    second: ExplodingCrab Whole 80x80_10
+  - first:
+      213: -3762204240091542436
+    second: ExplodingCrab Whole 80x80_11
+  - first:
+      213: 7059402652918816713
+    second: ExplodingCrab Whole 80x80_12
+  - first:
+      213: 2285931108468599830
+    second: ExplodingCrab Whole 80x80_13
+  - first:
+      213: 335626580105070683
+    second: ExplodingCrab Whole 80x80_14
+  - first:
+      213: -7037969509541064886
+    second: ExplodingCrab Whole 80x80_15
+  - first:
+      213: -6880150150208128106
+    second: ExplodingCrab Whole 80x80_16
+  - first:
+      213: 6658724449552615243
+    second: ExplodingCrab Whole 80x80_17
+  - first:
+      213: -2739484095099090573
+    second: ExplodingCrab Whole 80x80_18
+  - first:
+      213: 7896992694871371452
+    second: ExplodingCrab Whole 80x80_19
+  - first:
+      213: -8628382735858450875
+    second: ExplodingCrab Whole 80x80_20
+  - first:
+      213: 2783892379758087884
+    second: ExplodingCrab Whole 80x80_21
+  - first:
+      213: 2087745873917001091
+    second: ExplodingCrab Whole 80x80_22
+  - first:
+      213: -7944235710369704387
+    second: ExplodingCrab Whole 80x80_23
+  - first:
+      213: -220693330665981553
+    second: ExplodingCrab Whole 80x80_24
+  - first:
+      213: 2156265763092641374
+    second: ExplodingCrab Whole 80x80_25
+  - first:
+      213: -5667483329583302530
+    second: ExplodingCrab Whole 80x80_26
+  - first:
+      213: -7529808609677121423
+    second: ExplodingCrab Whole 80x80_27
+  - first:
+      213: 5066944037373131152
+    second: ExplodingCrab Whole 80x80_28
+  - first:
+      213: 3669083385442466827
+    second: ExplodingCrab Whole 80x80_29
+  - first:
+      213: -6641580240750068497
+    second: ExplodingCrab Whole 80x80_30
+  - first:
+      213: -7141796473750390006
+    second: ExplodingCrab Whole 80x80_31
+  - first:
+      213: -5985938052114411059
+    second: ExplodingCrab Whole 80x80_32
+  - first:
+      213: 3874061677439546956
+    second: ExplodingCrab Whole 80x80_33
+  - first:
+      213: -198630210437648592
+    second: ExplodingCrab Whole 80x80_34
+  - first:
+      213: -1850347777601065727
+    second: ExplodingCrab Whole 80x80_35
+  - first:
+      213: -6907690211253138364
+    second: ExplodingCrab Whole 80x80_36
+  - first:
+      213: -4486970168047826985
+    second: ExplodingCrab Whole 80x80_37
+  - first:
+      213: -3356220536554494603
+    second: ExplodingCrab Whole 80x80_38
+  - first:
+      213: -2958055998441318534
+    second: ExplodingCrab Whole 80x80_39
+  - first:
+      213: 3894124872058422342
+    second: ExplodingCrab Whole 80x80_40
+  - first:
+      213: 3888834079692688628
+    second: ExplodingCrab Whole 80x80_41
+  - first:
+      213: -7628858937760546268
+    second: ExplodingCrab Whole 80x80_42
+  - first:
+      213: 7672659948239241358
+    second: ExplodingCrab Whole 80x80_43
+  - first:
+      213: -8538417579238025360
+    second: ExplodingCrab Whole 80x80_44
+  - first:
+      213: -6013673644335203934
+    second: ExplodingCrab Whole 80x80_45
+  - first:
+      213: -3683550984000724666
+    second: ExplodingCrab Whole 80x80_46
+  - first:
+      213: -4708996717201957213
+    second: ExplodingCrab Whole 80x80_47
+  - first:
+      213: 467332993748892107
+    second: ExplodingCrab Whole 80x80_48
+  - first:
+      213: 5175548418914916761
+    second: ExplodingCrab Whole 80x80_49
+  - first:
+      213: -8941999237774388879
+    second: ExplodingCrab Whole 80x80_50
+  - first:
+      213: 976035432035072062
+    second: ExplodingCrab Whole 80x80_51
+  - first:
+      213: -2347162992565113427
+    second: ExplodingCrab Whole 80x80_52
+  - first:
+      213: 4562805768976156498
+    second: ExplodingCrab Whole 80x80_53
+  - first:
+      213: 99452249835927238
+    second: ExplodingCrab Whole 80x80_54
+  - first:
+      213: 1981007014413305029
+    second: ExplodingCrab Whole 80x80_55
+  - first:
+      213: -7221358792185477986
+    second: ExplodingCrab Whole 80x80_56
+  - first:
+      213: 2622121173827923432
+    second: ExplodingCrab Whole 80x80_57
+  - first:
+      213: 4692425472728432478
+    second: ExplodingCrab Whole 80x80_58
+  - first:
+      213: 4901617330094750299
+    second: ExplodingCrab Whole 80x80_59
+  - first:
+      213: 8335727065881435260
+    second: ExplodingCrab Whole 80x80_60
+  - first:
+      213: 8530818291533951739
+    second: ExplodingCrab Whole 80x80_61
+  - first:
+      213: -8017624714597245020
+    second: ExplodingCrab Whole 80x80_62
+  - first:
+      213: 4991801877537509091
+    second: ExplodingCrab Whole 80x80_63
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 319
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2046c54facba27ed0800000000000000
+      internalID: -2417681161773095934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_1
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 319
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bca3318ff96248ef0800000000000000
+      internalID: -106918022646383925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_2
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 319
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07885cb62d9b96ce0800000000000000
+      internalID: -1411392694801561488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_3
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 319
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd7fd8e9fedefd2d0800000000000000
+      internalID: -3251618792525137953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_4
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 319
+        width: 51
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a827c42e133b4e0d0800000000000000
+      internalID: -3394391192299081078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_5
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 319
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1e7a146fe6a12860800000000000000
+      internalID: 7503462001282809370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_6
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 319
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83e869c82acfdc8e0800000000000000
+      internalID: -1671402111611007432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_7
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 319
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83a0173dc675630c0800000000000000
+      internalID: -4596390244769527240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_8
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 319
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e0a79893a76ae3a0800000000000000
+      internalID: -6635377148639600415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_9
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 319
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aca88d7fa39d938b0800000000000000
+      internalID: -5171863849768809782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_10
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 319
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c65e358960f51db0800000000000000
+      internalID: -4821683490032560441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_11
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 319
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5c00e83d27f9cbc0800000000000000
+      internalID: -3762204240091542436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_12
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 319
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cf1dad7f4908f160800000000000000
+      internalID: 7059402652918816713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_13
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 239
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61c29455b3249bf10800000000000000
+      internalID: 2285931108468599830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_14
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 239
+        width: 50
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b58875ca89268a400800000000000000
+      internalID: 335626580105070683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_15
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 239
+        width: 49
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4f46c3150c145e90800000000000000
+      internalID: -7037969509541064886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_16
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 239
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b7e7714ebc480a0800000000000000
+      internalID: -6880150150208128106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_17
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 239
+        width: 52
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b47cac08b9a886c50800000000000000
+      internalID: 6658724449552615243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_18
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 239
+        width: 53
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37949cbdab56bf9d0800000000000000
+      internalID: -2739484095099090573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_19
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 239
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbea9a31401c79d60800000000000000
+      internalID: 7896992694871371452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_20
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 239
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e3b0bed93d14880800000000000000
+      internalID: -8628382735858450875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_21
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 239
+        width: 49
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccec564ae5f52a620800000000000000
+      internalID: 2783892379758087884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_22
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 239
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d3c1c9fc929fc10800000000000000
+      internalID: 2087745873917001091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_23
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 159
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d36d07736b760c190800000000000000
+      internalID: -7944235710369704387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_24
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 159
+        width: 50
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f893b55c590ffecf0800000000000000
+      internalID: -220693330665981553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_25
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 159
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e56397289489ced10800000000000000
+      internalID: 2156265763092641374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_26
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 159
+        width: 49
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e783db970fd0951b0800000000000000
+      internalID: -5667483329583302530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_27
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 159
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1786481d6feb08790800000000000000
+      internalID: -7529808609677121423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_28
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 79
+        width: 66
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 099b86491c6615640800000000000000
+      internalID: 5066944037373131152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_29
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 79
+        width: 72
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0cf59046e33be230800000000000000
+      internalID: 3669083385442466827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_30
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 79
+        width: 78
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fecb6daa5fd54d3a0800000000000000
+      internalID: -6641580240750068497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_31
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 122
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b78fb22fd33ec90800000000000000
+      internalID: -7141796473750390006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_32
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 79
+        width: 78
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc11a347e0dadeca0800000000000000
+      internalID: -5985938052114411059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_33
+      rect:
+        serializedVersion: 2
+        x: 1237
+        y: 132
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c46fcb9e19e63c530800000000000000
+      internalID: 3874061677439546956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_34
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 127
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03fe33140e25e3df0800000000000000
+      internalID: -198630210437648592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_35
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 79
+        width: 75
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10da725ff7e3256e0800000000000000
+      internalID: -1850347777601065727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_36
+      rect:
+        serializedVersion: 2
+        x: 1353
+        y: 79
+        width: 87
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44c40d3f954f220a0800000000000000
+      internalID: -6907690211253138364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_37
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 79
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d70cb7b7641bb1c0800000000000000
+      internalID: -4486970168047826985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_38
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 79
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5756cca343f4c61d0800000000000000
+      internalID: -3356220536554494603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_39
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 79
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a77113bedbfd2f6d0800000000000000
+      internalID: -2958055998441318534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_40
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 79
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6444e0e60f5ba0630800000000000000
+      internalID: 3894124872058422342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_41
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 79
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fc0486ddf9e7f530800000000000000
+      internalID: 3888834079692688628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_42
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 79
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 422083d2739d02690800000000000000
+      internalID: -7628858937760546268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_43
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 79
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e80ca294293ca7a60800000000000000
+      internalID: 7672659948239241358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_44
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 79
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 077119d3372718980800000000000000
+      internalID: -8538417579238025360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_45
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 79
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a9754aaea32b8ca0800000000000000
+      internalID: -6013673644335203934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_46
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 79
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 641a89675e561ecc0800000000000000
+      internalID: -3683550984000724666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_47
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 79
+        width: 52
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ae52be5f6846aeb0800000000000000
+      internalID: -4708996717201957213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_48
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 79
+        width: 58
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc9f83cb1ec4c7600800000000000000
+      internalID: 467332993748892107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_49
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 119
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9991243addd33d740800000000000000
+      internalID: 5175548418914916761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_50
+      rect:
+        serializedVersion: 2
+        x: 1448
+        y: 79
+        width: 56
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 171d4aae113a7e380800000000000000
+      internalID: -8941999237774388879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_51
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 79
+        width: 56
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3835aedd039b8d00800000000000000
+      internalID: 976035432035072062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_52
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 79
+        width: 58
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dada63ea1b33d6fd0800000000000000
+      internalID: -2347162992565113427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_53
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 79
+        width: 58
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2574dee0ca7525f30800000000000000
+      internalID: 4562805768976156498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_54
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 79
+        width: 58
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c675975b43516100800000000000000
+      internalID: 99452249835927238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_55
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 93
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c489af3263fd7b10800000000000000
+      internalID: 1981007014413305029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_56
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 84
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e94042c507498cb90800000000000000
+      internalID: -7221358792185477986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_57
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 79
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ed2b04a055a36420800000000000000
+      internalID: 2622121173827923432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_58
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 0
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5ff8fc1b18de1140800000000000000
+      internalID: 4692425472728432478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_59
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 0
+        width: 50
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5a3239edfa060440800000000000000
+      internalID: 4901617330094750299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_60
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 0
+        width: 50
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7cd8721a937ea370800000000000000
+      internalID: 8335727065881435260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_61
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 0
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf23946b90e836670800000000000000
+      internalID: 8530818291533951739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_62
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 0
+        width: 56
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4afd9002dccabb090800000000000000
+      internalID: -8017624714597245020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Whole 80x80_63
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 0
+        width: 57
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ee40c32c51764540800000000000000
+      internalID: 4991801877537509091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ExplodingCrab Whole 80x80_0: -2417681161773095934
+      ExplodingCrab Whole 80x80_1: -106918022646383925
+      ExplodingCrab Whole 80x80_10: -4821683490032560441
+      ExplodingCrab Whole 80x80_11: -3762204240091542436
+      ExplodingCrab Whole 80x80_12: 7059402652918816713
+      ExplodingCrab Whole 80x80_13: 2285931108468599830
+      ExplodingCrab Whole 80x80_14: 335626580105070683
+      ExplodingCrab Whole 80x80_15: -7037969509541064886
+      ExplodingCrab Whole 80x80_16: -6880150150208128106
+      ExplodingCrab Whole 80x80_17: 6658724449552615243
+      ExplodingCrab Whole 80x80_18: -2739484095099090573
+      ExplodingCrab Whole 80x80_19: 7896992694871371452
+      ExplodingCrab Whole 80x80_2: -1411392694801561488
+      ExplodingCrab Whole 80x80_20: -8628382735858450875
+      ExplodingCrab Whole 80x80_21: 2783892379758087884
+      ExplodingCrab Whole 80x80_22: 2087745873917001091
+      ExplodingCrab Whole 80x80_23: -7944235710369704387
+      ExplodingCrab Whole 80x80_24: -220693330665981553
+      ExplodingCrab Whole 80x80_25: 2156265763092641374
+      ExplodingCrab Whole 80x80_26: -5667483329583302530
+      ExplodingCrab Whole 80x80_27: -7529808609677121423
+      ExplodingCrab Whole 80x80_28: 5066944037373131152
+      ExplodingCrab Whole 80x80_29: 3669083385442466827
+      ExplodingCrab Whole 80x80_3: -3251618792525137953
+      ExplodingCrab Whole 80x80_30: -6641580240750068497
+      ExplodingCrab Whole 80x80_31: -7141796473750390006
+      ExplodingCrab Whole 80x80_32: -5985938052114411059
+      ExplodingCrab Whole 80x80_33: 3874061677439546956
+      ExplodingCrab Whole 80x80_34: -198630210437648592
+      ExplodingCrab Whole 80x80_35: -1850347777601065727
+      ExplodingCrab Whole 80x80_36: -6907690211253138364
+      ExplodingCrab Whole 80x80_37: -4486970168047826985
+      ExplodingCrab Whole 80x80_38: -3356220536554494603
+      ExplodingCrab Whole 80x80_39: -2958055998441318534
+      ExplodingCrab Whole 80x80_4: -3394391192299081078
+      ExplodingCrab Whole 80x80_40: 3894124872058422342
+      ExplodingCrab Whole 80x80_41: 3888834079692688628
+      ExplodingCrab Whole 80x80_42: -7628858937760546268
+      ExplodingCrab Whole 80x80_43: 7672659948239241358
+      ExplodingCrab Whole 80x80_44: -8538417579238025360
+      ExplodingCrab Whole 80x80_45: -6013673644335203934
+      ExplodingCrab Whole 80x80_46: -3683550984000724666
+      ExplodingCrab Whole 80x80_47: -4708996717201957213
+      ExplodingCrab Whole 80x80_48: 467332993748892107
+      ExplodingCrab Whole 80x80_49: 5175548418914916761
+      ExplodingCrab Whole 80x80_5: 7503462001282809370
+      ExplodingCrab Whole 80x80_50: -8941999237774388879
+      ExplodingCrab Whole 80x80_51: 976035432035072062
+      ExplodingCrab Whole 80x80_52: -2347162992565113427
+      ExplodingCrab Whole 80x80_53: 4562805768976156498
+      ExplodingCrab Whole 80x80_54: 99452249835927238
+      ExplodingCrab Whole 80x80_55: 1981007014413305029
+      ExplodingCrab Whole 80x80_56: -7221358792185477986
+      ExplodingCrab Whole 80x80_57: 2622121173827923432
+      ExplodingCrab Whole 80x80_58: 4692425472728432478
+      ExplodingCrab Whole 80x80_59: 4901617330094750299
+      ExplodingCrab Whole 80x80_6: -1671402111611007432
+      ExplodingCrab Whole 80x80_60: 8335727065881435260
+      ExplodingCrab Whole 80x80_61: 8530818291533951739
+      ExplodingCrab Whole 80x80_62: -8017624714597245020
+      ExplodingCrab Whole 80x80_63: 4991801877537509091
+      ExplodingCrab Whole 80x80_7: -4596390244769527240
+      ExplodingCrab Whole 80x80_8: -6635377148639600415
+      ExplodingCrab Whole 80x80_9: -5171863849768809782
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 60233bd841031844190b0c8ff63d9f0e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5561050237324536864
+    second: ExplodingCrab Idle 80x80_0
+  - first:
+      213: -2345291571672168551
+    second: ExplodingCrab Idle 80x80_1
+  - first:
+      213: -8312677710502477300
+    second: ExplodingCrab Idle 80x80_2
+  - first:
+      213: -2159931190717634939
+    second: ExplodingCrab Idle 80x80_3
+  - first:
+      213: -2578969658662654445
+    second: ExplodingCrab Idle 80x80_4
+  - first:
+      213: 777939517514633634
+    second: ExplodingCrab Idle 80x80_5
+  - first:
+      213: 3194150877312479325
+    second: ExplodingCrab Idle 80x80_6
+  - first:
+      213: -2160746698268757810
+    second: ExplodingCrab Idle 80x80_7
+  - first:
+      213: -4915572435466393608
+    second: ExplodingCrab Idle 80x80_8
+  - first:
+      213: -6925947933092847543
+    second: ExplodingCrab Idle 80x80_9
+  - first:
+      213: -3354274186836901395
+    second: ExplodingCrab Idle 80x80_10
+  - first:
+      213: -6638042094630405942
+    second: ExplodingCrab Idle 80x80_11
+  - first:
+      213: 9047502265091588887
+    second: ExplodingCrab Idle 80x80_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ExplodingCrab Idle 80x80_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 0
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e35b2ad54e23d2b0800000000000000
+      internalID: -5561050237324536864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Idle 80x80_1
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 0
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99743cfcdb9d37fd0800000000000000
+      internalID: -2345291571672168551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Idle 80x80_2
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 0
+        width: 50
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c02413d2aaf63ac80800000000000000
+      internalID: -8312677710502477300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Idle 80x80_3
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 0
+        width: 50
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5862dfd96026602e0800000000000000
+      internalID: -2159931190717634939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Idle 80x80_4
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 0
+        width: 51
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31ee6e862c8a53cd0800000000000000
+      internalID: -2578969658662654445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Idle 80x80_5
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 0
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a1d2369edbcbca00800000000000000
+      internalID: 777939517514633634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Idle 80x80_6
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 0
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d507631bc47e35c20800000000000000
+      internalID: 3194150877312479325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Idle 80x80_7
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 0
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec0b718735c7302e0800000000000000
+      internalID: -2160746698268757810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Idle 80x80_8
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 0
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f7e25ce9e068cbb0800000000000000
+      internalID: -4915572435466393608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Idle 80x80_9
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 0
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9406623dc0712ef90800000000000000
+      internalID: -6925947933092847543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Idle 80x80_10
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 0
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de1035616693371d0800000000000000
+      internalID: -3354274186836901395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Idle 80x80_11
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 0
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac8f67182efe0e3a0800000000000000
+      internalID: -6638042094630405942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Idle 80x80_12
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 0
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7138357df5f2f8d70800000000000000
+      internalID: 9047502265091588887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ExplodingCrab Idle 80x80_0: -5561050237324536864
+      ExplodingCrab Idle 80x80_1: -2345291571672168551
+      ExplodingCrab Idle 80x80_10: -3354274186836901395
+      ExplodingCrab Idle 80x80_11: -6638042094630405942
+      ExplodingCrab Idle 80x80_12: 9047502265091588887
+      ExplodingCrab Idle 80x80_2: -8312677710502477300
+      ExplodingCrab Idle 80x80_3: -2159931190717634939
+      ExplodingCrab Idle 80x80_4: -2578969658662654445
+      ExplodingCrab Idle 80x80_5: 777939517514633634
+      ExplodingCrab Idle 80x80_6: 3194150877312479325
+      ExplodingCrab Idle 80x80_7: -2160746698268757810
+      ExplodingCrab Idle 80x80_8: -4915572435466393608
+      ExplodingCrab Idle 80x80_9: -6925947933092847543
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

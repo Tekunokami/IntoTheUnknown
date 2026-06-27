@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: 66ae9f04cbaafb043838b1374488e0d4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3119410198143946925
+    second: ExplodingCrab Explosion 80x80_0
+  - first:
+      213: 4229099362826182173
+    second: ExplodingCrab Explosion 80x80_1
+  - first:
+      213: 52098567291550104
+    second: ExplodingCrab Explosion 80x80_2
+  - first:
+      213: -5440320848934846447
+    second: ExplodingCrab Explosion 80x80_3
+  - first:
+      213: 8418256626388901887
+    second: ExplodingCrab Explosion 80x80_4
+  - first:
+      213: 1023187939691019576
+    second: ExplodingCrab Explosion 80x80_5
+  - first:
+      213: 6624845951195910712
+    second: ExplodingCrab Explosion 80x80_6
+  - first:
+      213: -8859672678492704686
+    second: ExplodingCrab Explosion 80x80_7
+  - first:
+      213: 4708881130952151030
+    second: ExplodingCrab Explosion 80x80_8
+  - first:
+      213: 2770143252835652449
+    second: ExplodingCrab Explosion 80x80_9
+  - first:
+      213: -8726511634804612081
+    second: ExplodingCrab Explosion 80x80_10
+  - first:
+      213: -2293562196139121285
+    second: ExplodingCrab Explosion 80x80_11
+  - first:
+      213: -5743111288120012280
+    second: ExplodingCrab Explosion 80x80_12
+  - first:
+      213: -8890383394320253760
+    second: ExplodingCrab Explosion 80x80_13
+  - first:
+      213: 7715670055385320150
+    second: ExplodingCrab Explosion 80x80_14
+  - first:
+      213: -7794580359255247322
+    second: ExplodingCrab Explosion 80x80_15
+  - first:
+      213: 4279516365342435489
+    second: ExplodingCrab Explosion 80x80_16
+  - first:
+      213: 3040773122671939350
+    second: ExplodingCrab Explosion 80x80_17
+  - first:
+      213: 821401761856977541
+    second: ExplodingCrab Explosion 80x80_18
+  - first:
+      213: 4379083015753736992
+    second: ExplodingCrab Explosion 80x80_19
+  - first:
+      213: 8291109840331507030
+    second: ExplodingCrab Explosion 80x80_20
+  - first:
+      213: 1146924210069521982
+    second: ExplodingCrab Explosion 80x80_21
+  - first:
+      213: 8851229200254888838
+    second: ExplodingCrab Explosion 80x80_22
+  - first:
+      213: -8812608622472217705
+    second: ExplodingCrab Explosion 80x80_23
+  - first:
+      213: 7823693600049284373
+    second: ExplodingCrab Explosion 80x80_24
+  - first:
+      213: -8340830084815923065
+    second: ExplodingCrab Explosion 80x80_25
+  - first:
+      213: 1987125360882005112
+    second: ExplodingCrab Explosion 80x80_26
+  - first:
+      213: -8919066201716105527
+    second: ExplodingCrab Explosion 80x80_27
+  - first:
+      213: -56493768016661262
+    second: ExplodingCrab Explosion 80x80_28
+  - first:
+      213: -4301640288517664343
+    second: ExplodingCrab Explosion 80x80_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_0
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 0
+        width: 66
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f26eeb3f0a5b4d0800000000000000
+      internalID: -3119410198143946925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_1
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 0
+        width: 72
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1ed519b677c0ba30800000000000000
+      internalID: 4229099362826182173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_2
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 0
+        width: 78
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89938b4fe5719b000800000000000000
+      internalID: 52098567291550104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_3
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 42
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 110461f03091084b0800000000000000
+      internalID: -5440320848934846447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_4
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 0
+        width: 78
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fff1df3ccc7a3d470800000000000000
+      internalID: 8418256626388901887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_5
+      rect:
+        serializedVersion: 2
+        x: 1237
+        y: 52
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83d3fb39208133e00800000000000000
+      internalID: 1023187939691019576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_6
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 47
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83297bcea4e20fb50800000000000000
+      internalID: 6624845951195910712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_7
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 0
+        width: 75
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2507534b3ae1c0580800000000000000
+      internalID: -8859672678492704686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_8
+      rect:
+        serializedVersion: 2
+        x: 1353
+        y: 0
+        width: 87
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff41fb907e495140800000000000000
+      internalID: 4708881130952151030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_9
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 0
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 163d6329c96817620800000000000000
+      internalID: 2770143252835652449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_10
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 0
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f04682737e335e680800000000000000
+      internalID: -8726511634804612081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_11
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 0
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b75ecdc9551ab20e0800000000000000
+      internalID: -2293562196139121285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_12
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 0
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 802121636be5c40b0800000000000000
+      internalID: -5743111288120012280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_13
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 0
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cc7288f7630f9480800000000000000
+      internalID: -8890383394320253760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_14
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 0
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6da4c573901931b60800000000000000
+      internalID: 7715670055385320150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_15
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 0
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 626ba51f57614d390800000000000000
+      internalID: -7794580359255247322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_16
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 0
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a8e4bed575e36b30800000000000000
+      internalID: 4279516365342435489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_17
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 0
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61f8a6b5b0ff23a20800000000000000
+      internalID: 3040773122671939350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_18
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 0
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58a7d59ec84366b00800000000000000
+      internalID: 821401761856977541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_19
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 0
+        width: 52
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 023a2fb2dc0a5cc30800000000000000
+      internalID: 4379083015753736992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_20
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 0
+        width: 58
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65584bab870ff0370800000000000000
+      internalID: 8291109840331507030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_21
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 39
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e364d7d0e71baef00800000000000000
+      internalID: 1146924210069521982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_22
+      rect:
+        serializedVersion: 2
+        x: 1448
+        y: 0
+        width: 56
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68be1c2df02e5da70800000000000000
+      internalID: 8851229200254888838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_23
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 0
+        width: 56
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79bbff8262353b580800000000000000
+      internalID: -8812608622472217705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_24
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 0
+        width: 58
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5154f66a0e7539c60800000000000000
+      internalID: 7823693600049284373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_25
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 0
+        width: 58
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 788d7aeba3b6f3c80800000000000000
+      internalID: -8340830084815923065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_26
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 0
+        width: 58
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 874ba8bccffa39b10800000000000000
+      internalID: 1987125360882005112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_27
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 13
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ced4867b8c193480800000000000000
+      internalID: -8919066201716105527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_28
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 4
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f4f751a73b473ff0800000000000000
+      internalID: -56493768016661262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplodingCrab Explosion 80x80_29
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 0
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a1556bd2f08d44c0800000000000000
+      internalID: -4301640288517664343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ExplodingCrab Explosion 80x80_0: -3119410198143946925
+      ExplodingCrab Explosion 80x80_1: 4229099362826182173
+      ExplodingCrab Explosion 80x80_10: -8726511634804612081
+      ExplodingCrab Explosion 80x80_11: -2293562196139121285
+      ExplodingCrab Explosion 80x80_12: -5743111288120012280
+      ExplodingCrab Explosion 80x80_13: -8890383394320253760
+      ExplodingCrab Explosion 80x80_14: 7715670055385320150
+      ExplodingCrab Explosion 80x80_15: -7794580359255247322
+      ExplodingCrab Explosion 80x80_16: 4279516365342435489
+      ExplodingCrab Explosion 80x80_17: 3040773122671939350
+      ExplodingCrab Explosion 80x80_18: 821401761856977541
+      ExplodingCrab Explosion 80x80_19: 4379083015753736992
+      ExplodingCrab Explosion 80x80_2: 52098567291550104
+      ExplodingCrab Explosion 80x80_20: 8291109840331507030
+      ExplodingCrab Explosion 80x80_21: 1146924210069521982
+      ExplodingCrab Explosion 80x80_22: 8851229200254888838
+      ExplodingCrab Explosion 80x80_23: -8812608622472217705
+      ExplodingCrab Explosion 80x80_24: 7823693600049284373
+      ExplodingCrab Explosion 80x80_25: -8340830084815923065
+      ExplodingCrab Explosion 80x80_26: 1987125360882005112
+      ExplodingCrab Explosion 80x80_27: -8919066201716105527
+      ExplodingCrab Explosion 80x80_28: -56493768016661262
+      ExplodingCrab Explosion 80x80_29: -4301640288517664343
+      ExplodingCrab Explosion 80x80_3: -5440320848934846447
+      ExplodingCrab Explosion 80x80_4: 8418256626388901887
+      ExplodingCrab Explosion 80x80_5: 1023187939691019576
+      ExplodingCrab Explosion 80x80_6: 6624845951195910712
+      ExplodingCrab Explosion 80x80_7: -8859672678492704686
+      ExplodingCrab Explosion 80x80_8: 4708881130952151030
+      ExplodingCrab Explosion 80x80_9: 2770143252835652449
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
