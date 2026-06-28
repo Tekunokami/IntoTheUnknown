@@ -676,7 +676,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0.6037736, g: 0.5354841, b: 0.22214304, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3626,7 +3626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.79622644, g: 0, b: 0, a: 0.85882354}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.85882354}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7120,7 +7120,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7452,7 +7452,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0.022012413, b: 0.022012413, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9271,7 +9271,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 17.620905
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -11544,7 +11544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9137256, g: 0.5882353, b: 0.4784314, a: 1}
+  m_Color: {r: 0.08176088, g: 0.0800306, b: 0.07944689, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12897,16 +12897,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1946728973181100452, guid: e657882d7eeb45346be5ac2f3c130292, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8811906814152263767, guid: 3705ca7c8fa0de340a5befa1f20318e2, type: 3}
+    - target: {fileID: 1946728973181100452, guid: e657882d7eeb45346be5ac2f3c130292, type: 3}
       propertyPath: m_Color.b
-      value: 0.6603774
+      value: 0.16233526
       objectReference: {fileID: 0}
     - target: {fileID: 1946728973181100452, guid: e657882d7eeb45346be5ac2f3c130292, type: 3}
       propertyPath: m_Color.g
-      value: 0.6603774
+      value: 0.16233526
       objectReference: {fileID: 0}
     - target: {fileID: 1946728973181100452, guid: e657882d7eeb45346be5ac2f3c130292, type: 3}
       propertyPath: m_Color.r
-      value: 0.6603774
+      value: 0.9056604
       objectReference: {fileID: 0}
     - target: {fileID: 2188766032911553543, guid: e657882d7eeb45346be5ac2f3c130292, type: 3}
       propertyPath: m_Pivot.x
@@ -13081,16 +13085,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8805446373251340714, guid: e657882d7eeb45346be5ac2f3c130292, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 341361632206182141, guid: 3705ca7c8fa0de340a5befa1f20318e2, type: 3}
+    - target: {fileID: 8805446373251340714, guid: e657882d7eeb45346be5ac2f3c130292, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.10289985
       objectReference: {fileID: 0}
     - target: {fileID: 8805446373251340714, guid: e657882d7eeb45346be5ac2f3c130292, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.079031564
       objectReference: {fileID: 0}
     - target: {fileID: 8805446373251340714, guid: e657882d7eeb45346be5ac2f3c130292, type: 3}
       propertyPath: m_Color.r
-      value: 0.9614147
+      value: 0.6792453
       objectReference: {fileID: 0}
     - target: {fileID: 9075663972118743047, guid: e657882d7eeb45346be5ac2f3c130292, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
