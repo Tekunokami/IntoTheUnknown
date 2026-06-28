@@ -15,7 +15,7 @@ MonoBehaviour:
   itemID: poa_acc
   itemName: Prince of Atlantic Necklace
   description: The Prince's water powers are crushing through you like waves.
-  icon: {fileID: -1923901806941609714, guid: 3538ccf7e78731a44ac0ef0118d3a435, type: 3}
+  icon: {fileID: -2120444675774274165, guid: 7449e014356cf314fa81c89d12849550, type: 3}
   itemType: 0
   rarity: 3
   coinValue: 90

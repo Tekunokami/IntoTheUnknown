@@ -54310,7 +54310,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 4839a689efefafb4c9e05b4d5b70164b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -59542,6 +59542,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1563045902095788152, guid: 6251f263990ba1345b2c9dd249aeda60, type: 3}
+      propertyPath: chestID
+      value: Chest_3
+      objectReference: {fileID: 0}
     - target: {fileID: 2195777469220790538, guid: 6251f263990ba1345b2c9dd249aeda60, type: 3}
       propertyPath: m_Name
       value: Chest_Prefab_2
@@ -59586,7 +59590,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1467114303788411130, guid: df6d4d76350383346ac540fa25db7f2d, type: 3}
       propertyPath: uniqueEnemyID
-      value: 02
+      value: 04
       objectReference: {fileID: 0}
     - target: {fileID: 1889690965201585592, guid: df6d4d76350383346ac540fa25db7f2d, type: 3}
       propertyPath: m_SortingOrder
@@ -59772,6 +59776,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1563045902095788152, guid: 6251f263990ba1345b2c9dd249aeda60, type: 3}
+      propertyPath: chestID
+      value: Chest_2
+      objectReference: {fileID: 0}
     - target: {fileID: 2195777469220790538, guid: 6251f263990ba1345b2c9dd249aeda60, type: 3}
       propertyPath: m_Name
       value: Chest_Prefab_2 (1)
@@ -59820,7 +59828,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1467114303788411130, guid: df6d4d76350383346ac540fa25db7f2d, type: 3}
       propertyPath: uniqueEnemyID
-      value: 02
+      value: 03
       objectReference: {fileID: 0}
     - target: {fileID: 1889690965201585592, guid: df6d4d76350383346ac540fa25db7f2d, type: 3}
       propertyPath: m_SortingOrder
@@ -59984,7 +59992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3595300598777102708, guid: df6d4d76350383346ac540fa25db7f2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.77
+      value: 17.29
       objectReference: {fileID: 0}
     - target: {fileID: 3595300598777102708, guid: df6d4d76350383346ac540fa25db7f2d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -60021,6 +60029,10 @@ PrefabInstance:
     - target: {fileID: 3595300598777102708, guid: df6d4d76350383346ac540fa25db7f2d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856154392816647435, guid: df6d4d76350383346ac540fa25db7f2d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.367
       objectReference: {fileID: 0}
     - target: {fileID: 9078409569668309355, guid: df6d4d76350383346ac540fa25db7f2d, type: 3}
       propertyPath: m_Name
@@ -60283,7 +60295,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1467114303788411130, guid: df6d4d76350383346ac540fa25db7f2d, type: 3}
       propertyPath: uniqueEnemyID
-      value: 02
+      value: 05
       objectReference: {fileID: 0}
     - target: {fileID: 1889690965201585592, guid: df6d4d76350383346ac540fa25db7f2d, type: 3}
       propertyPath: m_SortingOrder
