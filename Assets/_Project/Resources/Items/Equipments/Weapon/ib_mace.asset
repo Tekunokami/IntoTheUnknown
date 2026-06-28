@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   itemID: ib_mace
   itemName: Ironbound Mace
-  description: 
-  icon: {fileID: 2138806587641760886, guid: d8258ad561d825b4f90c6632874a28a7, type: 3}
+  description: A common iron mace forged for novice knights.
+  icon: {fileID: -2436689092649965443, guid: 2a7824a54d8925f4980420c5603d40e2, type: 3}
   itemType: 0
-  rarity: 0
+  rarity: 1
   coinValue: 10
   equipSlot: 2
   bonusHealth: 5
-  bonusDamage: 20
+  bonusDamage: 5
   bonusDefense: 0
-  bonusCritChance: 10
+  bonusCritChance: 0.05

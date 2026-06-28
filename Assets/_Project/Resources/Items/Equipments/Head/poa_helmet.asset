@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3bfb7c8fa4313e48849918ce0ab1dca, type: 3}
-  m_Name: ib_armor
+  m_Name: poa_helmet
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
-  itemID: ib_armor
-  itemName: Ironbound Armor
-  description: A common iron armor forged for novice knights.
-  icon: {fileID: 8232441783650044048, guid: 5055e77355713874b8a335d0ff43a454, type: 3}
+  itemID: poa_helmet
+  itemName: Prince of Atlantic Helmet
+  description: The Prince's water powers are crushing through you like waves.
+  icon: {fileID: -1923901806941609714, guid: 3538ccf7e78731a44ac0ef0118d3a435, type: 3}
   itemType: 0
-  rarity: 1
-  coinValue: 5
-  equipSlot: 1
-  bonusHealth: 5
-  bonusDamage: 0
-  bonusDefense: 5
-  bonusCritChance: 0
+  rarity: 3
+  coinValue: 80
+  equipSlot: 0
+  bonusHealth: 30
+  bonusDamage: 10
+  bonusDefense: 10
+  bonusCritChance: 0.05
