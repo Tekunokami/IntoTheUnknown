@@ -6853,6 +6853,7 @@ GameObject:
   - component: {fileID: 7312646989805300046}
   - component: {fileID: 1605269266614686098}
   - component: {fileID: 3298078292798966420}
+  - component: {fileID: 3651340803116625730}
   m_Layer: 0
   m_Name: Seller_NPC
   m_TagString: Untagged
@@ -6869,8 +6870,8 @@ Transform:
   m_GameObject: {fileID: 1520291652509172121}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 68.0932, y: 12.93, z: 0}
-  m_LocalScale: {x: 1.0706289, y: 0.94960374, z: 1}
+  m_LocalPosition: {x: 67.99, y: 13.95, z: 0}
+  m_LocalScale: {x: 2.6969826, y: 2.7318861, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6361701557263633771}
@@ -6922,8 +6923,8 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: 21300150, guid: 7810966f0f690954c87305933cabf2b0, type: 3}
+  m_SortingOrder: 9
+  m_Sprite: {fileID: -855298285791758126, guid: ce0ed123a84ccae4ea14f4f63eacf684, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -6971,8 +6972,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.09375, y: 2.40625}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.73}
     newSize: {x: 4.375, y: 2.90625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6994,6 +6995,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Seller
   sellerID: seller_01
   interactPrompt: {fileID: 1523213011371519518}
+--- !u!95 &3651340803116625730
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520291652509172121}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 87cffa3d01cc5c04598107fdedd786e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1523213011371519518
 GameObject:
   m_ObjectHideFlags: 0
@@ -7022,14 +7045,14 @@ RectTransform:
   m_GameObject: {fileID: 1523213011371519518}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.594424, y: 2.9228332, z: 1}
+  m_LocalScale: {x: 1.0299159, y: 1.0159771, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3384858545063676701}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.07172394, y: 3.8963614}
+  m_AnchoredPosition: {x: 0.066734314, y: 0.9810047}
   m_SizeDelta: {x: 1.1322, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5099258367840280367
@@ -59645,6 +59668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3226260300902858317, guid: bc3ec2f4cc1353947af4b372ad59350d, type: 3}
+      propertyPath: roomID
+      value: room_1
+      objectReference: {fileID: 0}
     - target: {fileID: 4063851059121918976, guid: bc3ec2f4cc1353947af4b372ad59350d, type: 3}
       propertyPath: m_SortingLayer
       value: 0
@@ -60497,6 +60524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 3226260300902858317, guid: bc3ec2f4cc1353947af4b372ad59350d, type: 3}
+      propertyPath: roomID
+      value: room_1
+      objectReference: {fileID: 0}
     - target: {fileID: 4063851059121918976, guid: bc3ec2f4cc1353947af4b372ad59350d, type: 3}
       propertyPath: m_SortingLayer
       value: 0
@@ -60570,6 +60601,10 @@ PrefabInstance:
     - target: {fileID: 871463970133602858, guid: bc3ec2f4cc1353947af4b372ad59350d, type: 3}
       propertyPath: m_Name
       value: Checkpoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226260300902858317, guid: bc3ec2f4cc1353947af4b372ad59350d, type: 3}
+      propertyPath: roomID
+      value: room_1
       objectReference: {fileID: 0}
     - target: {fileID: 4063851059121918976, guid: bc3ec2f4cc1353947af4b372ad59350d, type: 3}
       propertyPath: m_Color.b
