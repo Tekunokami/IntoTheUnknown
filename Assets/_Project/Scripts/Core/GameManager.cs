@@ -26,6 +26,14 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void ReturnToMainMenu()
+    {
+        // Reset the time scale to normal in case it was changed during gameplay
+        Time.timeScale = 1f; 
+    
+        SceneManager.LoadScene("MainMenu"); 
+    }
+
     // ---Item Database Methods---
     private void LoadItemDatabase()
     {
