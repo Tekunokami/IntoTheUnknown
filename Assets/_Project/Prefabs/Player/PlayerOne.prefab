@@ -178,31 +178,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a12c9c048431d4ab518ba264cbaeef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  animator: {fileID: 0}
   moveSpeed: 10
   jumpForce: 12
-  acceleration: 20
-  comboWindow: 1
-  attackRate: 0.4
-  coyoteTime: 0.2
-  jumpBufferTime: 0.2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  groundCheckDistance: 0.1
-  ceilingCheckDistance: 0.1
-  attackPoint: {fileID: 0}
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  swingRadius: 1.2
-  spinRadius: 2.2
-  dashSpeed: 20
-  dashDuration: 0.2
-  dashCooldown: 1
-  isDead: 0
-  ghostPrefab: {fileID: 0}
-  ghostSpawnDelay: 0.05
-  knockbackForceX: 8
-  knockbackForceY: 4
-  knockbackDuration: 0.2
