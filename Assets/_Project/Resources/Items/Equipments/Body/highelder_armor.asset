@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3bfb7c8fa4313e48849918ce0ab1dca, type: 3}
-  m_Name: ib_armor
+  m_Name: highelder_armor
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
-  itemID: ib_armor
-  itemName: Ironbound Armor
-  description: A common iron armor forged for novice knights.
-  icon: {fileID: 8232441783650044048, guid: 5055e77355713874b8a335d0ff43a454, type: 3}
+  itemID: highelder_armor
+  itemName: High Elder Armor
+  description: Legends say that this belt belonged to a Avarosan tribe leader.
+  icon: {fileID: -6185289686820843724, guid: b095195a6d620bc4786da8fa36a4b0e0, type: 3}
   itemType: 0
-  rarity: 1
-  coinValue: 5
+  rarity: 2
+  coinValue: 30
   equipSlot: 1
-  bonusHealth: 5
+  bonusHealth: 15
   bonusDamage: 0
-  bonusDefense: 5
+  bonusDefense: 10
   bonusCritChance: 0

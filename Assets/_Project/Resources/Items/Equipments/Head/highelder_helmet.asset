@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3bfb7c8fa4313e48849918ce0ab1dca, type: 3}
-  m_Name: ib_belt
+  m_Name: highelder_helmet
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
-  itemID: ib_belt
-  itemName: Ironbound Belt
-  description: 
-  icon: {fileID: 5020281539435869125, guid: c38a51a873f642c48ad1ef34a8907426, type: 3}
+  itemID: highelder_helmet
+  itemName: High Elder Helmet
+  description: Legends say that this helmet belonged to a Avarosan tribe leader.
+  icon: {fileID: -3755505946663684342, guid: c516ea713277c324bbf2d23f10a84024, type: 3}
   itemType: 0
-  rarity: 1
-  coinValue: 10
-  equipSlot: 3
-  bonusHealth: 5
-  bonusDamage: 10
+  rarity: 2
+  coinValue: 25
+  equipSlot: 0
+  bonusHealth: 20
+  bonusDamage: 5
   bonusDefense: 5
-  bonusCritChance: 0.05
+  bonusCritChance: 0

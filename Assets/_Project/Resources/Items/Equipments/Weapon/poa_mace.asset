@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3bfb7c8fa4313e48849918ce0ab1dca, type: 3}
-  m_Name: frostbite_belt
+  m_Name: poa_mace
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
-  itemID: frostbite_belt
-  itemName: Frostbite Belt
-  description: Legends say that this belt belonged to a Avarosan tribe leader.
-  icon: {fileID: 0}
+  itemID: poa_mace
+  itemName: Prince of Atlantic Mace
+  description: The Prince's water powers are crushing through you like waves.
+  icon: {fileID: -8202284850815004457, guid: af87c23e58b05c444be2f3d03bc85e8e, type: 3}
   itemType: 0
   rarity: 3
-  coinValue: 40
-  equipSlot: 3
-  bonusHealth: 20
-  bonusDamage: 10
-  bonusDefense: 10
-  bonusCritChance: 5
+  coinValue: 120
+  equipSlot: 2
+  bonusHealth: 10
+  bonusDamage: 20
+  bonusDefense: 0
+  bonusCritChance: 0.25

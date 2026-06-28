@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3bfb7c8fa4313e48849918ce0ab1dca, type: 3}
-  m_Name: hellborn_mace
+  m_Name: poa_armor
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
-  itemID: hellborn_mace
-  itemName: Hellborn Mace
-  description: You can tell how mighty it is just by looking at it.
-  icon: {fileID: 0}
+  itemID: poa_armor
+  itemName: Prince of Atlantic Armor
+  description: The Prince's water powers are crushing through you like waves.
+  icon: {fileID: 532293493721495618, guid: d89b126477d450e42b2ec2df1d0267dc, type: 3}
   itemType: 0
-  rarity: 2
-  coinValue: 0
-  equipSlot: 2
-  bonusHealth: 5
-  bonusDamage: 15
-  bonusDefense: 0
-  bonusCritChance: 0.15
+  rarity: 3
+  coinValue: 100
+  equipSlot: 1
+  bonusHealth: 40
+  bonusDamage: 5
+  bonusDefense: 15
+  bonusCritChance: 0.05
