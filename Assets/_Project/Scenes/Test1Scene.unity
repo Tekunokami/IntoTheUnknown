@@ -8245,11 +8245,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-<<<<<<< Updated upstream
-  m_text: 'Coins : 0'
-=======
   m_text: 'Coins: 0'
->>>>>>> Stashed changes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4530e3a470e2596429e7e8cc2544079b, type: 2}
   m_sharedMaterial: {fileID: 1712825457125856942, guid: 4530e3a470e2596429e7e8cc2544079b, type: 2}
