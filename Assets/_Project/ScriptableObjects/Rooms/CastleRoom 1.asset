@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91c75eaa3bda243439e8101aa3f3e81d, type: 3}
-  m_Name: Data_Room2
+  m_Name: CastleRoom 1
   m_EditorClassIdentifier: Assembly-CSharp::RoomData
   roomID: room_2
-  roomPrefab: {fileID: 4173401069868308753, guid: 4581dd3799a21f44cbb536e70818bf41, type: 3}
+  roomPrefab: {fileID: 4173401069868308753, guid: b493f92177548fd498b133ed6e53e725, type: 3}
   roomType: 1

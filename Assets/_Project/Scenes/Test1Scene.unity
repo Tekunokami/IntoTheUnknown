@@ -8652,7 +8652,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 17.620905
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10588,7 +10588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RoomManager
   allRooms:
   - {fileID: 11400000, guid: 59efe9f058465434788a51d5faea9f0c, type: 2}
-  - {fileID: 11400000, guid: 0813ab2e83388ff40b261e2bf49620f9, type: 2}
+  - {fileID: 11400000, guid: fb36a9e70611be94eb76f857fcc557fe, type: 2}
   - {fileID: 11400000, guid: 39af8535c5f2b2e42942b726e13e3369, type: 2}
   - {fileID: 11400000, guid: 74816a780ae8963469ba5d5f7a80d7dc, type: 2}
 --- !u!4 &1938228680
