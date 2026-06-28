@@ -275,9 +275,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   animator: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 9.5
   jumpForce: 12
-  acceleration: 10
+  acceleration: 40
   comboWindow: 1
   attackRate: 0.4
   coyoteTime: 0.2
