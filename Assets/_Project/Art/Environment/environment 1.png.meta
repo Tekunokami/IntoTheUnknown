@@ -3133,35 +3133,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment_100
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 336
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6cea2a874fddac448ac627a72752350b
-      internalID: 21300200
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: environment_101
       rect:
         serializedVersion: 2
-        x: 80
-        y: 336
-        width: 16
-        height: 16
+        x: 64
+        y: 304
+        width: 34
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3172,28 +3150,6 @@ TextureImporter:
       bones: []
       spriteID: f71bc17e47308d7408145a1fa67036b0
       internalID: 21300202
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flag_
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 304
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bb0cc1b6b6b69454bb21c1672b061a6e
-      internalID: 21300204
       vertices: []
       indices: 
       edges: []
@@ -3287,50 +3243,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment_112
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 320
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93b7d9590180c3c41a446c0ee564d8b3
-      internalID: 21300224
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: environment_113
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 320
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5dc1fdb770a4cf8428bb39385dc4bbe7
-      internalID: 21300226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Flag_First
       rect:
         serializedVersion: 2
@@ -3348,50 +3260,6 @@ TextureImporter:
       bones: []
       spriteID: ce9607be594b99143b06ef85842b6f5e
       internalID: 21300232
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: environment_124
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 304
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba9596e619ce764408cd325e61f89082
-      internalID: 21300248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: environment_125
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 304
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5cccd9e9d9ff0454f98d6b84cbb750e1
-      internalID: 21300250
       vertices: []
       indices: 
       edges: []
@@ -6542,6 +6410,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: environment 1_0
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 304
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 318af1dde38ae0e4ba690e0875173c6a
+      internalID: -1396973487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -6560,6 +6450,7 @@ TextureImporter:
       Flag_: 21300204
       Flag_2: 21300282
       Flag_First: 21300232
+      environment 1_0: -1396973487
       environment_0: 21300000
       environment_1: 21300002
       environment_10: 21300020
